@@ -51,7 +51,8 @@ public class Player extends Entity{
             left2= ImageIO.read(getClass().getResourceAsStream("/player/luffywalking.png"));
             right1= ImageIO.read(getClass().getResourceAsStream("/player/standingright.png"));
             right2= ImageIO.read(getClass().getResourceAsStream("/player/luffywalkingright.png"));
-            state=ImageIO.read(getClass().getResourceAsStream("/player/Luffy04-5.png.png"));
+            state=ImageIO.read(getClass().getResourceAsStream("/player/LuffyWaiting1.png"));
+            state2=ImageIO.read(getClass().getResourceAsStream("/player/LuffyWaiting2.png"));
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -136,8 +137,12 @@ public class Player extends Entity{
         }
         else{
             standCounter++;
-            if(standCounter==60){
+            if(standCounter==100){
                 direction="state";
+                spriteNum=1;
+            }
+            if(standCounter==160){
+                direction="state2";
                 spriteNum=1;
                 standCounter=0;
             }
@@ -222,6 +227,9 @@ public class Player extends Entity{
                 break;
             case "state":
                 image=state;
+                break;
+            case "state2":
+                image=state2;
                 break;
         }
         g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
