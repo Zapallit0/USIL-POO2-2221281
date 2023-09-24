@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1edbb7f8-3012-4063-b03e-13fc9f0e1012" name="Changes" comment="FirstAnimationsStanding Luffy">
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/Botas1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/Chest1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/DoorSunny.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/GomuGomu .png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/LlaveDoor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/luffyHat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/maps/map01.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/maps/map02.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/Luffy04-5.png.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/LuffyWaiting1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/LuffyWaiting2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffygoingdown1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffygoingdown2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffygoingup1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffygoingup2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffystanding.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffywalking.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffywalkingright.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/standingright.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/sound/prueba2.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/sound/xd.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/Woodwall-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/earth.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/grass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/sand.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/tree.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/wall.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/water.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/animationOnHold" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="dae40cd8-3de8-446d-9768-c27ca5688d27" />
+        <option name="url" value="https://github.com/Zapallit0/USIL-POO2-2221281.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/GamePoo2/src/entity/Player.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="20" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectId" id="2VmPY8jYNn5S507mGVglaP03aIe" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/USIL/CICLO III/POO2/Trabajos/USIL-POO2-2221281&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\USIL\CICLO III\POO2\Trabajos\USIL-POO2-2221281\GamePoo2\res\player" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1edbb7f8-3012-4063-b03e-13fc9f0e1012" name="Changes" comment="" />
+      <created>1695438326688</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1695438326688</updated>
+    </task>
+    <task id="LOCAL-00001" summary="FirstAnimationsStanding Luffy">
+      <created>1695441774033</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1695441774033</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="FirstAnimationsStanding Luffy" />
+    <option name="LAST_COMMIT_MESSAGE" value="FirstAnimationsStanding Luffy" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
