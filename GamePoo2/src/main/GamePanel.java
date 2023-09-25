@@ -6,6 +6,7 @@ import tile.TileManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class GamePanel extends JPanel implements Runnable{
     //SCREEN SETTINGS
@@ -50,7 +51,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
     public void setupGame(){
         aSetter.setObject();
-        playMusic(0);
+        playMusic(2);
     }
     public void startGameThread(){
         gameThread=new Thread(this);
@@ -71,7 +72,11 @@ public class GamePanel extends JPanel implements Runnable{
             timer+=(currentTime-lastTime);
             lastTime=currentTime;
             if (delta>=1) {
-                update();
+                try {
+                    update();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 repaint();
                 delta--;
                 drawCount++;
@@ -83,7 +88,7 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
     }
-    public void update(){
+    public void update() throws IOException {
         player.update();
     }
     public void paintComponent(Graphics g){

@@ -13,6 +13,10 @@ public class Sound {
     public Sound(){
         soundURL[0]= "/sound/xd.wav";
         soundURL[1]= "/sound/prueba2.wav";
+        soundURL[2]= "/sound/newMusic.wav";
+        soundURL[3]= "/sound/getKey.wav";
+        soundURL[4]= "/sound/gearSecondLuffy.wav";
+        soundURL[5]= "/sound/gearSecondSE.wav";
     }
 
     public void setFile(int i){

@@ -2,15 +2,17 @@ package object;
 
 import main.GamePanel;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class SuperObject {
     public BufferedImage image;
     public String name;
     public boolean collision=false;
     public int worldX, worldY;
-    public Rectangle solidArea=new Rectangle(0,0,48,48);
+    public Rectangle solidArea=new Rectangle(0,0,80,80);
     public int solidAreaDefaultX=0;
     public int solidAreaDefaultY=0;
 
@@ -25,4 +27,14 @@ public class SuperObject {
             g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
         }
     }
+    public void setDoorOpenRight() throws IOException {
+        this.image= ImageIO.read(getClass().getResourceAsStream("/Objects/RightDoorOpen.png"));
+    }
+    public void setDoorOpenLeft() throws IOException {
+        this.image=ImageIO.read(getClass().getResourceAsStream("/Objects/LeftDoorOpen.png"));
+    }
+    public void setChestOpen() throws IOException{
+        this.image=ImageIO.read(getClass().getResourceAsStream("/Objects/chestOpen.png"));
+    }
+
 }

@@ -12,4 +12,21 @@ public class OBJ_Chest extends SuperObject {
         }
         collision=true;
     }
+    public OBJ_Chest(String lado){
+        if(lado=="L"){
+            name="ChestLeft";
+            try{
+                image= ImageIO.read(getClass().getResourceAsStream("/Objects/ChestLeft.png"));
+            }catch (IOException e){
+            }
+            collision=true;
+        } else if (lado=="R") {
+            name="ChestRight";
+            try{
+                image= ImageIO.read(getClass().getResourceAsStream("/Objects/ChestRight.png"));
+            }catch (IOException e){
+            }
+            collision=true;
+        }
+    }
 }
