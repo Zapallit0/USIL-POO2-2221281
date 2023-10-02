@@ -41,7 +41,7 @@ public class NPC extends Player{
                 newWorldX += speed;
             }
 
-            // Verifica si la nueva posición está dentro de los límites
+            
             if (newWorldX >=2 && newWorldX <= 7 &&
                 newWorldY >= 4 && newWorldY <= 9) {
                 worldx = newWorldX;
@@ -49,15 +49,15 @@ public class NPC extends Player{
             }
         }
 
-        // Ejemplo simple: Hacer que el NPC se mueva de izquierda a derecha
+        
         x += speed;
-        if (x > 800) { // Ajusta este valor según el ancho de tu pantalla
+        if (x > 800) { 
             x = -npcImage.getWidth();
         }
     }
 
     public void draw(Graphics2D g2) {
-        // Dibuja al NPC en la pantalla
+        
         g2.drawImage(npcImage, x, y, null);
     }
 }
