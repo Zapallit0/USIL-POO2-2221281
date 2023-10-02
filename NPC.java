@@ -7,9 +7,9 @@ import main.KeyHandler;
 
 public class NPC extends Player{
     private BufferedImage npcImage;
-    private int x; // Posición X del NPC
-    private int y; // Posición Y del NPC
-    private int speed; // Velocidad de movimiento del NPC
+    private int x; 
+    private int y;
+    private int speed; 
 
     public NPC(int x, int y, int speed, String imagePath) {
         this.x = x;
