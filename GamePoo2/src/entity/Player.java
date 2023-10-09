@@ -1,11 +1,13 @@
 package entity;
 import main.GamePanel;
 import main.KeyHandler;
+import main.UtilityTool;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 
 public class Player extends Entity{
     GamePanel gp;
@@ -15,8 +17,8 @@ public class Player extends Entity{
     public int hasKey=0;
     int speed;
     int standCounter=0;
-    public int gear=1;
-
+    int life;
+    public int gear;
     public Player(GamePanel gp,KeyHandler keyH){
         this.gp=gp;
         this.keyH=keyH;
@@ -30,7 +32,6 @@ public class Player extends Entity{
         solidAreaDefaultY=solidArea.y;
         solidArea.height=40;
         solidArea.width=40;
-
         setDefaultValues();
         getPlayerImg(gear);
     }
@@ -38,38 +39,40 @@ public class Player extends Entity{
     public void setDefaultValues(){
         worldx=gp.worldWidth/2;
         worldy=10;
-        speed=5;
+        speed=4;
         direction="state";
+        gear=1;
+        life=6;
     }
     public void getPlayerImg(int gear){
         if(gear==1) {
             try {
-                up1 = ImageIO.read(getClass().getResourceAsStream("/player/luffygoingup2.png"));
-                up2 = ImageIO.read(getClass().getResourceAsStream("/player/luffygoingup1.png"));
-                down1 = ImageIO.read(getClass().getResourceAsStream("/player/luffygoingdown1.png"));
-                down2 = ImageIO.read(getClass().getResourceAsStream("/player/luffygoingdown2.png"));
-                left1 = ImageIO.read(getClass().getResourceAsStream("/player/luffystanding.png"));
-                left2 = ImageIO.read(getClass().getResourceAsStream("/player/luffywalking.png"));
-                right1 = ImageIO.read(getClass().getResourceAsStream("/player/standingright.png"));
-                right2 = ImageIO.read(getClass().getResourceAsStream("/player/luffywalkingright.png"));
-                state = ImageIO.read(getClass().getResourceAsStream("/player/LuffyWaiting1.png"));
-                state2 = ImageIO.read(getClass().getResourceAsStream("/player/LuffyWaiting2.png"));
+                up1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/luffygoingup2.png")));
+                up2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/luffygoingup1.png")));
+                down1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/luffygoingdown1.png")));
+                down2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/luffygoingdown2.png")));
+                left1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/luffystanding.png")));
+                left2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/luffywalking.png")));
+                right1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/standingright.png")));
+                right2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/luffywalkingright.png")));
+                state=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/LuffyWaiting1.png")));
+                state2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/LuffyWaiting2.png")));
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         else if (gear==2){
             try {
-                up1 = ImageIO.read(getClass().getResourceAsStream("/player/secondGearLuffy/Luffygoingup2.png"));
-                up2 = ImageIO.read(getClass().getResourceAsStream("/player/secondGearLuffy/Luffygoingup1.png"));
-                down1 = ImageIO.read(getClass().getResourceAsStream("/player/secondGearLuffy/Luffygoingdown1.png"));
-                down2 = ImageIO.read(getClass().getResourceAsStream("/player/secondGearLuffy/Luffygoingdown2.png"));
-                left1 = ImageIO.read(getClass().getResourceAsStream("/player/secondGearLuffy/LuffystandingLeft.png"));
-                left2 = ImageIO.read(getClass().getResourceAsStream("/player/secondGearLuffy/Luffywalkingleft.png"));
-                right1 = ImageIO.read(getClass().getResourceAsStream("/player/secondGearLuffy/LuffystandingRight.png"));
-                right2 = ImageIO.read(getClass().getResourceAsStream("/player/secondGearLuffy/Luffywalkingright.png"));
-                state = ImageIO.read(getClass().getResourceAsStream("/player/LuffyWaiting1.png"));
-                state2 = ImageIO.read(getClass().getResourceAsStream("/player/LuffyWaiting2.png"));
+                up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/secondGearLuffy/Luffygoingup2.png")));
+                up2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/secondGearLuffy/Luffygoingup1.png")));
+                down1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/secondGearLuffy/Luffygoingdown1.png")));
+                down2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/secondGearLuffy/Luffygoingdown2.png")));
+                left1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/secondGearLuffy/LuffystandingLeft.png")));
+                left2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/secondGearLuffy/Luffywalkingleft.png")));
+                right1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/secondGearLuffy/LuffystandingRight.png")));
+                right2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/secondGearLuffy/Luffywalkingright.png")));
+                state = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/LuffyWaiting1.png")));
+                state2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/LuffyWaiting2.png")));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -181,7 +184,8 @@ public class Player extends Entity{
                     gp.playSE(4);
                     gp.playSE(5);
                     speed+=5;
-                    getPlayerImg(2);
+                    gear++;
+                    getPlayerImg(gear);
                     break;
                 case "Door":
                     if(hasKey>0){
@@ -290,4 +294,10 @@ public class Player extends Entity{
         g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
     }
 
+    public int getGear() {
+        return gear;
+    }
+    public int getLife(){
+        return life;
+    }
 }
