@@ -4,152 +4,172 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1edbb7f8-3012-4063-b03e-13fc9f0e1012" name="Changes" comment="New map, sprites, music and new actions with gomugomu">
-      <change afterPath="$PROJECT_DIR$/GamePoo2/res/GameStates/MapaPauseState.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GamePoo2/res/Icons/Luffy/IconLuffy_Gear1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GamePoo2/res/Icons/Luffy/IconLuffy_Gear2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GamePoo2/src/entity/Transformations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GamePoo2/src/main/UtilityTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/Botas1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/Chest1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/DoorSunny.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/GomuGomu .png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/LlaveDoor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/Luffy04-5.png.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/LuffyWaiting1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/LuffyWaiting2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/Woodwall-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/earth.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/grass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/luffyHat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/luffygoingdown1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/luffygoingdown2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/luffygoingup1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/luffygoingup2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/luffystanding.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/luffywalking.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/luffywalkingright.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/prueba2.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/sand.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/standingright.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/tree.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/wall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/water.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18_[Changes]/xd.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_23_09_2023_18_18__Changes_.xml" beforeDir="false" />
+    <list default="true" id="e9e5c686-d78c-4776-b510-4ba8433fc71d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/src/entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/src/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/src/main/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/src/main/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Barrel.java" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Barrel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Boots.java" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Boots.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Chest.java" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Chest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Door.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_GOMUGOMU.java" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_GOMUGOMU.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Key.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/SuperObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/src/object/SuperObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/src/tile/TileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/GAMEPOO2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/GameStates/MapaPauseState.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Icons/Luffy/IconLuffy_Gear1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Icons/Luffy/IconLuffy_Gear2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/Botas1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/Chest1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/ChestLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/ChestRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/DoorSunny.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/GomuGomu .png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/LeftDoor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/LeftDoorOpen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/LlaveDoor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/RightDoor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/RightDoorOpen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/barrel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/chestOpen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/luffyHat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/maps/map01.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/maps/map02.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/maps/map03.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/LuffyWaiting1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/LuffyWaiting2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/luffygoingdown1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/luffygoingdown2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/luffygoingup1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/luffygoingup2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/luffystanding.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/luffywalking.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/luffywalkingright.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/secondGearLuffy/Luffygoingdown1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/secondGearLuffy/Luffygoingdown2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/secondGearLuffy/Luffygoingup1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/secondGearLuffy/Luffygoingup2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/secondGearLuffy/LuffystandingLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/secondGearLuffy/LuffystandingRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/secondGearLuffy/Luffywalkingleft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/secondGearLuffy/Luffywalkingright.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/standingright.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/sound/gearSecondLuffy.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/sound/gearSecondSE.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/sound/getKey.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/sound/newMusic.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/sound/prueba2.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/sound/xd.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/Woodwall-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/earth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/parketFloor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/parketFloor2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/parketWall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/parketWood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/sand.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/tree.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/wall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/water.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/entity/Entity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/entity/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/entity/Transformations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/AssetSetter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/CollisionChecker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/GamePanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/KeyHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/Sound.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/UI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/UtilityTool.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Barrel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Boots.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Chest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Door.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_GOMUGOMU.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Key.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/SuperObject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/tile/Tile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/tile/TileManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/Botas1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/Chest1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/DoorSunny.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/GomuGomu .png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/LlaveDoor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/luffyHat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/maps/map01.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/maps/map02.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/LuffyWaiting1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/LuffyWaiting2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffygoingdown1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffygoingdown2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffygoingup1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffygoingup2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffystanding.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffywalking.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffywalkingright.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/standingright.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/sound/prueba2.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/sound/xd.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/Woodwall-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/earth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/sand.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/tree.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/wall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/water.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="d9e5e5bb-5606-44dd-8474-97482c48e580" />
-        <option name="url" value="https://github.com/Zapallit0/USIL-POO2-2221281.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/GamePoo2/src/entity/Player.java" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="jdkForImporter" value="20" />
-      </MavenImportingSettings>
-    </option>
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 4
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2VmPY8jYNn5S507mGVglaP03aIe" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2Wrqt10Jy2qXmgp2NldTNReXTaq" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/BetterRender&amp;&amp;Newtiles&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/USIL/CICLO III/POO2/Trabajos/USIL-POO2-2221281&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\USIL\CICLO III\POO2\Trabajos\USIL-POO2-2221281\GamePoo2\res\GameStates" />
-      <recent name="D:\USIL\CICLO III\POO2\Trabajos\USIL-POO2-2221281\GamePoo2\res\Icons\Luffy" />
-      <recent name="D:\USIL\CICLO III\POO2\Trabajos\USIL-POO2-2221281\GamePoo2\res\tiles" />
-      <recent name="D:\USIL\CICLO III\POO2\Trabajos\USIL-POO2-2221281\GamePoo2\res\player\secondGearLuffy" />
-      <recent name="D:\USIL\CICLO III\POO2\Trabajos\USIL-POO2-2221281\GamePoo2\res\sound" />
-    </key>
-  </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="20" />
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="jdk.javadoc.internal.tool.Main" />
+      <module name="USIL-POO2-2221281" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main.Main" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="temurin-20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="USIL-POO2-2221281" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="entity.*" />
+          <option name="PATTERN" value="main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -161,48 +181,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1edbb7f8-3012-4063-b03e-13fc9f0e1012" name="Changes" comment="" />
-      <created>1695438326688</created>
+      <changelist id="e9e5c686-d78c-4776-b510-4ba8433fc71d" name="Changes" comment="" />
+      <created>1697501258005</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1695438326688</updated>
-      <workItem from="1695615359554" duration="8126000" />
-      <workItem from="1695666677967" duration="11899000" />
-      <workItem from="1695705188057" duration="593000" />
-      <workItem from="1695732881052" duration="867000" />
-      <workItem from="1695870989552" duration="1760000" />
-      <workItem from="1695994972796" duration="163000" />
-      <workItem from="1696172073790" duration="4742000" />
-      <workItem from="1696278240318" duration="1662000" />
-      <workItem from="1696711934294" duration="257000" />
-      <workItem from="1696793149798" duration="4308000" />
-      <workItem from="1696806225589" duration="2471000" />
-      <workItem from="1696808725808" duration="3612000" />
-      <workItem from="1696827539896" duration="1527000" />
-      <workItem from="1696851276802" duration="12617000" />
-      <workItem from="1696870213771" duration="59000" />
-      <workItem from="1696878120717" duration="4869000" />
+      <updated>1697501258005</updated>
     </task>
-    <task id="LOCAL-00001" summary="FirstAnimationsStanding Luffy">
-      <created>1695441774033</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1695441774033</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="FirstAnimationsStanding Luffy" />
-    <option name="LAST_COMMIT_MESSAGE" value="FirstAnimationsStanding Luffy" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
