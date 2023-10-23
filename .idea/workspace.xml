@@ -5,117 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9e5c686-d78c-4776-b510-4ba8433fc71d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GamePoo2/src/entity/NPC_1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/GAMEPOO2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/GameStates/MapaPauseState.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Icons/Luffy/IconLuffy_Gear1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Icons/Luffy/IconLuffy_Gear2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/Botas1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/Chest1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/ChestLeft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/ChestRight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/DoorSunny.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/GomuGomu .png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/LeftDoor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/LeftDoorOpen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/LlaveDoor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/RightDoor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/RightDoorOpen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/barrel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/chestOpen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/Objects/luffyHat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/maps/map01.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/maps/map02.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/maps/map03.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/LuffyWaiting1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/LuffyWaiting2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/luffygoingdown1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/luffygoingdown2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/luffygoingup1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/luffygoingup2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/luffystanding.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/luffywalking.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/luffywalkingright.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/secondGearLuffy/Luffygoingdown1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/secondGearLuffy/Luffygoingdown2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/secondGearLuffy/Luffygoingup1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/secondGearLuffy/Luffygoingup2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/secondGearLuffy/LuffystandingLeft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/secondGearLuffy/LuffystandingRight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/secondGearLuffy/Luffywalkingleft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/secondGearLuffy/Luffywalkingright.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/player/standingright.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/sound/gearSecondLuffy.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/sound/gearSecondSE.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/sound/getKey.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/sound/newMusic.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/sound/prueba2.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/sound/xd.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/Woodwall-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/earth.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/grass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/parketFloor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/parketFloor2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/parketWall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/parketWood.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/sand.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/tree.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/wall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/res/tiles/water.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/entity/Entity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/entity/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/entity/Transformations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/AssetSetter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/CollisionChecker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/GamePanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/KeyHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/Sound.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/UI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/UtilityTool.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Barrel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Boots.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Chest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Door.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_GOMUGOMU.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/OBJ_Key.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/object/SuperObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/tile/Tile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamePoo2/src/tile/TileManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/Botas1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/Chest1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/DoorSunny.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/GomuGomu .png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/LlaveDoor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/Objects/luffyHat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/maps/map01.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/maps/map02.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/LuffyWaiting1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/LuffyWaiting2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffygoingdown1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffygoingdown2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffygoingup1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffygoingup2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffystanding.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffywalking.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/luffywalkingright.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/player/standingright.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/sound/prueba2.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/sound/xd.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/Woodwall-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/earth.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/grass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/sand.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/tree.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/wall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/USIL-POO2-2221281/tiles/water.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/src/entity/Entity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +22,13 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -137,34 +36,48 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2Wrqt10Jy2qXmgp2NldTNReXTaq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "develop",
+    "last_opened_file_path": "D:/USIL/CICLO III/POO2/Trabajos/GamePoo2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-21" />
+      <option name="ALTERNATIVE_JRE_PATH" value="temurin-20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="jdk.javadoc.internal.tool.Main" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="USIL-POO2-2221281" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main.Main" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="temurin-20" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <configuration name="main.Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="USIL-POO2-2221281" />
       <extension name="coverage">
@@ -186,7 +99,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1697501258005</updated>
+      <workItem from="1698101086073" duration="97000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

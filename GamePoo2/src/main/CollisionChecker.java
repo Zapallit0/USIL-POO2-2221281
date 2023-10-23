@@ -122,4 +122,54 @@ public class CollisionChecker {
         }
         return index;
     }
+    //NPC collision
+    public int checkEntity(Entity entity, Entity[] target){
+        int index=999;
+        for(int i=0;i<target.length;i++){
+            if(target[i]!=null){
+                //get entities solid area position
+                entity.solidArea.x=entity.worldx+entity.solidArea.x;
+                entity.solidArea.y=entity.worldy+entity.solidArea.y;
+                //get the obj solid area position
+                target[i].solidArea.x=target[i].worldx+target[i].solidArea.x;
+                target[i].solidArea.y=target[i].worldy+target[i].solidArea.y;
+
+                switch (entity.direction){
+                    case "up","up-right":
+                        entity.solidArea.y-=entity.speed;
+                        if(entity.solidArea.intersects(target[i].solidArea)){
+                                entity.collisionOn=true;
+                                index=i;
+                        }
+                        break;
+                    case "down","down-left":
+                        entity.solidArea.y+=entity.speed;
+                        if(entity.solidArea.intersects(target[i].solidArea)){
+                                entity.collisionOn=true;
+                                index=i;
+                        }
+                        break;
+                    case "left","up-left":
+                        entity.solidArea.x-=entity.speed;
+                        if(entity.solidArea.intersects(target[i].solidArea)){
+                                entity.collisionOn=true;
+                                index=i;
+                        }
+                        break;
+                    case "right","down-right":
+                        entity.solidArea.x+=entity.speed;
+                        if(entity.solidArea.intersects(target[i].solidArea)){
+                                entity.collisionOn=true;
+                                index=i;
+                        }
+                        break;
+                }
+                entity.solidArea.x=entity.solidAreaDefaultX;
+                entity.solidArea.y=entity.solidAreaDefaultY;
+                target[i].solidArea.x=target[i].solidAreaDefaultX;
+                target[i].solidArea.y=target[i].solidAreaDefaultY;
+            }
+        }
+        return index;
+    }
 }

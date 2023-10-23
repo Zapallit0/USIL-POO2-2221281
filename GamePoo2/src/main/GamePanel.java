@@ -100,6 +100,12 @@ public class GamePanel extends JPanel implements Runnable{
     public void update() throws IOException {
         if(gameState==playState){
             player.update();
+            //NPC
+            for(int i=0;i<npcs.length;i++){
+                if(npcs[i]!=null){
+                    npcs[i].update();
+                }
+            }
         }
         if(gameState==pauseState){
             //nothing
@@ -128,7 +134,7 @@ public class GamePanel extends JPanel implements Runnable{
         //NPC
         for(int i=0;i<npcs.length;i++){
             if(npcs[i]!=null){
-                npcs[i].draw(g2,this);
+                npcs[i].draw(g2);
             }
         }
         //player

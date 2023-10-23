@@ -79,29 +79,29 @@ public class Player extends Entity{
     }
 
     public void update() throws IOException {
-        if(keyH.upPressed==true||keyH.downPressed==true||keyH.leftPressed==true||keyH.rightPressed==true){
-            if(keyH.upPressed==true){
+        if(keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed){
+            if(keyH.upPressed){
                 direction="up";
             }
-            if (keyH.downPressed==true){
+            if (keyH.downPressed){
                 direction="down";
             }
-            if (keyH.leftPressed==true){
+            if (keyH.leftPressed){
                 direction="left";
             }
-            if(keyH.rightPressed==true){
+            if(keyH.rightPressed){
                 direction="right";
             }
-            if(keyH.rightPressed==true && keyH.upPressed==true ){
+            if(keyH.rightPressed && keyH.upPressed){
                 direction="up-right";
             }
-            if(keyH.leftPressed==true && keyH.upPressed==true ){
+            if(keyH.leftPressed && keyH.upPressed){
                 direction="up-left";
             }
-            if(keyH.leftPressed==true && keyH.downPressed==true ){
+            if(keyH.leftPressed && keyH.downPressed){
                 direction="down-left";
             }
-            if(keyH.rightPressed==true && keyH.downPressed==true ){
+            if(keyH.rightPressed && keyH.downPressed){
                 direction="down-right";
             }
 
@@ -112,8 +112,12 @@ public class Player extends Entity{
             //Check obj collision
             int objIndex=gp.cChercker.checkObject(this,true);
             pickUpObject(objIndex);
+            //Check Collision npc
+            int npcIndex=gp.cChercker.checkEntity(this,gp.npcs);
+            interactNPC(npcIndex);
+
             //if collision is false, player can move
-            if(collisionOn==false){
+            if(!collisionOn){
                 switch (direction){
                     case"up":
                         worldy-=speed;
@@ -146,7 +150,7 @@ public class Player extends Entity{
                 }
             }
             spriteCounter++;
-            if(spriteCounter>15){
+            if(spriteCounter>12){
                 if(spriteNum==1){
                     spriteNum=2;
                 } else if (spriteNum==2) {
@@ -243,6 +247,11 @@ public class Player extends Entity{
                 case "ChestOpen":
                     break;
             }
+        }
+    }
+    public void interactNPC(int i){
+        if (i !=999){
+            System.out.println("you are hitting and npc");
         }
     }
     public int getSpeed(){
