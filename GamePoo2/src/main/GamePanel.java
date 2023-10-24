@@ -45,8 +45,10 @@ public class GamePanel extends JPanel implements Runnable{
 
     //GAME STATE
     public int gameState;
+    public final int menuState=0;
     public final int playState=1;
     public final int pauseState=2;
+
     public final int deathState=3;
 
     public GamePanel() throws IOException {
@@ -60,7 +62,7 @@ public class GamePanel extends JPanel implements Runnable{
         aSetter.setObject();
         aSetter.setNpc();
         playMusic(2);
-        gameState=playState;
+        gameState=menuState;
     }
     public void startGameThread(){
         gameThread=new Thread(this);
@@ -98,6 +100,9 @@ public class GamePanel extends JPanel implements Runnable{
         }
     }
     public void update() throws IOException {
+        if(gameState==menuState){
+            
+        }
         if(gameState==playState){
             player.update();
             //NPC
