@@ -3,22 +3,20 @@ package entity;
 import main.GamePanel;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Random;
 
-public class NPC extends  Entity{
-    public NPC(GamePanel gp) {
+public class pirateBaby extends NPC implements attackWithBullets{
+    public pirateBaby(GamePanel gp) {
         super(gp);
-        direction="down";
+        direction="up";
         speed=1;
 
         getNpcImages();
         setAction();
     }
-    public void getNpcImages(){
+    public void getNPCImages(){
         try {
             up1= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/NPC/NPC1/NPC2/NPC2_standing.png")));
             up2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/NPC/NPC1/NPC2/NPC2_attacking.png")));
@@ -34,7 +32,6 @@ public class NPC extends  Entity{
             e.printStackTrace();
         }
     }
-
     public void setAction(){
         actionCounter++;
         if(actionCounter==180) {
@@ -54,5 +51,8 @@ public class NPC extends  Entity{
             }
             actionCounter=0;
         }
+    }
+    @Override
+    public void attack() {
     }
 }

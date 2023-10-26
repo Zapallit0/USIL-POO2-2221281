@@ -1,6 +1,8 @@
 package main;
 
 import entity.NPC;
+import entity.pirateBaby;
+import entity.skullWalker;
 import object.*;
 
 public class AssetSetter {
@@ -42,8 +44,11 @@ public class AssetSetter {
         gp.obj[7].worldY=13*gp.tileSize;
     }
     public void setNpc(){
-        gp.npcs[0]=new NPC(gp);
-        gp.npcs[0].worldx=gp.worldWidth/2;
-        gp.npcs[0].worldy=3*gp.tileSize;
+        gp.npcs[0]=new pirateBaby(gp);
+        gp.npcs[0].worldx=10*gp.tileSize;
+        gp.npcs[0].worldy=12* gp.tileSize;
+        gp.npcs[1]=new skullWalker(gp);
+        gp.npcs[1].worldx=10*gp.tileSize;
+        gp.npcs[1].worldy=10* gp.tileSize;
     }
 }
