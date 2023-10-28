@@ -190,6 +190,17 @@ public class Player extends Entity{
                     gear++;
                     getPlayerImg(gear);
                     break;
+
+
+                case "LowSpeed":
+                    gp.obj[i]=null;
+                    gp.playSE(4);
+                    gp.playSE(5);
+                   // gp.player.speed--;
+                    speed--;
+                    break;
+//gp.player getspeed --
+
                 case "Door":
                     if(hasKey>0){
                         gp.obj[i]=null;
@@ -299,22 +310,7 @@ public class Player extends Entity{
                 image=state2;
                 break;
         }
-        int x=screenX;
-        int y=screenY;
-        if(screenX>worldx){
-            x=worldx;
-        }
-        if (screenY>worldy){
-            y=worldy;
-        }
-        int rightOffset=gp.screenWidth-screenX;
-        if(rightOffset>gp.worldWidth-worldx){
-            x=gp.screenWidth-(gp.worldWidth-worldx);
-        }
-        int botOffset=gp.screenHeight-screenY;
-        if(botOffset>gp.worldWidth-worldy){
-            y=gp.screenHeight-(gp.worldHeight-worldy);
-        }
+
         g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
     }
 

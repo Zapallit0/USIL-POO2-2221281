@@ -1,11 +1,9 @@
 package tile;
 
 import main.GamePanel;
-import main.UtilityTool;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class TileManager {
@@ -15,7 +13,7 @@ public class TileManager {
 
     public TileManager(GamePanel gp){
         this.gp=gp;
-        tile=new Tile[10];
+        tile=new Tile[19];
         mapTileNum=new int[gp.maxWorldCol][gp.maxWorldRow];
         getTileImage();
         loadMap("/maps/map03.txt");
@@ -25,7 +23,7 @@ public class TileManager {
             tile[0]=new Tile();
             tile[0].image= ImageIO.read(getClass().getResourceAsStream("/tiles/grass.png"));
             tile[1]=new Tile();
-            tile[1].image= ImageIO.read(getClass().getResourceAsStream("/tiles/Woodwall-1.png"));
+            tile[1].image= ImageIO.read(getClass().getResourceAsStream("/tiles/t2.png"));
             tile[1].collision=true;
             tile[2]=new Tile();
             tile[2].image= ImageIO.read(getClass().getResourceAsStream("/tiles/water.png"));
@@ -44,6 +42,18 @@ public class TileManager {
             tile[8]=new Tile();
             tile[8].collision=false;
             tile[8].image= ImageIO.read(getClass().getResourceAsStream("/tiles/parketWall.png"));
+            tile[9]=new Tile();
+            tile[9].collision=false;
+            tile[9].image= ImageIO.read(getClass().getResourceAsStream("/tiles/t4.png"));
+
+            tile[10]=new Tile();
+            tile[10].collision=true;
+            tile[10].image= ImageIO.read(getClass().getResourceAsStream("/tiles/t3.png"));
+            tile[11]=new Tile();
+            tile[11].collision=true;
+            tile[11].image= ImageIO.read(getClass().getResourceAsStream("/tiles/t8.png"));
+
+
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -81,20 +91,7 @@ public class TileManager {
             int screenX=worldX-gp.player.worldx+gp.player.screenX;
             int screenY=worldY-gp.player.worldy+gp.player.screenY;
             //stop moving the camera at the edge
-            if(gp.player.screenX>gp.player.worldx){
-                screenX=worldX;
-            }
-            if(gp.player.screenX>gp.player.worldx){
-                screenX=worldX;
-            }
-            int rightOffset=gp.screenWidth-gp.player.screenX;
-            if(rightOffset>gp.worldWidth-gp.player.worldx){
-                screenX=gp.screenWidth-(gp.worldWidth-worldX);
-            }
-            int botOffset=gp.screenHeight-gp.player.screenY;
-            if(botOffset>gp.worldWidth-gp.player.worldy){
-                screenY=gp.screenHeight-(gp.worldHeight-worldY);
-            }
+
             if(worldX+gp.tileSize>gp.player.worldx-gp.player.screenX &&
                worldX-gp.tileSize<gp.player.worldx+gp.player.screenX &&
                worldY+gp.tileSize>gp.player.worldy-gp.player.screenY &&
@@ -102,12 +99,7 @@ public class TileManager {
 
                 g2.drawImage(tile[tileNum].image,screenX,screenY,gp.tileSize,gp.tileSize,null);
             }
-            else if(gp.player.screenX>gp.player.worldx||
-                    gp.player.screenY>gp.player.worldy||
-                    rightOffset>gp.worldWidth-gp.player.worldx||
-                    botOffset>gp.worldHeight-gp.player.worldy){
-                g2.drawImage(tile[tileNum].image,screenX,screenY,gp.tileSize,gp.tileSize,null);
-            }
+
             worldcol++;
 
             if(worldcol==gp.maxWorldCol){
