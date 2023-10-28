@@ -299,22 +299,6 @@ public class Player extends Entity{
                 image=state2;
                 break;
         }
-        int x=screenX;
-        int y=screenY;
-        if(screenX>worldx){
-            x=worldx;
-        }
-        if (screenY>worldy){
-            y=worldy;
-        }
-        int rightOffset=gp.screenWidth-screenX;
-        if(rightOffset>gp.worldWidth-worldx){
-            x=gp.screenWidth-(gp.worldWidth-worldx);
-        }
-        int botOffset=gp.screenHeight-screenY;
-        if(botOffset>gp.worldWidth-worldy){
-            y=gp.screenHeight-(gp.worldHeight-worldy);
-        }
         g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
     }
 

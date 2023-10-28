@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9e5c686-d78c-4776-b510-4ba8433fc71d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/GamePoo2/res/GameStates/MenuState/background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GamePoo2/res/GameStates/MenuState/luffymenu_OF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GamePoo2/res/NPC/NPC1/NPC1/NPC1_up1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GamePoo2/res/NPC/NPC1/NPC1/NPC1_up2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GamePoo2/res/NPC/NPC1/NPC1/NPC1_up3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GamePoo2/res/NPC/NPC1/NPC1/NPC1_up4.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/src/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamePoo2/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/GamePoo2/src/main/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +56,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "develop",
-    "last_opened_file_path": "C:/Users/alumno/Desktop/UwU/USIL-POO2-2221281/GamePoo2",
+    "last_opened_file_path": "D:/USIL/CICLO III/POO2/Trabajos/USIL-POO2-2221281/GamePoo2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

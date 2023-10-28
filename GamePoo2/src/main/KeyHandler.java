@@ -20,50 +20,114 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int code=e.getKeyCode();
-        if(code==KeyEvent.VK_W){
-            upPressed=true;
-        }
-        if(code==KeyEvent.VK_S){
-            downPressed=true;
-        }
-        if(code==KeyEvent.VK_A){
-            leftPressed=true;
-        }
-        if(code==KeyEvent.VK_D){
-            rightPressed=true;
-        }
-        if(code==KeyEvent.VK_ESCAPE){
-            if(gp.gameState==gp.playState){
-                gp.gameState= gp.pauseState;
+        //Menu inicial
+        if(gp.gameState==gp.menuState){
+            if(code==KeyEvent.VK_ENTER){
+                gp.gameState=gp.principalState;
             }
-            else if(gp.gameState== gp.pauseState){
-                gp.gameState=gp.playState;
+            if (code == KeyEvent.VK_ESCAPE) {
+                System.exit(0);
             }
         }
-        //Debug renderizado
-        if(code==KeyEvent.VK_T){
-            if(checkDrawTime ==false){
-                checkDrawTime =true;
+        //Principal Menu
+        if(gp.gameState== gp.principalState){
+            if (code == KeyEvent.VK_UP) {
+                if(gp.ui.commandMenuNum==0){}
+                else{
+                    gp.ui.commandMenuNum--;
+                }
+                System.out.println(gp.ui.commandMenuNum);
             }
-            else if (checkDrawTime ==true){
-                checkDrawTime =false;
+            if (code == KeyEvent.VK_DOWN) {
+                if(gp.ui.commandMenuNum==2){}
+                else{
+                    gp.ui.commandMenuNum++;
+                }
+                System.out.println(gp.ui.commandMenuNum);
             }
+            if(code==KeyEvent.VK_ENTER) {
+                if (gp.ui.commandMenuNum == 0) {
+                }
+                if (gp.ui.commandMenuNum == 1) {
+                    gp.gameState = gp.playState;
+                    gp.playMusic(2);
+                }
+                if (gp.ui.commandMenuNum == 2) {
+                    gp.playMusic(2);
+                }
+            }
+            if (code == KeyEvent.VK_ESCAPE) {
+                gp.gameState = gp.menuState;
+            }
+        }
+        //Play state
+        if(gp.gameState==gp.playState) {
+            if (code == KeyEvent.VK_UP) {
+                upPressed = true;
+            }
+            if (code == KeyEvent.VK_DOWN) {
+                downPressed = true;
+            }
+            if (code == KeyEvent.VK_LEFT) {
+                leftPressed = true;
+            }
+            if (code == KeyEvent.VK_RIGHT) {
+                rightPressed = true;
+            }
+            if (code == KeyEvent.VK_ESCAPE) {
+                if (gp.gameState == gp.playState) {
+                    gp.gameState = gp.pauseState;
+                } else if (gp.gameState == gp.pauseState) {
+                    gp.gameState = gp.playState;
+                }
+            }
+        }
+        //Pause State
+        if(gp.gameState== gp.pauseState){
+            if (code == KeyEvent.VK_UP) {
+                if(gp.ui.commandPauseNum==0){}
+                else{
+                    gp.ui.commandPauseNum--;
+                    System.out.println(gp.ui.commandPauseNum);
+                }
+            }
+            if (code == KeyEvent.VK_DOWN) {
+                if(gp.ui.commandPauseNum==2){}
+                else{
+                    gp.ui.commandPauseNum++;
+                    System.out.println(gp.ui.commandPauseNum);
+                }
+            }
+            if(code==KeyEvent.VK_ENTER) {
+                if (gp.ui.commandPauseNum == 0) {
+                    gp.gameState=gp.playState;
+                }
+                if (gp.ui.commandMenuNum == 1) {
+                    gp.gameState=gp.optionsState;
+                }
+                if (gp.ui.commandMenuNum == 2) {
+                    gp.gameState=gp.principalState;
+                }
+            }
+        }
+        if (gp.gameState==gp.optionsState){
+
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         int code=e.getKeyCode();
-        if(code==KeyEvent.VK_W){
+        if(code==KeyEvent.VK_UP){
             upPressed=false;
         }
-        if(code==KeyEvent.VK_S){
+        if(code==KeyEvent.VK_DOWN){
             downPressed=false;
         }
-        if(code==KeyEvent.VK_A){
+        if(code==KeyEvent.VK_LEFT){
             leftPressed=false;
         }
-        if(code==KeyEvent.VK_D){
+        if(code==KeyEvent.VK_RIGHT){
             rightPressed=false;
         }
     }

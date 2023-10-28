@@ -81,31 +81,12 @@ public class TileManager {
             int screenX=worldX-gp.player.worldx+gp.player.screenX;
             int screenY=worldY-gp.player.worldy+gp.player.screenY;
             //stop moving the camera at the edge
-            if(gp.player.screenX>gp.player.worldx){
-                screenX=worldX;
-            }
-            if(gp.player.screenX>gp.player.worldx){
-                screenX=worldX;
-            }
-            int rightOffset=gp.screenWidth-gp.player.screenX;
-            if(rightOffset>gp.worldWidth-gp.player.worldx){
-                screenX=gp.screenWidth-(gp.worldWidth-worldX);
-            }
-            int botOffset=gp.screenHeight-gp.player.screenY;
-            if(botOffset>gp.worldWidth-gp.player.worldy){
-                screenY=gp.screenHeight-(gp.worldHeight-worldY);
-            }
+
             if(worldX+gp.tileSize>gp.player.worldx-gp.player.screenX &&
                worldX-gp.tileSize<gp.player.worldx+gp.player.screenX &&
                worldY+gp.tileSize>gp.player.worldy-gp.player.screenY &&
                worldY-gp.tileSize<gp.player.worldy+gp.player.screenY){
 
-                g2.drawImage(tile[tileNum].image,screenX,screenY,gp.tileSize,gp.tileSize,null);
-            }
-            else if(gp.player.screenX>gp.player.worldx||
-                    gp.player.screenY>gp.player.worldy||
-                    rightOffset>gp.worldWidth-gp.player.worldx||
-                    botOffset>gp.worldHeight-gp.player.worldy){
                 g2.drawImage(tile[tileNum].image,screenX,screenY,gp.tileSize,gp.tileSize,null);
             }
             worldcol++;

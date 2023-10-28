@@ -21,34 +21,12 @@ public class SuperObject {
     public void draw(Graphics2D g2, GamePanel gp){
         int screenX=worldX-gp.player.worldx+gp.player.screenX;
         int screenY=worldY-gp.player.worldy+gp.player.screenY;
-        // STOP MOVING CAMERA
-        if(gp.player.worldx < gp.player.screenX) {
-            screenX = worldX;
-        }
-        if(gp.player.worldy < gp.player.screenY) {
-            screenY = worldY;
-        }
-        int rightOffset = gp.screenWidth - gp.player.screenX;
-        if(rightOffset > gp.worldWidth - gp.player.worldy) {
-            screenX = gp.screenWidth - (gp.worldWidth - worldX);
-        }
-        int bottomOffset = gp.screenHeight - gp.player.screenY;
-        if(bottomOffset > gp.worldHeight - gp.player.worldy) {
-            screenY = gp.screenHeight - (gp.worldHeight - worldY);
-        }
         if(worldX+gp.tileSize>gp.player.worldx-gp.player.screenX &&
                 worldX-gp.tileSize<gp.player.worldx+gp.player.screenX &&
                 worldY+gp.tileSize>gp.player.worldy-gp.player.screenY &&
                 worldY-gp.tileSize<gp.player.worldy+gp.player.screenY){
 
             g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
-        }
-        // If player is around the edge, draw everything
-        else if(gp.player.worldx < gp.player.screenX ||
-                gp.player.worldy < gp.player.screenY ||
-                rightOffset > gp.worldWidth - gp.player.worldx ||
-                bottomOffset > gp.worldHeight - gp.player.worldy) {
-            g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
         }
     }
     public void setDoorOpenRight() throws IOException {

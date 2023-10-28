@@ -78,21 +78,6 @@ public class Entity {
 
         int screenX=worldx-gp.player.worldx+gp.player.screenX;
         int screenY=worldy-gp.player.worldy+gp.player.screenY;
-        // STOP MOVING CAMERA
-        if(gp.player.worldx < gp.player.screenX) {
-            screenX = worldx;
-        }
-        if(gp.player.worldy < gp.player.screenY) {
-            screenY = worldy;
-        }
-        int rightOffset = gp.screenWidth - gp.player.screenX;
-        if(rightOffset > gp.worldWidth - gp.player.worldx) {
-            screenX = gp.screenWidth - (gp.worldWidth - worldx);
-        }
-        int bottomOffset = gp.screenHeight - gp.player.screenY;
-        if(bottomOffset > gp.worldHeight - gp.player.worldy) {
-            screenY = gp.screenHeight - (gp.worldHeight - worldy);
-        }
         if(worldx+gp.tileSize>gp.player.worldx-gp.player.screenX &&
                 worldy-gp.tileSize<gp.player.worldx+gp.player.screenX &&
                 worldx+gp.tileSize>gp.player.worldy-gp.player.screenY &&
@@ -139,13 +124,5 @@ public class Entity {
             }
             g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
         }
-        // If player is around the edge, draw everything
-        else if(gp.player.worldx < gp.player.screenX ||
-                gp.player.worldy < gp.player.screenY ||
-                rightOffset > gp.worldWidth - gp.player.worldx ||
-                bottomOffset > gp.worldHeight - gp.player.worldy) {
-            g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
-        }
-
     }
 }
