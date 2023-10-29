@@ -38,8 +38,6 @@ public class UI extends JPanel{
     //Texto variables
 
     private int resumeX,resumeY;
-
-
     public int commandMenuNum=0;
     public int commandPauseNum=0;
     //Menu principal Variables
