@@ -2,9 +2,11 @@ package entity;
 
 import main.GamePanel;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 
 public class Entity {
     GamePanel gp;
@@ -120,6 +122,23 @@ public class Entity {
                     break;
             }
             g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
+        }
+    }
+    public void getNPCImg(){}
+    public void getPlayersImg(String name,String base){
+        try {
+            up1= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/goingUp2.png")));
+            up2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/goingUp1.png")));
+            down1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/goingDown1.png")));
+            down2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/goingDown2.png")));
+            left1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/standingLeft.png")));
+            left2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/walkingLeft.png")));
+            right1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/standingRight.png")));
+            right2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/walkingRight.png")));
+            state=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/waiting1.png")));
+            state2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/waiting2.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

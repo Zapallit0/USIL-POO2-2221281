@@ -1,5 +1,6 @@
 package entity;
 
+import entity.attacks.attackWithBullets;
 import main.GamePanel;
 
 import javax.imageio.ImageIO;
@@ -7,15 +8,15 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.Random;
 
-public class pirateBaby extends NPC implements attackWithBullets{
+public class pirateBaby extends NPC implements attackWithBullets {
     public pirateBaby(GamePanel gp) {
         super(gp);
         direction="up";
         speed=1;
-
-        getNpcImages();
         setAction();
+        getNPCImages();
     }
+    @Override
     public void getNPCImages(){
         try {
             up1= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/NPC/NPC1/NPC2/NPC2_standing.png")));

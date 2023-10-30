@@ -59,7 +59,6 @@ public class UI extends JPanel{
         arial_40=new Font("Arial",Font.PLAIN,30);
         keyImg=key.image;
         bootsImg=boots.image;
-        geraImg=luffyGear.setGear(gearNumber);
     }
     public void showMessage(String text){
         message=text;

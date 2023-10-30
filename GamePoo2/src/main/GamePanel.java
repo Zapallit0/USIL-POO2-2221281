@@ -61,12 +61,8 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true);
     }
     public void setupGame(){
-        playMusic(2);
-        if(gameState==playState){
-            aSetter.setObject();
-            aSetter.setNpc();
-        }
-        gameState=menuState;
+        aSetter.setObject();
+        aSetter.setNpc();
     }
     public void startGameThread(){
         gameThread=new Thread(this);
@@ -105,10 +101,9 @@ public class GamePanel extends JPanel implements Runnable{
     }
     public void update() throws IOException {
         if(gameState==menuState){
-            stopMusic();
+
         }
         if(gameState==principalState){
-            stopMusic();
         }
         if(gameState==playState){
             player.update();
