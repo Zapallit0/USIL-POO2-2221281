@@ -58,9 +58,13 @@ public class CollisionChecker {
     }
 
     public int checkObject(Entity entity, boolean player){
+        int entitySolidX = entity.solidArea.x;
+        int entitySolidY = entity.solidArea.y;
         int index=999;
         for(int i=0;i<gp.obj.length;i++){
             if(gp.obj[i]!=null){
+                int objSolidX = gp.obj[i].solidArea.x;
+                int objSolidY = gp.obj[i].solidArea.y;
                 //get entities solid area position
                 entity.solidArea.x=entity.worldx+entity.solidArea.x;
                 entity.solidArea.y=entity.worldy+entity.solidArea.y;
@@ -123,6 +127,7 @@ public class CollisionChecker {
 
             }
         }
+        
         return index;
     }
     //NPC collision

@@ -24,12 +24,9 @@ public class Entity {
     }
     public void setAction(){}
     public void update() throws IOException {
-
         setAction();
-
         collisionOn=false;
         gp.cChercker.checkTile(this);
-
         if(!collisionOn){
             switch (direction){
                 case"up":

@@ -13,10 +13,7 @@ public class KeyHandler implements KeyListener {
         this.gp=gp;
     }
     @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
+    public void keyTyped(KeyEvent e) {}
     @Override
     public void keyPressed(KeyEvent e) {
         int code=e.getKeyCode();
@@ -48,11 +45,11 @@ public class KeyHandler implements KeyListener {
             }
             if(code==KeyEvent.VK_ENTER) {
                 if (gp.ui.commandMenuNum == 0) {
-                }
-                if (gp.ui.commandMenuNum == 1) {
                     gp.gameState = gp.playState;
                     gp.playMusic(2);
                     gp.ui.commandMenuNum=0;
+                }
+                if (gp.ui.commandMenuNum == 1) {
                 }
                 if (gp.ui.commandMenuNum == 2) {
                     gp.playMusic(2);
