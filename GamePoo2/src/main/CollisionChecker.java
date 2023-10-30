@@ -119,6 +119,9 @@ public class CollisionChecker {
                 gp.obj[i].solidArea.x=gp.obj[i].solidAreaDefaultX;
                 gp.obj[i].solidArea.y=gp.obj[i].solidAreaDefaultY;
             }
+            if(gp.obj[i]!=null && gp.obj[i].collision){
+
+            }
         }
         return index;
     }

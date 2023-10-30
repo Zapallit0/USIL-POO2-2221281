@@ -61,9 +61,11 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true);
     }
     public void setupGame(){
-        aSetter.setObject();
-        aSetter.setNpc();
         playMusic(2);
+        if(gameState==playState){
+            aSetter.setObject();
+            aSetter.setNpc();
+        }
         gameState=menuState;
     }
     public void startGameThread(){
@@ -105,6 +107,9 @@ public class GamePanel extends JPanel implements Runnable{
         if(gameState==menuState){
             stopMusic();
         }
+        if(gameState==principalState){
+            stopMusic();
+        }
         if(gameState==playState){
             player.update();
             //NPC
@@ -115,17 +120,14 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
         if(gameState==pauseState){
-
+        }
+        if(gameState==optionsState){
         }
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-
         Graphics2D g2=(Graphics2D)g;
         //tile
-        if(this.gameState!=1){
-            ui.draw(g2);
-        } else if(this.gameState==1) {
             tileM.draw(g2);
             //Object
             for (int i = 0; i < obj.length; i++) {
@@ -143,7 +145,7 @@ public class GamePanel extends JPanel implements Runnable{
             player.draw(g2);
             ui.draw(g2);
             g2.dispose();
-        }
+
     }
     public void playMusic(int i){
         music.setFile(i);
