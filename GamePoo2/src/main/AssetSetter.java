@@ -4,6 +4,7 @@ import entity.NPC;
 import entity.pirateBaby;
 import entity.skullWalker;
 import object.*;
+//import entity.NPCwall;
 
 public class AssetSetter {
     GamePanel gp;
@@ -33,7 +34,7 @@ public class AssetSetter {
 
         gp.obj[9]=new OBJ_Key();
         gp.obj[9].worldX=41*gp.tileSize;
-        gp.obj[9].worldY=7*gp.tileSize;
+        gp.obj[9].worldY=6*gp.tileSize;
 //10
 
         gp.obj[10]=new OBJ_LowSpeed();
@@ -70,5 +71,11 @@ public class AssetSetter {
         gp.npcs[1]=new skullWalker(gp);
         gp.npcs[1].worldx=10*gp.tileSize;
         gp.npcs[1].worldy=10* gp.tileSize;
+
+       /* gp.npcs[2]=new NPCwall(gp);
+        gp.npcs[2].worldx=12*gp.tileSize;
+        gp.npcs[2].worldy=14* gp.tileSize;*/
+
+
     }
 }

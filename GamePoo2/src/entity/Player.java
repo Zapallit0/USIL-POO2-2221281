@@ -50,6 +50,8 @@ public class Player extends Entity{
         direction="state";
     }
 
+
+
     public void update() throws IOException {
         if(keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed){
             if(keyH.upPressed){
@@ -163,8 +165,8 @@ public class Player extends Entity{
 
                 case "LowSpeed":
                     gp.obj[i]=null;
-                    gp.playSE(4);
-                    gp.playSE(5);
+                    gp.ui.showMessage("Oh no , i feel sick");
+
                    // gp.player.speed--;
                     speed--;
                     break;

@@ -1,6 +1,7 @@
 package entity;
 
 import main.GamePanel;
+import main.KeyHandler;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -9,7 +10,11 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.Random;
 
+
+
 public class NPC extends  Entity{
+    protected KeyHandler keyH;
+
     public NPC(GamePanel gp) {
         super(gp);
         direction="down";
@@ -54,4 +59,6 @@ public class NPC extends  Entity{
             actionCounter=0;
         }
     }
+
+
 }
