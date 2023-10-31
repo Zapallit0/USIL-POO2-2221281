@@ -159,6 +159,17 @@ public class Player extends Entity{
                     gear++;
                     LuffyPlayer.setState("Second");
                     break;
+
+
+                case "LowSpeed":
+                    gp.obj[i]=null;
+                    gp.playSE(4);
+                    gp.playSE(5);
+                   // gp.player.speed--;
+                    speed--;
+                    break;
+//gp.player getspeed --
+
                 case "Door":
                     if(hasKey>0){
                         gp.obj[i]=null;

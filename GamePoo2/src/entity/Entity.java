@@ -77,6 +77,7 @@ public class Entity {
 
         int screenX=worldx-gp.player.worldx+gp.player.screenX;
         int screenY=worldy-gp.player.worldy+gp.player.screenY;
+      
         if(worldx+gp.tileSize>gp.player.worldx-gp.player.screenX &&
                 worldy-gp.tileSize<gp.player.worldx+gp.player.screenX &&
                 worldx+gp.tileSize>gp.player.worldy-gp.player.screenY &&
