@@ -1,4 +1,4 @@
-package entity;
+package entity.attacks;
 
 public interface attackWithBullets extends attack {
     abstract public void attack();

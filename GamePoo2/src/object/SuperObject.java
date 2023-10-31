@@ -14,15 +14,13 @@ public class SuperObject {
     public boolean collision=false;
     public int worldX, worldY;
     public Rectangle solidArea=new Rectangle(0,0,80,80);
-    public int solidAreaDefaultX=0;
-    public int solidAreaDefaultY=0;
+    public int solidAreaDefaultX=solidArea.x;
+    public int solidAreaDefaultY=solidArea.y;
     UtilityTool uTool=new UtilityTool();
 
     public void draw(Graphics2D g2, GamePanel gp){
         int screenX=worldX-gp.player.worldx+gp.player.screenX;
         int screenY=worldY-gp.player.worldy+gp.player.screenY;
-        // STOP MOVING CAMERA
-
         if(worldX+gp.tileSize>gp.player.worldx-gp.player.screenX &&
                 worldX-gp.tileSize<gp.player.worldx+gp.player.screenX &&
                 worldY+gp.tileSize>gp.player.worldy-gp.player.screenY &&
@@ -30,8 +28,6 @@ public class SuperObject {
 
             g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
         }
-        // If player is around the edge, draw everything
-
     }
     public void setDoorOpenRight() throws IOException {
         this.image= ImageIO.read(getClass().getResourceAsStream("/Objects/RightDoorOpen.png"));

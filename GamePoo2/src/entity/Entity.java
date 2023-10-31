@@ -2,9 +2,11 @@ package entity;
 
 import main.GamePanel;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 
 public class Entity {
     GamePanel gp;
@@ -24,12 +26,9 @@ public class Entity {
     }
     public void setAction(){}
     public void update() throws IOException {
-
         setAction();
-
         collisionOn=false;
         gp.cChercker.checkTile(this);
-
         if(!collisionOn){
             switch (direction){
                 case"up":
@@ -78,8 +77,7 @@ public class Entity {
 
         int screenX=worldx-gp.player.worldx+gp.player.screenX;
         int screenY=worldy-gp.player.worldy+gp.player.screenY;
-        // STOP MOVING CAMERA
-
+      
         if(worldx+gp.tileSize>gp.player.worldx-gp.player.screenX &&
                 worldy-gp.tileSize<gp.player.worldx+gp.player.screenX &&
                 worldx+gp.tileSize>gp.player.worldy-gp.player.screenY &&
@@ -126,8 +124,22 @@ public class Entity {
             }
             g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
         }
-        // If player is around the edge, draw everything
-
-
+    }
+    public void getNPCImg(){}
+    public void getPlayersImg(String name,String base){
+        try {
+            up1= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/goingUp2.png")));
+            up2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/goingUp1.png")));
+            down1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/goingDown1.png")));
+            down2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/goingDown2.png")));
+            left1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/standingLeft.png")));
+            left2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/walkingLeft.png")));
+            right1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/standingRight.png")));
+            right2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/walkingRight.png")));
+            state=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/waiting1.png")));
+            state2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/waiting2.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
