@@ -4,8 +4,6 @@ import main.GamePanel;
 import main.KeyHandler;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Random;
@@ -24,16 +22,16 @@ public class NPC extends  Entity{
     }
     public void getNPCImages(){
         try {
-            up1= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/NPC/NPC1/NPC2/NPC2_standing.png")));
-            up2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/NPC/NPC1/NPC2/NPC2_attacking.png")));
-            down1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/NPC/NPC1/NPC2/NPC2_standing.png")));
-            down2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/NPC/NPC1/NPC2/NPC2_attacking.png")));
-            left1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/NPC/NPC1/NPC2/NPC2_standing.png")));
-            left2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/NPC/NPC1/NPC2/NPC2_attacking.png")));
-            right1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/NPC/NPC1/NPC2/NPC2_attacking.png")));
-            right2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/NPC/NPC1/NPC2/NPC2_standing.png")));
-            state=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/NPC/NPC1/NPC2/NPC2_attacking.png")));
-            state2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/NPC/NPC1/NPC2/NPC2_attacking.png")));
+            up1= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/TwoStates/babyPirate/standing.png")));
+            up2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/TwoStates/babyPirate/attacking.png")));
+            down1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/TwoStates/babyPirate/standing.png")));
+            down2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/TwoStates/babyPirate/attacking.png")));
+            left1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/TwoStates/babyPirate/standing.png")));
+            left2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/TwoStates/babyPirate/attacking.png")));
+            right1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/TwoStates/babyPirate/attacking.png")));
+            right2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/TwoStates/babyPirate/standing.png")));
+            state=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/TwoStates/babyPirate/attacking.png")));
+            state2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/TwoStates/babyPirate/attacking.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
