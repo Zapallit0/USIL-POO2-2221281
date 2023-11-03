@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class Player extends Entity{
+    String playerName;
     KeyHandler keyH;
     public final int screenX;
     public final int screenY;
@@ -22,6 +23,7 @@ public class Player extends Entity{
     int dmg;
     DirectorCharacter director=new DirectorCharacter();
     CharacterBuilder LuffyPlayer=new CharacterBuilder();
+    CharacterBuilder ZoroPlayer=new CharacterBuilder();
 
 
     public Player(GamePanel gp,KeyHandler keyH){
@@ -29,7 +31,7 @@ public class Player extends Entity{
         this.keyH=keyH;
         screenX=gp.screenWidth/2-(gp.tileSize/2);
         screenY=gp.screenHeight/2-(gp.tileSize/2);
-        setDefaultValues();
+        setDefaultValues("Luffy");
         solidArea=new Rectangle();
         solidArea.x=20;
         solidArea.y=40;
@@ -37,17 +39,31 @@ public class Player extends Entity{
         solidAreaDefaultY=solidArea.y;
         solidArea.height=40;
         solidArea.width=40;
-        getPlayersImg(LuffyPlayer.getImgs(), LuffyPlayer.getState());
+        playerName="";
+        if(playerName=="Luffy"){
+            getPlayersImg(LuffyPlayer.getImgs(), LuffyPlayer.getState());
+        }else if(playerName=="Zoro"){
+            getPlayersImg(ZoroPlayer.getImgs(), ZoroPlayer.getState());
+        }
+
     }
 
-    public void setDefaultValues(){
-        director.constructLuffy(LuffyPlayer);
+    public void setDefaultValues(String player){
         worldx=gp.worldWidth/2;
         worldy=10;
-        speed=LuffyPlayer.getSpeed();
-        life= LuffyPlayer.getLife();
-        dmg= LuffyPlayer.getDmg();
         direction="state";
+        if(player=="Luffy") {
+            director.constructLuffy(LuffyPlayer);
+            speed=LuffyPlayer.getSpeed();
+            life= LuffyPlayer.getLife();
+            dmg= LuffyPlayer.getDmg();
+        }
+        if(player=="Zoro"){
+            director.constructZoro(ZoroPlayer);
+            speed=ZoroPlayer.getSpeed();
+            life=ZoroPlayer.getLife();
+            dmg= ZoroPlayer.getDmg();
+        }
     }
 
 

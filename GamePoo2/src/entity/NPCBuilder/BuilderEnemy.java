@@ -1,6 +1,6 @@
 package entity.NPCBuilder;
 
-public interface BuilderEnemies {
+public interface BuilderEnemy {
     abstract void setName(String name);
     abstract String getName();
     abstract void setLife(int num);

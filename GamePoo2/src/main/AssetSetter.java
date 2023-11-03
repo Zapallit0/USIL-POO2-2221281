@@ -12,7 +12,7 @@ public class AssetSetter {
         this.gp=gp;
     }
     public void setObject(){
-        gp.obj[0]=new OBJ_Door("L");
+        /*gp.obj[0]=new OBJ_Door("L");
         gp.obj[0].worldX=20*gp.tileSize;
         gp.obj[0].worldY=12*gp.tileSize;
 
@@ -56,21 +56,15 @@ public class AssetSetter {
 
         gp.obj[7]=new OBJ_GOMUGOMU();
         gp.obj[7].worldX=10*gp.tileSize;
-        gp.obj[7].worldY=13*gp.tileSize;
-
-
-
-
-
-
+        gp.obj[7].worldY=13*gp.tileSize;*/
     }
     public void setNpc(){
-        gp.npcs[0]=new pirateBaby(gp);
+        /*gp.npcs[0]=new pirateBaby(gp);
         gp.npcs[0].worldx=10*gp.tileSize;
         gp.npcs[0].worldy=12* gp.tileSize;
         gp.npcs[1]=new skullWalker(gp);
         gp.npcs[1].worldx=10*gp.tileSize;
-        gp.npcs[1].worldy=10* gp.tileSize;
+        gp.npcs[1].worldy=10* gp.tileSize;*/
 
        /* gp.npcs[2]=new NPCwall(gp);
         gp.npcs[2].worldx=12*gp.tileSize;

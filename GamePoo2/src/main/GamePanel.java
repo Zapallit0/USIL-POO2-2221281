@@ -53,7 +53,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int charactersState=6;
 
 
-    public GamePanel() throws IOException {
+    public GamePanel() throws IOException, FontFormatException {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);

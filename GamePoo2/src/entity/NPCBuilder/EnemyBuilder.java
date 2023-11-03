@@ -5,13 +5,14 @@ import main.GamePanel;
 
 import java.util.Random;
 
-public class EnemieBuilder extends Entity implements BuilderEnemies{
+public class EnemyBuilder extends Entity implements BuilderEnemy {
     String name;
+    int speed;
     int life;
     int Dmg;
     String numberStates;
 
-    public EnemieBuilder(GamePanel gp) {
+    public EnemyBuilder(GamePanel gp) {
         super(gp);
     }
 
@@ -37,12 +38,11 @@ public class EnemieBuilder extends Entity implements BuilderEnemies{
 
     @Override
     public void setSpeed(int num) {
-
+        this.speed=num;
     }
-
     @Override
     public int getSpeed() {
-        return 0;
+        return speed;
     }
 
     @Override
@@ -52,7 +52,7 @@ public class EnemieBuilder extends Entity implements BuilderEnemies{
 
     @Override
     public int getDmg() {
-        return 0;
+        return Dmg;
     }
 
     @Override
@@ -88,7 +88,7 @@ public class EnemieBuilder extends Entity implements BuilderEnemies{
 
         }
     };
-    public Enemie getCharacter(){
-        return new Enemie(name,life,Dmg,numberStates);
+    public Enemy getCharacter(){
+        return new Enemy(name,speed,life,Dmg,numberStates);
     };
 }
