@@ -266,6 +266,7 @@ public class UI extends JPanel{
         g2d.fillRect(x, y, width, height);
     }
     public void drawCharacterSelector(){
+        g2.setFont(fontOPSmall);
         
     }
 }

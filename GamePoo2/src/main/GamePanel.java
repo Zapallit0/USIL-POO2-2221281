@@ -70,7 +70,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void run(){
-        double drawInterval=1000000000/FPS;//0.01666seconds;
+        double drawInterval=1000000000 /FPS;//0.01666seconds;
         double delta=0;
         long lastTime=System.nanoTime();
         long currentTime;
@@ -101,16 +101,14 @@ public class GamePanel extends JPanel implements Runnable{
     }
     public void update() throws IOException {
         if(gameState==menuState){
-
         }
         if(gameState==principalState){
         }
         if(gameState==playState){
             player.update();
-            //NPC
-            for(int i=0;i<npcs.length;i++){
-                if(npcs[i]!=null){
-                    npcs[i].update();
+            for (NPC npc : npcs) {
+                if (npc != null) {
+                    npc.update();
                 }
             }
         }
@@ -121,26 +119,26 @@ public class GamePanel extends JPanel implements Runnable{
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        Graphics2D g2=(Graphics2D)g;
-        //tile
-            tileM.draw(g2);
-            //Object
-            for (int i = 0; i < obj.length; i++) {
-                if (obj[i] != null) {
-                    obj[i].draw(g2, this);
+            Graphics2D g2 = (Graphics2D) g;
+            if(gameState==playState) {
+                //tile
+                tileM.draw(g2);
+                //Object
+                for (int i = 0; i < obj.length; i++) {
+                    if (obj[i] != null) {
+                        obj[i].draw(g2, this);
+                    }
                 }
-            }
-            //NPC
-            for (int i = 0; i < npcs.length; i++) {
-                if (npcs[i] != null) {
-                    npcs[i].draw(g2);
+                //NPC
+                for (int i = 0; i < npcs.length; i++) {
+                    if (npcs[i] != null) {
+                        npcs[i].draw(g2);
+                    }
                 }
+                player.draw(g2);
             }
-            //player
-            player.draw(g2);
             ui.draw(g2);
             g2.dispose();
-
     }
     public void playMusic(int i){
         music.setFile(i);
