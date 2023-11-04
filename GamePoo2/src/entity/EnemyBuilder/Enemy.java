@@ -1,4 +1,4 @@
-package entity.NPCBuilder;
+package entity.EnemyBuilder;
 
 public class Enemy {
     private String name;

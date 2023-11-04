@@ -1,4 +1,4 @@
-package entity.NPCBuilder;
+package entity.EnemyBuilder;
 
 public interface BuilderEnemy {
     abstract void setName(String name);

@@ -57,6 +57,4 @@ public class NPC extends  Entity{
             actionCounter=0;
         }
     }
-
-
 }

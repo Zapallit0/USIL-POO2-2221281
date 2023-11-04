@@ -1,13 +1,9 @@
 package entity;
 
-import entity.NPCBuilder.DirectorEnemy;
+import entity.EnemyBuilder.DirectorEnemy;
 import entity.attacks.attackWithBullets;
-import entity.NPCBuilder.EnemyBuilder;
 import main.GamePanel;
 
-import javax.imageio.ImageIO;
-import java.io.IOException;
-import java.util.Objects;
 import java.util.Random;
 
 

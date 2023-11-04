@@ -1,4 +1,4 @@
-package entity.NPCBuilder;
+package entity.EnemyBuilder;
 
 import entity.Entity;
 import main.GamePanel;
@@ -11,6 +11,7 @@ public class EnemyBuilder extends Entity implements BuilderEnemy {
     int life;
     int Dmg;
     String numberStates;
+
 
     public EnemyBuilder(GamePanel gp) {
         super(gp);
@@ -64,30 +65,6 @@ public class EnemyBuilder extends Entity implements BuilderEnemy {
     public String getStateNumber() {
         return numberStates;
     }
-    public void setAction(int numStates){
-        if(numStates==2){
-            actionCounter++;
-            if(actionCounter==180) {
-                Random random = new Random();
-                int i = random.nextInt(100) + 1;
-                if (i <= 25) {
-                    direction = "up";
-                }
-                if (i > 25 && i <= 50) {
-                    direction = "down";
-                }
-                if (i > 50 && i <= 75) {
-                    direction = "left";
-                }
-                if (i > 75 && i <= 100) {
-                    direction = "right";
-                }
-                actionCounter=0;
-            }
-        } else if (numStates==4) {
-
-        }
-    };
     public Enemy getCharacter(){
         return new Enemy(name,speed,life,Dmg,numberStates);
     };

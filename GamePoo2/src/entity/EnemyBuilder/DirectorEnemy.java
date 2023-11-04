@@ -1,14 +1,16 @@
-package entity.NPCBuilder;
+package entity.EnemyBuilder;
+
+import main.GamePanel;
 
 public class DirectorEnemy {
-    public void constructpirateBaby(BuilderEnemy pirateB){
+    public void constructpirateBaby(BuilderEnemy pirateB, GamePanel gp){
         pirateB.setName("Pirate Baby");
         pirateB.setSpeed(4);
         pirateB.setLife(25);
         pirateB.setDmg(2);
         pirateB.setStateNumber("TwoStates");
     }
-    public void constructRedSpikes(BuilderEnemy pirateB){
+    public void constructRedSpikes(BuilderEnemy pirateB, GamePanel gp){
         pirateB.setName("Red Spikes");
         pirateB.setSpeed(9);
         pirateB.setLife(25);

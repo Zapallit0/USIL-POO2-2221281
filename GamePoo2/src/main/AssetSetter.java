@@ -1,13 +1,13 @@
 package main;
 
-import entity.NPC;
-import entity.pirateBaby;
-import entity.skullWalker;
-import object.*;
+import entity.EnemyBuilder.DirectorEnemy;
+import entity.EnemyBuilder.EnemyBuilder;
 //import entity.NPCwall;
 
 public class AssetSetter {
     GamePanel gp;
+    DirectorEnemy director=new DirectorEnemy();
+    EnemyBuilder pirateBaby=new EnemyBuilder(gp);
     public AssetSetter(GamePanel gp){
         this.gp=gp;
     }
@@ -59,9 +59,11 @@ public class AssetSetter {
         gp.obj[7].worldY=13*gp.tileSize;*/
     }
     public void setNpc(){
-        /*gp.npcs[0]=new pirateBaby(gp);
+        /*director.constructpirateBaby(pirateBaby,gp);
+        gp.npcs[0]=pirateBaby;
         gp.npcs[0].worldx=10*gp.tileSize;
         gp.npcs[0].worldy=12* gp.tileSize;
+
         gp.npcs[1]=new skullWalker(gp);
         gp.npcs[1].worldx=10*gp.tileSize;
         gp.npcs[1].worldy=10* gp.tileSize;*/
