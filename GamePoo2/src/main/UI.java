@@ -298,6 +298,5 @@ public class UI extends JPanel{
             i++;
             x+=gp.tileSize/2;
         }
-
     }
 }

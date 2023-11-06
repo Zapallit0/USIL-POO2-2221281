@@ -1,24 +1,23 @@
-package entity;
+package entity.NPCS;
 
-import entity.EnemyBuilder.DirectorEnemy;
-import entity.attacks.attackWithBullets;
 import main.GamePanel;
 
 import java.util.Random;
 
+public class redSpikes extends NPC{
 
-
-public class pirateBaby extends NPC implements attackWithBullets {
-    public pirateBaby(GamePanel gp) {
+    public redSpikes(GamePanel gp) {
         super(gp);
         direction="up";
+        speed=6;
         setAction();
-        getNPCImages("TwoStates","pirateBaby");
+        getNPCImages("TwoStates","redSpikes");
+        stateNPC="TwoStates";
     }
-
+    @Override
     public void setAction(){
         actionCounter++;
-        if(actionCounter==180) {
+        if(actionCounter==300) {
             Random random = new Random();
             int i = random.nextInt(100) + 1;
             if (i <= 25) {
@@ -35,8 +34,5 @@ public class pirateBaby extends NPC implements attackWithBullets {
             }
             actionCounter=0;
         }
-    }
-    @Override
-    public void attack() {
     }
 }

@@ -20,10 +20,8 @@ public class Entity {
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collisionOn=false;
     public int actionCounter;
-    public int maxLife;
-
-    //CHARACTER STATUS
-
+    public int widthNPC=80;
+    public int heightNPC=80;
 
     public Entity(GamePanel gp) {
         this.gp=gp;
@@ -46,22 +44,6 @@ public class Entity {
                     break;
                 case "right":
                     worldx+=speed;
-                    break;
-                case "up-right":
-                    worldy-=(speed-1);
-                    worldx+=(speed-1);
-                    break;
-                case "up-left":
-                    worldy-=(speed-1);
-                    worldx-=(speed-1);
-                    break;
-                case "down-left":
-                    worldy+=(speed-1);
-                    worldx-=(speed-1);
-                    break;
-                case "down-right":
-                    worldy+=(speed-1);
-                    worldx+=(speed-1);
                     break;
             }
         }
@@ -126,7 +108,7 @@ public class Entity {
                     image=state2;
                     break;
             }
-            g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
+            g2.drawImage(image,screenX,screenY,widthNPC,heightNPC,null);
         }
     }
     public void getNPCImg(){}

@@ -1,10 +1,7 @@
 package main;
 
-import entity.EnemyBuilder.Enemy;
-import entity.EnemyBuilder.EnemyBuilder;
-import entity.NPC;
+import entity.NPCS.NPC;
 import entity.Player;
-import entity.playerBuilder.BuilderCh;
 import object.SuperObject;
 import tile.TileManager;
 
@@ -43,7 +40,7 @@ public class GamePanel extends JPanel implements Runnable{
     public AssetSetter aSetter=new AssetSetter(this);
     public Player player=new Player(this,keyH);
     public SuperObject obj[]=new SuperObject[20];
-    public EnemyBuilder npcs[]=new EnemyBuilder[10];
+    public NPC npcs[]=new NPC[10];
 
     //GAME STATE
     public int gameState;
@@ -109,7 +106,7 @@ public class GamePanel extends JPanel implements Runnable{
         }
         if(gameState==playState){
             player.update();
-            for (EnemyBuilder npc : npcs) {
+            for (NPC npc : npcs) {
                 if (npc != null) {
                     npc.update();
                 }
