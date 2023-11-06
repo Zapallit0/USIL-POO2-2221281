@@ -14,22 +14,7 @@ public class skullWalker extends NPC implements attackMelee {
         direction="down";
         speed=1;
         setAction();
-        getNPCImages();
-    }
-    @Override
-    public void getNPCImages(){
-        try {
-            up1= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/FourStates/skullWalker/up1.png")));
-            up2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/FourStates/skullWalker/up2.png")));
-            down1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/FourStates/skullWalker/down1.png")));
-            down2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/FourStates/skullWalker/down2.png")));
-            left1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/FourStates/skullWalker/left1.png")));
-            left2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/FourStates/skullWalker/left2.png")));
-            right1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/FourStates/skullWalker/right1.png")));
-            right2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/FourStates/skullWalker/right2.png")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        getNPCImages("FourStates", "skullWalker");
     }
     public void setAction(){
         actionCounter++;

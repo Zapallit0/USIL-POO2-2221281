@@ -18,9 +18,9 @@ public class NPC extends  Entity{
         direction="down";
         speed=1;
         setAction();
-        getNPCImages();
+
     }
-    public void getNPCImages(){
+    public void getNPCImages(String State,String name){
         try {
             up1= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/TwoStates/babyPirate/standing.png")));
             up2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/TwoStates/babyPirate/attacking.png")));

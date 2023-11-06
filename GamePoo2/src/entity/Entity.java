@@ -20,6 +20,10 @@ public class Entity {
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collisionOn=false;
     public int actionCounter;
+    public int maxLife;
+
+    //CHARACTER STATUS
+
 
     public Entity(GamePanel gp) {
         this.gp=gp;

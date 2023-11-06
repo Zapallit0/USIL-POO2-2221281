@@ -13,9 +13,8 @@ public class pirateBaby extends NPC implements attackWithBullets {
         super(gp);
         direction="up";
         setAction();
-        getNPCImages();
+        getNPCImages("TwoStates","pirateBaby");
     }
-    DirectorEnemy directorEnemy=new DirectorEnemy();
 
     public void setAction(){
         actionCounter++;
