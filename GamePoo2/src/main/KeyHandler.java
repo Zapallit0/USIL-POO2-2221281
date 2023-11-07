@@ -21,7 +21,6 @@ public class KeyHandler implements KeyListener {
         //Menu inicial
         if(gp.gameState==gp.menuState){
             if(code==KeyEvent.VK_ENTER){
-                enterPressed=true;
                 gp.gameState=gp.principalState;
             }
             if (code == KeyEvent.VK_ESCAPE) {
@@ -32,7 +31,8 @@ public class KeyHandler implements KeyListener {
         //Principal Menu
         if(gp.gameState== gp.principalState){
             if (code == KeyEvent.VK_UP) {
-                if(gp.ui.commandMenuNum==0){}
+                if(gp.ui.commandMenuNum==0){
+                }
                 else{
                     gp.ui.commandMenuNum--;
                 }
@@ -45,11 +45,12 @@ public class KeyHandler implements KeyListener {
                 System.out.println(gp.ui.commandMenuNum);
             }
             if(code==KeyEvent.VK_ENTER) {
+                e.consume();
                 if (gp.ui.commandMenuNum == 0) {
-                    gp.gameState = gp.playState;
-                    gp.ui.commandMenuNum=0;
+                    gp.gameState=gp.playState;
                 }
                 if (gp.ui.commandMenuNum == 1) {
+
                 }
                 if (gp.ui.commandMenuNum == 2) {
                     gp.playMusic(2);

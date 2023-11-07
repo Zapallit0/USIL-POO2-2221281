@@ -1,10 +1,10 @@
 package main;
 
-import entity.NPC;
-import entity.pirateBaby;
-import entity.skullWalker;
+import entity.NPCS.pirateBaby;
+import entity.NPCS.redSpikes;
+import entity.NPCS.skullWalker;
 import object.*;
-//import entity.NPCwall;
+
 
 public class AssetSetter {
     GamePanel gp;
@@ -35,8 +35,6 @@ public class AssetSetter {
         gp.obj[9]=new OBJ_Key();
         gp.obj[9].worldX=41*gp.tileSize;
         gp.obj[9].worldY=6*gp.tileSize;
-//10
-
         gp.obj[10]=new OBJ_LowSpeed();
         gp.obj[10].worldX=37*gp.tileSize;
         gp.obj[10].worldY=16*gp.tileSize;
@@ -57,25 +55,22 @@ public class AssetSetter {
         gp.obj[7]=new OBJ_GOMUGOMU();
         gp.obj[7].worldX=10*gp.tileSize;
         gp.obj[7].worldY=13*gp.tileSize;
-
-
-
-
-
-
     }
     public void setNpc(){
         gp.npcs[0]=new pirateBaby(gp);
         gp.npcs[0].worldx=10*gp.tileSize;
         gp.npcs[0].worldy=12* gp.tileSize;
+
         gp.npcs[1]=new skullWalker(gp);
         gp.npcs[1].worldx=10*gp.tileSize;
         gp.npcs[1].worldy=10* gp.tileSize;
 
-       /* gp.npcs[2]=new NPCwall(gp);
+        gp.npcs[2]=new redSpikes(gp);
         gp.npcs[2].worldx=12*gp.tileSize;
-        gp.npcs[2].worldy=14* gp.tileSize;*/
+        gp.npcs[2].worldy=14* gp.tileSize;
 
-
+        gp.npcs[3]=new redSpikes(gp);
+        gp.npcs[3].worldx=38*gp.tileSize;
+        gp.npcs[3].worldy=14* gp.tileSize;
     }
 }

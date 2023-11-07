@@ -18,10 +18,13 @@ public class Player extends Entity{
     int speed;
     int standCounter=0;
     int life;
+    int maxLife;
     public int gear;
     int dmg;
+    String characterSelected="Luffy";
     DirectorCharacter director=new DirectorCharacter();
     CharacterBuilder LuffyPlayer=new CharacterBuilder();
+    CharacterBuilder ZoroPlayer=new CharacterBuilder();
 
 
     public Player(GamePanel gp,KeyHandler keyH){
@@ -29,7 +32,7 @@ public class Player extends Entity{
         this.keyH=keyH;
         screenX=gp.screenWidth/2-(gp.tileSize/2);
         screenY=gp.screenHeight/2-(gp.tileSize/2);
-        setDefaultValues();
+        setDefaultValues(characterSelected);
         solidArea=new Rectangle();
         solidArea.x=20;
         solidArea.y=40;
@@ -37,21 +40,32 @@ public class Player extends Entity{
         solidAreaDefaultY=solidArea.y;
         solidArea.height=40;
         solidArea.width=40;
-        getPlayersImg(LuffyPlayer.getImgs(), LuffyPlayer.getState());
+        if(characterSelected=="Luffy"){
+            getPlayersImg(LuffyPlayer.getImgs(), LuffyPlayer.getState());
+        }else if(characterSelected=="Zoro"){
+            getPlayersImg(ZoroPlayer.getImgs(), ZoroPlayer.getState());
+        }
     }
 
-    public void setDefaultValues(){
-        director.constructLuffy(LuffyPlayer);
+    public void setDefaultValues(String player){
         worldx=gp.worldWidth/2;
         worldy=10;
-        speed=LuffyPlayer.getSpeed();
-        life= LuffyPlayer.getLife();
-        dmg= LuffyPlayer.getDmg();
         direction="state";
+        if(Objects.equals(player, "Luffy")) {
+            director.constructLuffy(LuffyPlayer);
+            speed=LuffyPlayer.getSpeed();
+            life= LuffyPlayer.getLife();
+            maxLife=8;
+            dmg= LuffyPlayer.getDmg();
+        }
+        if(Objects.equals(player, "Zoro")){
+            director.constructZoro(ZoroPlayer);
+            speed=ZoroPlayer.getSpeed();
+            life=ZoroPlayer.getLife();
+            maxLife=6;
+            dmg= ZoroPlayer.getDmg();
+        }
     }
-
-
-
     public void update() throws IOException {
         if(keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed){
             if(keyH.upPressed){
@@ -168,7 +182,7 @@ public class Player extends Entity{
                     gp.ui.showMessage("Oh no , i feel sick");
 
                    // gp.player.speed--;
-                    speed--;
+                    speed=speed-3;
                     break;
 //gp.player getspeed --
 
@@ -289,5 +303,11 @@ public class Player extends Entity{
     }
     public int getLife(){
         return life;
+    }
+    public void setLife(int life) {
+        this.life = life;
+    }
+    public int getMaxLife(){
+        return maxLife;
     }
 }
