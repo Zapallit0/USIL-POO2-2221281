@@ -182,7 +182,7 @@ public class Player extends Entity{
                     gp.ui.showMessage("Oh no , i feel sick");
 
                    // gp.player.speed--;
-                    speed--;
+                    speed=speed-3;
                     break;
 //gp.player getspeed --
 

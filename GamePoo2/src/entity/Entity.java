@@ -57,7 +57,6 @@ public class Entity {
             spriteCounter=0;
         };
     }
-
     public void draw(Graphics2D g2){
         BufferedImage image=null;
 
