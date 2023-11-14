@@ -72,5 +72,6 @@ public class AssetSetter {
         gp.npcs[3]=new redSpikes(gp);
         gp.npcs[3].worldx=38*gp.tileSize;
         gp.npcs[3].worldy=14* gp.tileSize;
+
     }
 }
