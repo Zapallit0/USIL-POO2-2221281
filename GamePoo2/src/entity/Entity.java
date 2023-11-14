@@ -20,6 +20,8 @@ public class Entity {
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collisionOn=false;
     public int actionCounter;
+    public int widthNPC=80;
+    public int heightNPC=80;
 
     public Entity(GamePanel gp) {
         this.gp=gp;
@@ -43,22 +45,6 @@ public class Entity {
                 case "right":
                     worldx+=speed;
                     break;
-                case "up-right":
-                    worldy-=(speed-1);
-                    worldx+=(speed-1);
-                    break;
-                case "up-left":
-                    worldy-=(speed-1);
-                    worldx-=(speed-1);
-                    break;
-                case "down-left":
-                    worldy+=(speed-1);
-                    worldx-=(speed-1);
-                    break;
-                case "down-right":
-                    worldy+=(speed-1);
-                    worldx+=(speed-1);
-                    break;
             }
         }
         spriteCounter++;
@@ -71,7 +57,6 @@ public class Entity {
             spriteCounter=0;
         };
     }
-
     public void draw(Graphics2D g2){
         BufferedImage image=null;
 
@@ -122,7 +107,7 @@ public class Entity {
                     image=state2;
                     break;
             }
-            g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
+            g2.drawImage(image,screenX,screenY,widthNPC,heightNPC,null);
         }
     }
     public void getNPCImg(){}
@@ -140,6 +125,33 @@ public class Entity {
             state2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/"+base+"/waiting2.png")));
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void getEnemiesImg(String name, String states){
+        if(states=="TwoStates"){
+            try {
+                up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + states + "/" + name + "/goingUp2.png")));
+                up2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + states + "/" + name + "/goingUp1.png")));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else if (states=="FourStates") {
+            try {
+                up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + states + "/" + name + "/goingUp2.png")));
+                up2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + states + "/" + name + "/goingUp1.png")));
+                down1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + states + "/" + name + "/goingDown1.png")));
+                down2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + states + "/" + name + "/goingDown2.png")));
+                left1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + states + "/" + name + "/standingLeft.png")));
+                left2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + states + "/" + name + "/walkingLeft.png")));
+                right1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + states + "/" + name + "/standingRight.png")));
+                right2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + states + "/" + name + "/walkingRight.png")));
+                state = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + states + "/" + name + "/waiting1.png")));
+                state2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + states + "/" + name + "/waiting2.png")));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

@@ -1,7 +1,9 @@
 package main;
 
 import object.OBJ_Boots;
+import object.OBJ_Heart;
 import object.OBJ_Key;
+import object.SuperObject;
 
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
@@ -9,23 +11,20 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
 
-import entity.Transformations;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class UI extends JPanel{
     GamePanel gp;
     Graphics2D g2;
-    Font arial_40;
-    int speed;
+    Font fontOPTitles =new Font("ONE PIECE",Font.PLAIN,80);
+    Font fontOPSmall=new Font("ONE PIECE", Font.PLAIN,50);
+    Font fontOPMedium=new Font("ONE PIECE",Font.PLAIN,60);
     OBJ_Key key=new OBJ_Key();
     BufferedImage keyImg;
     OBJ_Boots boots=new OBJ_Boots();
     BufferedImage bootsImg;
-    Transformations luffyGear=new Transformations();
     BufferedImage geraImg;
-    int gearNumber=1;
     public boolean messageOn=false;
     public String message="";
     int messageCounter=0;
@@ -36,7 +35,6 @@ public class UI extends JPanel{
 
 
     //Texto variables
-
     private int resumeX,resumeY;
     public int commandMenuNum=0;
     public int commandPauseNum=0;
@@ -54,11 +52,19 @@ public class UI extends JPanel{
     BufferedImage menuState=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/GameStates/MenuState/background.png")));
     BufferedImage principalState=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/GameStates/PrincipalState/backgroundMenuPrincipal.png")));
     BufferedImage mapPauseState= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/GameStates/PauseState/MapaPauseState.png")));
-    public UI(GamePanel gp) throws IOException {
+
+    //Player Life
+    BufferedImage heart_full, heart_half, heart_blank;
+    SuperObject heart=new OBJ_Heart(gp);
+
+
+    public UI(GamePanel gp) throws IOException, FontFormatException {
         this.gp=gp;
-        arial_40=new Font("Arial",Font.PLAIN,30);
         keyImg=key.image;
         bootsImg=boots.image;
+        heart_full=heart.image;
+        heart_half=heart.image2;
+        heart_blank=heart.image3;
     }
     public void showMessage(String text){
         message=text;
@@ -66,8 +72,8 @@ public class UI extends JPanel{
     }
     public void draw(Graphics2D g2){
         this.g2=g2;
-         g2.setFont(arial_40);
-         g2.setColor(Color.white);
+        g2.setFont(fontOPTitles);
+        g2.setColor(Color.white);
          if(gp.gameState==gp.menuState){
             drawMenuStart(g2);
          }
@@ -91,27 +97,27 @@ public class UI extends JPanel{
         int tituloMenuX = (gp.screenWidth - tituloMenuWidth) / 2;
         int tituloMenuY = 200;
         g2.drawString(tituloMenu, tituloMenuX, tituloMenuY);
-
-        setFont(g2.getFont().deriveFont(Font.BOLD, 200));
+        setFont(g2.getFont().deriveFont(Font.PLAIN, 80F));
         String playButton = "Play";
         int playButtonWidth = g2.getFontMetrics().stringWidth(playButton);
         int playButtonX = (gp.screenWidth - playButtonWidth) / 2;
-        int playButtonY = 350; // Adjust the Y-coordinate as needed
+        int playButtonY = 350;
         g2.drawString(playButton, playButtonX, playButtonY);
     }
     public void drawPlayState(Graphics2D g2){
+        drawPlayerLife();
         drawRecStats(g2);
+        g2.setFont(fontOPSmall);
+        g2.setColor(Color.WHITE);
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, transparencyText));
-        g2.setFont(arial_40);
-        g2.setColor(Color.white);
-        g2.drawString("  ="+gp.player.hasKey,40,50);
-        g2.drawImage(keyImg,20,20, iconWidth,iconHeight,null);
-        g2.drawString("  ="+gp.player.getSpeed(),40,90);
-        g2.drawImage(bootsImg,20,60,iconWidth,iconHeight,null);
-        g2.drawString("  ="+gp.player.getGear(),40,125);
-        g2.drawImage(geraImg,20,100,iconWidth,iconHeight,null);
+        g2.drawString("  ="+gp.player.hasKey,50,100);
+        g2.drawImage(keyImg,30,70, iconWidth,iconHeight,null);
+        g2.drawString("  ="+gp.player.getSpeed(),50,140);
+        g2.drawImage(bootsImg,30,110,iconWidth,iconHeight,null);
+        g2.drawString("  ="+gp.player.getGear(),50,175);
+        g2.drawImage(geraImg,30,150,iconWidth,iconHeight,null);
         if(messageOn){
-            g2.setFont(g2.getFont().deriveFont(20F));
+            g2.setFont(g2.getFont().deriveFont(32F));
             g2.drawString(message,gp.tileSize/2,gp.tileSize*5);
             messageCounter++;
             if(messageCounter>120){
@@ -124,7 +130,7 @@ public class UI extends JPanel{
     public void drawRecStats(Graphics2D g){
         ((Graphics2D) g).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, transparency));
         int x = 10;
-        int y = 10;
+        int y = 60;
         int width = 150;
         int height = 150;
         int arcWidth = 20;
@@ -133,12 +139,11 @@ public class UI extends JPanel{
         g.setColor(Color.GRAY);
         g.fill(roundedRect);
     }
-
     public void drawPauseState(Graphics2D g2){
+        g2.setFont(fontOPMedium);
         drawRectangle(g2,0,0,gp.screenWidth,gp.screenHeight,0.7f);
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, transparencyText));
         g2.drawImage(mapPauseState,250,50,600,550,null);
-        g2.setFont(new Font("Arial", Font.BOLD, 36));
         g2.setColor(Color.BLACK);
 
         //"Game Paused"
@@ -185,7 +190,7 @@ public class UI extends JPanel{
         drawRectangle(g2,0,0,gp.screenWidth,gp.screenHeight,0.7f);
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, transparencyText));
         g2.drawImage(mapPauseState,250,50,600,550,null);
-        g2.setFont(new Font("Arial", Font.BOLD, 36));
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN,32F));
         g2.setColor(Color.BLACK);
 
         //"Game Paused"
@@ -220,10 +225,10 @@ public class UI extends JPanel{
 
     }
     public void drawPrincipalState(Graphics2D g2){
+        g2.setFont(fontOPMedium);
         drawRectangle(g2,0,0,gp.screenWidth,gp.screenHeight,0.7f);
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, transparencyText));
         g2.drawImage(principalState,0,0,gp.screenWidth,gp.screenHeight,null);
-        g2.setFont(new Font("Arial", Font.BOLD, 36));
         g2.setColor(Color.WHITE);
         //"TITLE"
         String menu = "MENU";
@@ -267,5 +272,31 @@ public class UI extends JPanel{
         g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, transparencia));
         g2d.setColor(Color.BLACK);
         g2d.fillRect(x, y, width, height);
+    }
+    public void drawCharacterSelector(){
+        g2.setFont(fontOPSmall);
+    }
+
+    public void drawPlayerLife(){
+        int x=gp.tileSize/6;
+        int y=5;
+        int i=0;
+        while(i<gp.player.getMaxLife()/2){
+            g2.drawImage(heart_blank,x,y,50,50,null);
+            i++;
+            x+=gp.tileSize/2;
+        }
+        x=gp.tileSize/6;
+        y=5;
+        i=0;
+        while(i<gp.player.getLife()){
+            g2.drawImage(heart_half,x,y,50,50,null);
+            i++;
+            if(i<gp.player.getLife()){
+                g2.drawImage(heart_full,x,y,50,50,null);
+            }
+            i++;
+            x+=gp.tileSize/2;
+        }
     }
 }
