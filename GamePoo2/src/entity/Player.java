@@ -49,7 +49,7 @@ public class Player extends Entity{
 
     public void setDefaultValues(String player){
         worldx=gp.worldWidth/2;
-        worldy=10;
+        worldy=gp.tileSize*5;
         direction="state";
         if(Objects.equals(player, "Luffy")) {
             director.constructLuffy(LuffyPlayer);
@@ -252,6 +252,14 @@ public class Player extends Entity{
     }
     public int getSpeed(){
         return speed;
+    }
+    public void setSpeed(int speed){
+        if(characterSelected=="Luffy"){
+            LuffyPlayer.setSpeed(speed);
+        }
+        if(characterSelected=="Zoro"){
+            ZoroPlayer.setSpeed(speed);
+        }
     }
     public void draw(Graphics2D g2){
         BufferedImage image=null;

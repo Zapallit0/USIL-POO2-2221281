@@ -13,20 +13,12 @@ public class AssetSetter {
     }
     public void setObject(){
         gp.obj[0]=new OBJ_Door("L");
-        gp.obj[0].worldX=20*gp.tileSize;
-        gp.obj[0].worldY=12*gp.tileSize;
+        gp.obj[0].worldX=24*gp.tileSize;
+        gp.obj[0].worldY=16*gp.tileSize;
 
         gp.obj[1]=new OBJ_Door("R");
-        gp.obj[1].worldX=28*gp.tileSize;
-        gp.obj[1].worldY=12*gp.tileSize;
-
-        gp.obj[2]=new OBJ_Key();
-        gp.obj[2].worldX=22*gp.tileSize;
-        gp.obj[2].worldY=12*gp.tileSize;
-
-        gp.obj[3]=new OBJ_Key();
-        gp.obj[3].worldX=23*gp.tileSize;
-        gp.obj[3].worldY=12*gp.tileSize;
+        gp.obj[1].worldX=32*gp.tileSize;
+        gp.obj[1].worldY=16*gp.tileSize;
 
         gp.obj[8]=new OBJ_Key();
         gp.obj[8].worldX=40*gp.tileSize;
@@ -35,26 +27,10 @@ public class AssetSetter {
         gp.obj[9]=new OBJ_Key();
         gp.obj[9].worldX=41*gp.tileSize;
         gp.obj[9].worldY=6*gp.tileSize;
+
         gp.obj[10]=new OBJ_LowSpeed();
         gp.obj[10].worldX=37*gp.tileSize;
         gp.obj[10].worldY=16*gp.tileSize;
-
-
-        gp.obj[4]=new OBJ_Chest("L");
-        gp.obj[4].worldX=5*gp.tileSize;
-        gp.obj[4].worldY=12*gp.tileSize;
-
-        gp.obj[5]=new OBJ_Chest("R");
-        gp.obj[5].worldX=40*gp.tileSize;
-        gp.obj[5].worldY=12*gp.tileSize;
-
-        gp.obj[6]=new OBJ_Barrel();
-        gp.obj[6].worldX=10*gp.tileSize;
-        gp.obj[6].worldY=9*gp.tileSize;
-
-        gp.obj[7]=new OBJ_GOMUGOMU();
-        gp.obj[7].worldX=10*gp.tileSize;
-        gp.obj[7].worldY=13*gp.tileSize;
     }
     public void setNpc(){
         gp.npcs[0]=new pirateBaby(gp);
@@ -66,11 +42,15 @@ public class AssetSetter {
         gp.npcs[1].worldy=10* gp.tileSize;
 
         gp.npcs[2]=new redSpikes(gp);
-        gp.npcs[2].worldx=12*gp.tileSize;
-        gp.npcs[2].worldy=14* gp.tileSize;
+        gp.npcs[2].worldx=25*gp.tileSize;
+        gp.npcs[2].worldy=12* gp.tileSize;
 
         gp.npcs[3]=new redSpikes(gp);
-        gp.npcs[3].worldx=38*gp.tileSize;
-        gp.npcs[3].worldy=14* gp.tileSize;
+        gp.npcs[3].worldx=25*gp.tileSize;
+        gp.npcs[3].worldy=13* gp.tileSize;
+
+        gp.npcs[4]=new redSpikes(gp);
+        gp.npcs[4].worldx=25*gp.tileSize;
+        gp.npcs[4].worldy=11* gp.tileSize;
     }
 }
