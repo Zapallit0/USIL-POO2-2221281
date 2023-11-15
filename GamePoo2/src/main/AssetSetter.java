@@ -41,15 +41,15 @@ public class AssetSetter {
         gp.npcs[1].worldx=10*gp.tileSize;
         gp.npcs[1].worldy=10* gp.tileSize;
 
-        gp.npcs[2]=new redSpikes(gp);
+        gp.npcs[2]=new redSpikes(gp,"right");
         gp.npcs[2].worldx=25*gp.tileSize;
         gp.npcs[2].worldy=12* gp.tileSize;
 
-        gp.npcs[3]=new redSpikes(gp);
+        gp.npcs[3]=new redSpikes(gp,"left");
         gp.npcs[3].worldx=25*gp.tileSize;
         gp.npcs[3].worldy=13* gp.tileSize;
 
-        gp.npcs[4]=new redSpikes(gp);
+        gp.npcs[4]=new redSpikes(gp,"right");
         gp.npcs[4].worldx=25*gp.tileSize;
         gp.npcs[4].worldy=11* gp.tileSize;
     }

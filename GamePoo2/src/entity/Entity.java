@@ -23,6 +23,7 @@ public class Entity {
     public int movementCounter;
     public int widthNPC=80;
     public int heightNPC=80;
+    public String side;
 
     public Entity(GamePanel gp) {
         this.gp=gp;

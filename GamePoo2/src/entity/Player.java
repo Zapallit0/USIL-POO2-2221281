@@ -315,6 +315,24 @@ public class Player extends Entity{
     public void setLife(int life) {
         this.life = life;
     }
+    public void lessLife(int nlife){
+        if(characterSelected=="Luffy"){
+            nlife=life-nlife;
+            LuffyPlayer.setLife(nlife);
+        }else if(characterSelected=="Zoro"){
+            nlife=life-nlife;
+            ZoroPlayer.setLife(nlife);
+        }
+    }
+    public void moreLife(int nlife){
+        if(characterSelected=="Luffy"){
+            nlife=life+nlife;
+            LuffyPlayer.setLife(nlife);
+        }else if(characterSelected=="Zoro"){
+            nlife=life+nlife;
+            ZoroPlayer.setLife(nlife);
+        }
+    }
     public int getMaxLife(){
         return maxLife;
     }
