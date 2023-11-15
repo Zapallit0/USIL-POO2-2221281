@@ -23,16 +23,16 @@ public class NPC extends Entity {
     public void getNPCImages(String State,String name){
         if(State=="TwoStates") {
             try {
-                up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/firstState.png")));
-                up2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/firstState.png")));
+                up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
+                up2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
                 down1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
                 down2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
                 left1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
                 left2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
-                right1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/firstState.png")));
-                right2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/firstState.png")));
-                state = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/firstState.png")));
-                state2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/firstState.png")));
+                right1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
+                right2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
+                state = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
+                state2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
             } catch (IOException e) {
                 e.printStackTrace();
             }
