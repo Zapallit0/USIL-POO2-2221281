@@ -236,13 +236,16 @@ public class UI extends JPanel{
         menuX = (gp.screenWidth - menuWidth) / 2;
         menuY = 200;
         g2.drawString(menu, menuX, menuY);
+        if(commandMenuNum==0){
+            g2.drawString(" ",newGameX-gp.tileSize,newGameY);
+        }
         //"New game"
         String newGame = "NEW GAME";
         newGameWidth = g2.getFontMetrics().stringWidth(newGame);
         newGameX = (gp.screenWidth - newGameWidth) / 2;
         newGameY = 300;
         g2.drawString(newGame, newGameX, newGameY);
-        if(commandMenuNum==0){
+        if(commandMenuNum==1){
             g2.drawString(">>",newGameX-gp.tileSize,newGameY);
         }
 
@@ -252,7 +255,7 @@ public class UI extends JPanel{
         resumeGameX = (gp.screenWidth - resumeGameWidth) / 2;
         resumeGameY = 400;
         g2.drawString(resumeGame, resumeGameX, resumeGameY);
-        if(commandMenuNum==1){
+        if(commandMenuNum==2){
             g2.drawString(">>",resumeGameX-gp.tileSize,resumeGameY);
         }
 
@@ -263,7 +266,7 @@ public class UI extends JPanel{
         optionsY= 500;
         g2.drawString(options, optionsX, optionsY);
 
-        if(commandMenuNum==2){
+        if(commandMenuNum==3){
             g2.drawString(">>",optionsX-gp.tileSize,optionsY);
         }
     }
