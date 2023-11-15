@@ -14,29 +14,48 @@ import java.util.Random;
 public class NPC extends Entity {
     protected KeyHandler keyH;
     String stateNPC;
+
     public NPC(GamePanel gp) {
         super(gp);
-        direction="down";
-        speed=1;
+        direction = "down";
+        speed = 1;
         setAction();
     }
-    public void getNPCImages(String State,String name){
-        if(State=="TwoStates") {
+
+    public void getNPCImages(String State, String name) {
+        if (State == "OneState") {
             try {
-                up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
-                up2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
-                down1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
-                down2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
-                left1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
-                left2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
-                right1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
-                right2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
-                state = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
-                state2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondStateAttack.png")));
+                up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondState.png")));
+                up2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondState.png")));
+                down1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondState.png")));
+                down2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondState.png")));
+                left1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondState.png")));
+                left2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondState.png")));
+                right1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondState.png")));
+                right2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondState.png")));
+                state = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondState.png")));
+                state2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondState.png")));
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else if (State=="FourStates") {
+
+        }
+        if (State == "TwoStates") {
+            try {
+                up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/firstState.png")));
+                up2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondState.png")));
+                down1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/firstState.png")));
+                down2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondState.png")));
+                left1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/firstState.png")));
+                left2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondState.png")));
+                right1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/firstState.png")));
+                right2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondState.png")));
+                state = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/firstState.png")));
+                state2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondState.png")));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (State == "FourStates") {
             try {
                 up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/up1.png")));
                 up2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/up2.png")));
@@ -52,27 +71,30 @@ public class NPC extends Entity {
                 e.printStackTrace();
             }
         }
-    }
 
-    public void setAction(){
-        actionCounter++;
-        if(actionCounter==180) {
-            Random random = new Random();
-            int i = random.nextInt(100) + 1;
-            if (i <= 25) {
-                direction = "up";
-            }
-            if (i > 25 && i <= 50) {
-                direction = "down";
-            }
-            if (i > 50 && i <= 75) {
-                direction = "left";
-            }
-            if (i > 75 && i <= 100) {
-                direction = "right";
-            }
-            actionCounter=0;
+
+
         }
-    }
 
-}
+        public void setAction () {
+            actionCounter++;
+            if (actionCounter == 180) {
+                Random random = new Random();
+                int i = random.nextInt(100) + 1;
+                if (i <= 25) {
+                    direction = "up";
+                }
+                if (i > 25 && i <= 50) {
+                    direction = "down";
+                }
+                if (i > 50 && i <= 75) {
+                    direction = "left";
+                }
+                if (i > 75 && i <= 100) {
+                    direction = "right";
+                }
+                actionCounter = 0;
+            }
+        }
+
+    }

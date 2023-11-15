@@ -10,5 +10,6 @@ public class pirateBaby extends NPC {
         speed=3;
         setAction();
         getNPCImages("TwoStates","babyPirate");
+        stateNPC="TwoStates";
     }
 }

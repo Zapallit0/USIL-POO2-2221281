@@ -1,5 +1,6 @@
 package main;
 
+import entity.NPCS.coco;
 import entity.NPCS.pirateBaby;
 import entity.NPCS.redSpikes;
 import entity.NPCS.skullWalker;
@@ -52,5 +53,10 @@ public class AssetSetter {
         gp.npcs[4]=new redSpikes(gp);
         gp.npcs[4].worldx=25*gp.tileSize;
         gp.npcs[4].worldy=11* gp.tileSize;
+
+        gp.npcs[5]=new coco(gp);
+        gp.npcs[5].worldx=20*gp.tileSize;
+        gp.npcs[5].worldy=10* gp.tileSize;
+
     }
 }

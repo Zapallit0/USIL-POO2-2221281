@@ -51,6 +51,12 @@ public class TileManager {
             tile[11]=new Tile();
             tile[11].collision=true;
             tile[11].image= ImageIO.read(getClass().getResourceAsStream("/tiles/t8.png"));
+            tile[12]=new Tile();
+            tile[12].collision=true;
+            tile[12].image= ImageIO.read(getClass().getResourceAsStream("/Enemies/TwoStates/coco/firstState.png"));
+            tile[13]=new Tile();
+            tile[13].collision=true;
+            tile[13].image= ImageIO.read(getClass().getResourceAsStream("/Enemies/TwoStates/coco/secondState.png"));
         }catch (IOException e){
             e.printStackTrace();
         }

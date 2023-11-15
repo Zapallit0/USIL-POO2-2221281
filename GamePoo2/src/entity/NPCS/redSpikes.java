@@ -11,7 +11,7 @@ public class redSpikes extends NPC{
         direction="right";
         speed=6;
         setAction();
-        getNPCImages("TwoStates","redSpikes");
+        getNPCImages("OneState","redSpikes");
         stateNPC="TwoStates";
     }
     @Override
