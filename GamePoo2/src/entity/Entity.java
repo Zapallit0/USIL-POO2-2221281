@@ -20,6 +20,7 @@ public class Entity {
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collisionOn=false;
     public int actionCounter;
+    public int movementCounter;
     public int widthNPC=80;
     public int heightNPC=80;
 

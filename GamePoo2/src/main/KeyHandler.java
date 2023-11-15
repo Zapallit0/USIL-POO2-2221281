@@ -38,21 +38,22 @@ public class KeyHandler implements KeyListener {
                 }
             }
             if (code == KeyEvent.VK_DOWN) {
-                if(gp.ui.commandMenuNum==2){}
+                if(gp.ui.commandMenuNum==3){}
                 else{
                     gp.ui.commandMenuNum++;
                 }
                 System.out.println(gp.ui.commandMenuNum);
             }
+
             if(code==KeyEvent.VK_ENTER) {
                 e.consume();
-                if (gp.ui.commandMenuNum == 0) {
+                if (gp.ui.commandMenuNum == 1) {
                     gp.gameState=gp.playState;
                 }
-                if (gp.ui.commandMenuNum == 1) {
+                if (gp.ui.commandMenuNum == 2) {
 
                 }
-                if (gp.ui.commandMenuNum == 2) {
+                if (gp.ui.commandMenuNum == 3) {
                     gp.playMusic(2);
                     gp.ui.commandMenuNum=0;
                 }

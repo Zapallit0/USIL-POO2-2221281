@@ -7,7 +7,6 @@ import java.awt.*;
 import java.io.IOException;
 
 public class OBJ_Door extends SuperObject{
-
     public OBJ_Door(){
         name="Door";
         try{
@@ -27,7 +26,7 @@ public class OBJ_Door extends SuperObject{
             collision = true;
         }else if (lado=="R") {
             name = "DoorRight";
-            solidArea=new Rectangle(0,0,20,80);
+            solidArea=new Rectangle(60,0,20,80);
             try {
                 image = ImageIO.read(getClass().getResourceAsStream("/Objects/RightDoor.png"));
             } catch (IOException e) {
