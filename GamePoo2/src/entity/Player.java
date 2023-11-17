@@ -55,7 +55,7 @@ public class Player extends Entity{
             director.constructLuffy(LuffyPlayer);
             speed=LuffyPlayer.getSpeed();
             life= LuffyPlayer.getLife();
-            maxLife=8;
+            maxLife=10;
             dmg= LuffyPlayer.getDmg();
         }
         if(Objects.equals(player, "Zoro")){
@@ -101,6 +101,8 @@ public class Player extends Entity{
             //Check Collision npc
             int npcIndex=gp.cChercker.checkEntity(this,gp.npcs);
             interactNPC(npcIndex);
+            //CheckEvent
+            gp.eHandler.checkEvent();
             //if collision is false, player can move
             if(!collisionOn){
                 switch (direction){
@@ -175,8 +177,6 @@ public class Player extends Entity{
                     gear++;
                     LuffyPlayer.setState("Second");
                     break;
-
-
                 case "LowSpeed":
                     gp.obj[i]=null;
                     gp.ui.showMessage("Oh no , i feel sick");
@@ -184,8 +184,6 @@ public class Player extends Entity{
                    // gp.player.speed--;
                     speed=speed-3;
                     break;
-//gp.player getspeed --
-
                 case "Door":
                     if(hasKey>0){
                         gp.obj[i]=null;
@@ -215,7 +213,6 @@ public class Player extends Entity{
                 case "DoorRight":
                     if(hasKey>0){
                         gp.obj[i].name="DoorOpen";
-                        gp.obj[i].collision=false;
                         hasKey--;
                         gp.obj[i].setDoorOpenRight();
                     }
@@ -226,7 +223,6 @@ public class Player extends Entity{
                 case "DoorLeft":
                     if(hasKey>0){
                         gp.obj[i].name="DoorOpen";
-                        gp.obj[i].collision=false;
                         hasKey--;
                         gp.obj[i].setDoorOpenLeft();
                     }
@@ -310,10 +306,13 @@ public class Player extends Entity{
         return gear;
     }
     public int getLife(){
+        if(characterSelected=="Luffy"){
+            life=LuffyPlayer.getLife();
+        };
+        if(characterSelected=="Zoro"){
+            life=ZoroPlayer.getLife();
+        }
         return life;
-    }
-    public void setLife(int life) {
-        this.life = life;
     }
     public void lessLife(int nlife){
         if(characterSelected=="Luffy"){
