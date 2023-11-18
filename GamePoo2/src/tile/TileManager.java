@@ -57,6 +57,22 @@ public class TileManager {
             tile[13]=new Tile();
             tile[13].collision=true;
             tile[13].image= ImageIO.read(getClass().getResourceAsStream("/Enemies/TwoStates/coco/secondState.png"));
+            tile[14]=new Tile();
+            tile[14].collision=false;
+            tile[14].image= ImageIO.read(getClass().getResourceAsStream("/tiles/watersensible.png"));
+            tile[15]=new Tile();
+            tile[15].collision=false;
+            tile[15].image= ImageIO.read(getClass().getResourceAsStream("/tiles/m2.png"));
+            tile[16]=new Tile();
+            tile[16].collision=false;
+            tile[16].image= ImageIO.read(getClass().getResourceAsStream("/tiles/m3.png"));
+            tile[17]=new Tile();
+            tile[17].collision=false;
+            tile[17].image= ImageIO.read(getClass().getResourceAsStream("/tiles/m4.png"));
+            tile[18]=new Tile();
+            tile[18].collision=false;
+            tile[18].image= ImageIO.read(getClass().getResourceAsStream("/tiles/n1.png"));
+
         }catch (IOException e){
             e.printStackTrace();
         }

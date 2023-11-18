@@ -23,6 +23,8 @@ public class NPC extends Entity {
     }
 
     public void getNPCImages(String State, String name) {
+
+
         if (State == "OneState") {
             try {
                 up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondState.png")));
@@ -55,7 +57,8 @@ public class NPC extends Entity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else if (State == "FourStates") {
+        }
+        else if (State == "FourStates") {
             try {
                 up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/up1.png")));
                 up2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/up2.png")));
@@ -70,11 +73,11 @@ public class NPC extends Entity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
 
 
+            }
+            }
 
-        }
 
         public void setAction () {
             actionCounter++;
@@ -98,3 +101,4 @@ public class NPC extends Entity {
         }
 
     }
+

@@ -1,9 +1,6 @@
 package main;
 
-import entity.NPCS.coco;
-import entity.NPCS.pirateBaby;
-import entity.NPCS.redSpikes;
-import entity.NPCS.skullWalker;
+import entity.NPCS.*;
 import object.*;
 
 
@@ -22,7 +19,7 @@ public class AssetSetter {
         gp.obj[1].worldY=16*gp.tileSize;
 
         gp.obj[8]=new OBJ_Key();
-        gp.obj[8].worldX=40*gp.tileSize;
+        gp.obj[8].worldX=45*gp.tileSize;
         gp.obj[8].worldY=9*gp.tileSize;
 
         gp.obj[9]=new OBJ_Key();
@@ -32,6 +29,10 @@ public class AssetSetter {
         gp.obj[10]=new OBJ_LowSpeed();
         gp.obj[10].worldX=37*gp.tileSize;
         gp.obj[10].worldY=16*gp.tileSize;
+
+        gp.obj[11]=new OBJ_Message();
+        gp.obj[11].worldX=28*gp.tileSize;
+        gp.obj[11].worldY=6*gp.tileSize;
     }
     public void setNpc(){
         gp.npcs[0]=new pirateBaby(gp);
@@ -55,8 +56,31 @@ public class AssetSetter {
         gp.npcs[4].worldy=11* gp.tileSize;
 
         gp.npcs[5]=new coco(gp);
-        gp.npcs[5].worldx=20*gp.tileSize;
+        gp.npcs[5].worldx=36*gp.tileSize;
         gp.npcs[5].worldy=10* gp.tileSize;
 
+        gp.npcs[6]=new coco(gp);
+        gp.npcs[6].worldx=38*gp.tileSize;
+        gp.npcs[6].worldy=10* gp.tileSize;
+
+        gp.npcs[7]=new coco(gp);
+        gp.npcs[7].worldx=20*gp.tileSize;
+        gp.npcs[7].worldy=10* gp.tileSize;
+
+        gp.npcs[8]=new coco(gp);
+        gp.npcs[8].worldx=40*gp.tileSize;
+        gp.npcs[8].worldy=10* gp.tileSize;
+
+        gp.npcs[9]=new coco(gp);
+        gp.npcs[9].worldx=35*gp.tileSize;
+        gp.npcs[9].worldy=27* gp.tileSize;
+
+        gp.npcs[10]=new coco(gp);
+        gp.npcs[10].worldx=35*gp.tileSize;
+        gp.npcs[10].worldy=29* gp.tileSize;
+
+        gp.npcs[11]=new coco(gp);
+        gp.npcs[11].worldx=35*gp.tileSize;
+        gp.npcs[11].worldy=35* gp.tileSize;
     }
 }
