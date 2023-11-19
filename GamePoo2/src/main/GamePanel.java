@@ -44,7 +44,7 @@ public class GamePanel extends JPanel implements Runnable{
     public AssetSetter aSetter=new AssetSetter(this);
     public Player player=new Player(this,keyH);
     public SuperObject obj[]=new SuperObject[20];
-    public NPC npcs[]=new NPC[10];
+    public NPC npcs[]=new NPC[15];
 
     //GAME STATE
     public int gameState;
