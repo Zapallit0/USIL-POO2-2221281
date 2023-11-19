@@ -4,7 +4,7 @@ import entity.playerBuilder.DirectorCharacter;
 import main.GamePanel;
 import main.KeyHandler;
 
-import javax.imageio.ImageIO;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -142,7 +142,7 @@ public class Player extends Entity{
                     spriteNum=1;
                 }
                 spriteCounter=0;
-            };
+            }
         }
         else{
             standCounter++;
@@ -175,11 +175,16 @@ public class Player extends Entity{
                     gear++;
                     LuffyPlayer.setState("Second");
                     break;
+                case "Msg":
+                    gp.obj[i]=null;
+                    gp.playSE(3);
+                    gp.ui.showMessage("Parece que mi nave se estrello, debo encontrar llaves");
 
+                    break;
 
                 case "LowSpeed":
                     gp.obj[i]=null;
-                    gp.ui.showMessage("Oh no , i feel sick");
+                    gp.ui.showMessage("Oh no , Estoy llenito D:");
 
                    // gp.player.speed--;
                     speed=speed-3;
