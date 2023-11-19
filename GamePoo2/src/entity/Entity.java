@@ -10,20 +10,17 @@ import java.util.Objects;
 
 public class Entity {
     GamePanel gp;
-    public int worldx,worldy;
-    public int speed;
+    public float worldx;
+    public float worldy;
+    public float speed;
     public BufferedImage up1,up2,down1,down2,left1,left2,right1,right2,state,state2;
     public String direction;
-    public int spriteCounter=0;
-    public int spriteNum=1;
+    public int spriteCounter=0,spriteNum=1;
     public Rectangle solidArea=new Rectangle(0,0,48,48);
     public int solidAreaDefaultX, solidAreaDefaultY;
-    public boolean collisionOn=false;
-    public int actionCounter;
-    public int movementCounter;
-    public int widthNPC=80;
-    public int heightNPC=80;
-    public String side;
+    public boolean collisionOn=false, invincible;
+    public int actionCounter,movementCounter,widthNPC=80,heightNPC=80,invincibleCounter=0,type;
+
 
     public Entity(GamePanel gp) {
         this.gp=gp;
@@ -33,6 +30,9 @@ public class Entity {
         setAction();
         collisionOn=false;
         gp.cChercker.checkTile(this);
+        gp.cChercker.checkObject(this,false);
+
+
         if(!collisionOn){
             switch (direction){
                 case"up","up-left":
@@ -63,8 +63,8 @@ public class Entity {
     public void draw(Graphics2D g2){
         BufferedImage image=null;
 
-        int screenX=worldx-gp.player.worldx+gp.player.screenX;
-        int screenY=worldy-gp.player.worldy+gp.player.screenY;
+        int screenX=(int)worldx-(int)gp.player.worldx+gp.player.screenX;
+        int screenY=(int)worldy-(int)gp.player.worldy+gp.player.screenY;
       
         if(worldx+gp.tileSize>gp.player.worldx-gp.player.screenX &&
                 worldy-gp.tileSize<gp.player.worldx+gp.player.screenX &&

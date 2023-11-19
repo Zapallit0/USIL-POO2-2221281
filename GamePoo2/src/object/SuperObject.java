@@ -19,8 +19,8 @@ public class SuperObject {
     UtilityTool uTool=new UtilityTool();
 
     public void draw(Graphics2D g2, GamePanel gp){
-        int screenX=worldX-gp.player.worldx+gp.player.screenX;
-        int screenY=worldY-gp.player.worldy+gp.player.screenY;
+        int screenX=worldX-(int)gp.player.worldx+gp.player.screenX;
+        int screenY=worldY-(int)gp.player.worldy+gp.player.screenY;
         if(worldX+gp.tileSize>gp.player.worldx-gp.player.screenX &&
                 worldX-gp.tileSize<gp.player.worldx+gp.player.screenX &&
                 worldY+gp.tileSize>gp.player.worldy-gp.player.screenY &&
@@ -29,14 +29,4 @@ public class SuperObject {
             g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
         }
     }
-    public void setDoorOpenRight() throws IOException {
-        this.image= ImageIO.read(getClass().getResourceAsStream("/Objects/RightDoorOpen.png"));
-    }
-    public void setDoorOpenLeft() throws IOException {
-        this.image=ImageIO.read(getClass().getResourceAsStream("/Objects/LeftDoorOpen.png"));
-    }
-    public void setChestOpen() throws IOException{
-        this.image=ImageIO.read(getClass().getResourceAsStream("/Objects/chestOpen.png"));
-    }
-
 }

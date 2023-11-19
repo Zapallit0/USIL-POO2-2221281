@@ -6,6 +6,7 @@ import javax.sound.sampled.Clip;
 import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.Objects;
 
 public class Sound {
     Clip clip;
@@ -21,7 +22,7 @@ public class Sound {
 
     public void setFile(int i){
         try {
-            AudioInputStream ais= AudioSystem.getAudioInputStream(getClass().getResourceAsStream(soundURL[i]));
+            AudioInputStream ais= AudioSystem.getAudioInputStream(Objects.requireNonNull(getClass().getResourceAsStream(soundURL[i])));
             clip=AudioSystem.getClip();
             clip.open(ais);
         }catch (Exception e){

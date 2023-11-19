@@ -11,50 +11,36 @@ import java.io.IOException;
 
 public class GamePanel extends JPanel implements Runnable{
     //SCREEN SETTINGS
-    final int originalTileSize=16;
-    final int scale=5;
+    final int originalTileSize=16,scale=5;
     final public int tileSize=originalTileSize*scale; //80*80
-    public final int maxScreenCol=14;
-    public final int getMaxScreenRow=8;
-    public final int screenWidth=tileSize*maxScreenCol;// px
-    public final int screenHeight=tileSize*getMaxScreenRow;//576 px
-
-
+    public final int maxScreenCol=14,getMaxScreenRow=8;
+    public final int screenWidth=tileSize*maxScreenCol,screenHeight=tileSize*getMaxScreenRow;//576 px
     //World settings
-    public final int maxWorldCol=59;
-    public final int maxWorldRow=67;
+    public final int maxWorldCol=59,maxWorldRow=67;
     public final int worldWidth=tileSize*maxWorldCol;
     public final int worldHeight=tileSize*maxWorldRow;
-
     //FPS
     int FPS=60;
-
     //Tilemanager generacion de tiles Musica
     TileManager tileM=new TileManager(this);
     KeyHandler keyH=new KeyHandler(this);
     Sound music=new Sound();
     Sound se=new Sound();
     public UI ui=new UI(this);
-
     //EventHandler
     public EventHandler eHandler=new EventHandler(this);
+
     //Start the clock of the game
     Thread gameThread;
     public CollisionChecker cChercker=new CollisionChecker(this);
     public AssetSetter aSetter=new AssetSetter(this);
     public Player player=new Player(this,keyH);
     public SuperObject obj[]=new SuperObject[20];
-    public NPC npcs[]=new NPC[15];
+    public NPC npcs[]=new NPC[25];
 
     //GAME STATE
     public int gameState;
-    public final int menuState=0;
-    public final int playState=1;
-    public final int pauseState=2;
-    public final int deathState=3;
-    public final int principalState=4;
-    public final int optionsState=5;
-    public final int charactersState=6;
+    public final int menuState=0,playState=1,pauseState=2,deathState=3,principalState=4, optionsState=5, charactersState=6;
 
 
     public GamePanel() throws IOException, FontFormatException {

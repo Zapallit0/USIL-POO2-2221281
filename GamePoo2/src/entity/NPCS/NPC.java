@@ -14,17 +14,16 @@ import java.util.Random;
 public class NPC extends Entity {
     protected KeyHandler keyH;
     String stateNPC;
-
+    public String name;
     public NPC(GamePanel gp) {
         super(gp);
+        name="npc";
         direction = "down";
         speed = 1;
         setAction();
     }
 
     public void getNPCImages(String State, String name) {
-
-
         if (State == "OneState") {
             try {
                 up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Enemies/" + State + "/" + name + "/secondState.png")));
@@ -78,7 +77,6 @@ public class NPC extends Entity {
             }
             }
 
-
         public void setAction () {
             actionCounter++;
             if (actionCounter == 180) {
@@ -93,7 +91,7 @@ public class NPC extends Entity {
                 if (i > 50 && i <= 75) {
                     direction = "left";
                 }
-                if (i > 75 && i <= 100) {
+                if (i > 75) {
                     direction = "right";
                 }
                 actionCounter = 0;
