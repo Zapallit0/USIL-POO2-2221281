@@ -11,16 +11,15 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class Player extends Entity{
+    //Player Handler
     KeyHandler keyH;
-    public final int screenX;
+    //Player Position
+    public int screenX;
     public final int screenY;
-    public int hasKey=0;
-    int speed;
-    int standCounter=0;
-    int life;
-    int maxLife;
-    public int gear;
-    int dmg;
+    public int hasKey=0,standCounter=0,previousEventX,previousEventY;
+    //Player Attributes
+    int speed,life,maxLife,gear,dmg;
+    boolean canTouchEvent;
     String characterSelected="Luffy";
     DirectorCharacter director=new DirectorCharacter();
     CharacterBuilder LuffyPlayer=new CharacterBuilder();
@@ -40,9 +39,9 @@ public class Player extends Entity{
         solidAreaDefaultY=solidArea.y;
         solidArea.height=40;
         solidArea.width=40;
-        if(characterSelected=="Luffy"){
+        if(Objects.equals(characterSelected, "Luffy")){
             getPlayersImg(LuffyPlayer.getImgs(), LuffyPlayer.getState());
-        }else if(characterSelected=="Zoro"){
+        }else if(Objects.equals(characterSelected, "Zoro")){
             getPlayersImg(ZoroPlayer.getImgs(), ZoroPlayer.getState());
         }
     }
@@ -102,38 +101,18 @@ public class Player extends Entity{
             int npcIndex=gp.cChercker.checkEntity(this,gp.npcs);
             interactNPC(npcIndex);
             //CheckEvent
-            gp.eHandler.checkEvent();
+
             //if collision is false, player can move
             if(!collisionOn){
                 switch (direction){
-                    case"up":
-                        worldy-=speed;
-                        break;
-                    case "down":
-                        worldy+=speed;
-                        break;
-                    case "left":
-                        worldx-=speed;
-                        break;
-                    case "right":
-                        worldx+=speed;
-                        break;
-                    case "up-right":
-                        worldy-=(speed-1);
-                        worldx+=(speed-1);
-                        break;
-                    case "up-left":
-                        worldy-=(speed-1);
-                        worldx-=(speed-1);
-                        break;
-                    case "down-left":
-                        worldy+=(speed-1);
-                        worldx-=(speed-1);
-                        break;
-                    case "down-right":
-                        worldy+=(speed-1);
-                        worldx+=(speed-1);
-                        break;
+                    case"up": worldy-=speed;break;
+                    case "down": worldy+=speed;break;
+                    case "left": worldx-=speed;break;
+                    case "right": worldx+=speed;break;
+                    case "up-right": worldy-=(speed-1);worldx+=(speed-1);break;
+                    case "up-left": worldy-=(speed-1);worldx-=(speed-1);break;
+                    case "down-left": worldy+=(speed-1);worldx-=(speed-1);break;
+                    case "down-right": worldy+=(speed-1);worldx+=(speed-1);break;
                 }
             }
             spriteCounter++;
@@ -158,6 +137,14 @@ public class Player extends Entity{
                 standCounter=0;
             }
         }
+        //
+        if(invincible){
+            invincibleCounter++;
+            if(invincibleCounter>60){
+                invincible=false;
+                invincibleCounter=0;
+            };
+        }
     }
     public void pickUpObject(int i) throws IOException {
         if(i!=999){
@@ -177,21 +164,15 @@ public class Player extends Entity{
                     gear++;
                     LuffyPlayer.setState("Second");
                     break;
-                
                 case "Msg":
                     gp.obj[i]=null;
                     gp.playSE(3);
                     gp.ui.showMessage("Parece que mi nave se estrello, debo encontrar llaves");
-
                     break;
-
-
                 case "LowSpeed":
                     gp.obj[i]=null;
                     gp.ui.showMessage("Oh no , Estoy llenito D:");
-
-                   // gp.player.speed--;
-                    speed=speed-3;
+                    speed=speed-2;
                     break;
                 case "Door":
                     if(hasKey>0){
@@ -206,7 +187,6 @@ public class Player extends Entity{
                     if(hasKey>0){
                         gp.obj[i].name="ChestOpen";
                         gp.obj[i].collision=false;
-                        gp.obj[i].setChestOpen();
                         gp.ui.showMessage("Treasure");
                         hasKey--;
                     }
@@ -221,48 +201,47 @@ public class Player extends Entity{
                     break;
                 case "DoorRight":
                     if(hasKey>0){
-                        gp.obj[i].name="DoorOpen";
                         hasKey--;
-                        gp.obj[i].setDoorOpenRight();
+                        gp.obj[i]=null;
                     }
                     else{
                         gp.ui.showMessage("You need a key");
+                        worldx=worldx-(speed*0.2F);
                     }
                     break;
-                case "DoorLeft":
+                case  "DoorLeft":
                     if(hasKey>0){
-                        gp.obj[i].name="DoorOpen";
                         hasKey--;
-                        gp.obj[i].setDoorOpenLeft();
+                        gp.obj[i]=null;
                     }
                     else{
                         gp.ui.showMessage("You need a key");
+                        worldx=worldx+(speed*0.2F);
                     }
                     break;
                 case "Barrel":
                     gp.ui.showMessage("Can´t drink now");
                     gp.obj[i].collision=false;
                     break;
-                case "DoorOpen":
-                    break;
-                case "ChestOpen":
-                    break;
             }
         }
     }
     public void interactNPC(int i){
-        if (i !=999){
-            System.out.println("you are hitting and npc");
+        if(i!=999){
+            if (!invincible) {
+                invincible=true;
+                gp.eHandler.checkEvent(i);
+            }
         }
     }
     public int getSpeed(){
         return speed;
     }
     public void setSpeed(int speed){
-        if(characterSelected=="Luffy"){
+        if(Objects.equals(characterSelected, "Luffy")){
             LuffyPlayer.setSpeed(speed);
         }
-        if(characterSelected=="Zoro"){
+        if(Objects.equals(characterSelected, "Zoro")){
             ZoroPlayer.setSpeed(speed);
         }
     }
@@ -315,28 +294,28 @@ public class Player extends Entity{
         return gear;
     }
     public int getLife(){
-        if(characterSelected=="Luffy"){
+        if(Objects.equals(characterSelected, "Luffy")){
             life=LuffyPlayer.getLife();
-        };
-        if(characterSelected=="Zoro"){
+        }
+        if(Objects.equals(characterSelected, "Zoro")){
             life=ZoroPlayer.getLife();
         }
         return life;
     }
     public void lessLife(int nlife){
-        if(characterSelected=="Luffy"){
+        if(Objects.equals(characterSelected, "Luffy")){
             nlife=life-nlife;
             LuffyPlayer.setLife(nlife);
-        }else if(characterSelected=="Zoro"){
+        }else if(Objects.equals(characterSelected, "Zoro")){
             nlife=life-nlife;
             ZoroPlayer.setLife(nlife);
         }
     }
     public void moreLife(int nlife){
-        if(characterSelected=="Luffy"){
+        if(Objects.equals(characterSelected, "Luffy")){
             nlife=life+nlife;
             LuffyPlayer.setLife(nlife);
-        }else if(characterSelected=="Zoro"){
+        }else if(Objects.equals(characterSelected, "Zoro")){
             nlife=life+nlife;
             ZoroPlayer.setLife(nlife);
         }

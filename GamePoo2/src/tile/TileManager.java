@@ -13,7 +13,7 @@ public class TileManager {
 
     public TileManager(GamePanel gp){
         this.gp=gp;
-        tile=new Tile[19];
+        tile=new Tile[20];
         mapTileNum=new int[gp.maxWorldCol][gp.maxWorldRow];
         getTileImage();
         loadMap("/maps/map03.txt");
@@ -107,8 +107,8 @@ public class TileManager {
             int tileNum=mapTileNum[worldcol][worldrow];
             int worldX=worldcol*gp.tileSize;
             int worldY=worldrow*gp.tileSize;
-            int screenX=worldX-gp.player.worldx+gp.player.screenX;
-            int screenY=worldY-gp.player.worldy+gp.player.screenY;
+            int screenX=(int)worldX-(int)gp.player.worldx+gp.player.screenX;
+            int screenY=(int)worldY-(int)gp.player.worldy+gp.player.screenY;
             //stop moving the camera at the edge
 
             if(worldX+gp.tileSize>gp.player.worldx-gp.player.screenX &&

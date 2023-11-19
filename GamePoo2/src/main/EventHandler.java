@@ -1,11 +1,14 @@
 package main;
 
+import object.OBJ_Heart;
+
 import java.awt.*;
 
 public class EventHandler {
     GamePanel gp;
     EventRect[][] eventRect;
-    int previusEventX, previousEventY;
+    float previusEventX;
+    float previousEventY;
     boolean canTouchEvent=true;
     public EventHandler(GamePanel gp){
         this.gp=gp;
@@ -25,13 +28,13 @@ public class EventHandler {
             if(col==gp.maxWorldCol){
                 col=0;
                 row++;
-            };
+            }
         }
     }
     public void checkEvent(){
         //check if the player is away from the last event
-        int xDistance=Math.abs(gp.player.worldx-previusEventX);
-        int yDistance=Math.abs(gp.player.worldy-previousEventY);
+        int xDistance=(int)Math.abs(gp.player.worldx-previusEventX);
+        int yDistance=(int)Math.abs(gp.player.worldy-previousEventY);
         int distance=Math.max(xDistance,yDistance);
         if(distance>gp.tileSize){
             canTouchEvent=true;
@@ -42,17 +45,35 @@ public class EventHandler {
             }
         }
     }
+    public void checkEvent(int i){
+        if(i!=999) {
+            //check if the player is away from the last event
+            int xDistance =(int) Math.abs(gp.player.worldx - previusEventX);
+            int yDistance = (int)Math.abs(gp.player.worldy - previousEventY);
+            int distance = Math.max(xDistance, yDistance);
+            if (distance > gp.tileSize) {
+                canTouchEvent = true;
+            }
+            if (canTouchEvent) {
+                String npcName = gp.npcs[i].name;
+                switch (npcName) {
+                    case "redSpikes":
+                        gp.player.lessLife(1);
+                        break;
+                }
+            }
+        }
+    }
     public boolean hit(int col, int row, String reqDirection){
         boolean hit=false;
-        gp.player.solidArea.x=gp.player.worldx+gp.player.solidArea.x;
-        gp.player.solidArea.y=gp.player.worldy+gp.player.solidArea.y;
+        gp.player.solidArea.x=(int)gp.player.worldx+gp.player.solidArea.x;
+        gp.player.solidArea.y=(int)gp.player.worldy+gp.player.solidArea.y;
         eventRect[col][row].x=col*gp.tileSize+eventRect[col][row].x;
         eventRect[col][row].y=row*gp.tileSize+eventRect[col][row].y;
 
         if(gp.player.solidArea.intersects(eventRect[col][row]) && !eventRect[col][row].eventDone){
             if(gp.player.direction.contentEquals(reqDirection)|| reqDirection.contentEquals("any")){
                 hit=true;
-
                 previusEventX=gp.player.worldx;
                 previousEventY=gp.player.worldy;
 

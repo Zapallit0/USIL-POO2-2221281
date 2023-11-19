@@ -45,15 +45,15 @@ public class AssetSetter {
 
         gp.npcs[2]=new redSpikes(gp,"right");
         gp.npcs[2].worldx=25*gp.tileSize;
-        gp.npcs[2].worldy=12* gp.tileSize;
+        gp.npcs[2].worldy=11* gp.tileSize;
 
         gp.npcs[3]=new redSpikes(gp,"left");
         gp.npcs[3].worldx=25*gp.tileSize;
-        gp.npcs[3].worldy=13* gp.tileSize;
+        gp.npcs[3].worldy=12* gp.tileSize;
 
         gp.npcs[4]=new redSpikes(gp,"right");
         gp.npcs[4].worldx=25*gp.tileSize;
-        gp.npcs[4].worldy=11* gp.tileSize;
+        gp.npcs[4].worldy=13* gp.tileSize;
 
         gp.npcs[5]=new coco(gp);
         gp.npcs[5].worldx=36*gp.tileSize;
@@ -82,5 +82,26 @@ public class AssetSetter {
         gp.npcs[11]=new coco(gp);
         gp.npcs[11].worldx=35*gp.tileSize;
         gp.npcs[11].worldy=35* gp.tileSize;
+
+        gp.npcs[12]=new redSpikes(gp,"up");
+        gp.npcs[12].worldx=33*gp.tileSize;
+        gp.npcs[12].worldy=20* gp.tileSize;
+
+        gp.npcs[13]=new redSpikes(gp,"down");
+        gp.npcs[13].worldx=34*gp.tileSize;
+        gp.npcs[13].worldy=20* gp.tileSize;
+
+        gp.npcs[14]=new redSpikes(gp,"up");
+        gp.npcs[14].worldx=35*gp.tileSize;
+        gp.npcs[14].worldy=20* gp.tileSize;
+
+        gp.npcs[15]=new redSpikes(gp,"left");
+        gp.npcs[15].worldx=25*gp.tileSize;
+        gp.npcs[15].worldy=14* gp.tileSize;
+
+        gp.npcs[16]=new redSpikes(gp,"down");
+        gp.npcs[16].worldx=36*gp.tileSize;
+        gp.npcs[16].worldy=20* gp.tileSize;
+
     }
 }

@@ -10,6 +10,7 @@ public class redSpikes extends NPC{
 
     public redSpikes(GamePanel gp, String side) {
         super(gp);
+        name="redSpikes";
         this.side=side;
         if (side == "right") {
             direction="right";
@@ -20,7 +21,8 @@ public class redSpikes extends NPC{
         }if (side == "down") {
             direction="down";
         }
-        speed=6;
+        type=2;
+        speed=8;
         setAction();
         getNPCImages("OneState","redSpikes");
         stateNPC="TwoStates";
@@ -28,7 +30,7 @@ public class redSpikes extends NPC{
     @Override
     public void setAction(){
         actionCounter++;
-        if(actionCounter==120) {
+        if(actionCounter==60) {
             movementCounter++;
             if (movementCounter ==1) {
                 if (Objects.equals(side, "right")) {
@@ -40,7 +42,6 @@ public class redSpikes extends NPC{
                 }if (Objects.equals(side, "down")) {
                     direction="down";
                 }
-                System.out.println(direction +" + "+side);
             }
             if (movementCounter ==2) {
                 if (Objects.equals(side, "right")) {
@@ -52,7 +53,6 @@ public class redSpikes extends NPC{
                 }if (Objects.equals(side, "down")) {
                     direction="up";
                 }
-                System.out.println(direction +" + "+side);
                 movementCounter=0;
             }
             actionCounter=0;
