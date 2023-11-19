@@ -23,6 +23,7 @@ public class Entity {
     public int movementCounter;
     public int widthNPC=80;
     public int heightNPC=80;
+    public String side;
 
     public Entity(GamePanel gp) {
         this.gp=gp;
@@ -34,20 +35,21 @@ public class Entity {
         gp.cChercker.checkTile(this);
         if(!collisionOn){
             switch (direction){
-                case"up":
+                case"up","up-left":
                     worldy-=speed;
                     break;
-                case "down":
+                case "down","down-right":
                     worldy+=speed;
                     break;
-                case "left":
+                case "left","down-left":
                     worldx-=speed;
                     break;
-                case "right":
+                case "right","up-right":
                     worldx+=speed;
                     break;
             }
         }
+        collisionOn = false;
         spriteCounter++;
         if(spriteCounter>12){
             if(spriteNum==1){
@@ -69,7 +71,7 @@ public class Entity {
                 worldx+gp.tileSize>gp.player.worldy-gp.player.screenY &&
                 worldy-gp.tileSize<gp.player.worldy+gp.player.screenY){
             switch (direction){
-                case "up":
+                case "up","up-left":
                     if(spriteNum==1){
                         image=up1;
                     }
@@ -77,7 +79,7 @@ public class Entity {
                         image=up2;
                     }
                     break;
-                case "down":
+                case "down","down-right":
                     if(spriteNum==1){
                         image=down1;
                     }
@@ -85,7 +87,7 @@ public class Entity {
                         image=down2;
                     }
                     break;
-                case "left","up-left","down-left":
+                case "left","down-left":
                     if(spriteNum==1){
                         image=left1;
                     }
@@ -93,7 +95,7 @@ public class Entity {
                         image=left2;
                     }
                     break;
-                case "right","up-right","down-right":
+                case "right","up-right":
                     if(spriteNum==1){
                         image=right1;
                     }

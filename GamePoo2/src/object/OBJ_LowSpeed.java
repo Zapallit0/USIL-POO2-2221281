@@ -10,7 +10,6 @@ import java.io.IOException;
             try {
                 image = ImageIO.read(getClass().getResourceAsStream("/Objects/low.png"));
             } catch (IOException e) {
-
             }
             collision = true;
         }
