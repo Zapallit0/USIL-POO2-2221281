@@ -1,6 +1,7 @@
-package object;
+package object.Items;
 
-import main.GamePanel;
+import object.SuperObject;
+
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
@@ -8,7 +9,7 @@ import java.io.IOException;
     public OBJ_LowSpeed() {
             name = "LowSpeed";
             try {
-                image = ImageIO.read(getClass().getResourceAsStream("/Objects/low.png"));
+                image = ImageIO.read(getClass().getResourceAsStream("/Objects/Items/BadItems.png"));
             } catch (IOException e) {
             }
             collision = true;

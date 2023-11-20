@@ -1,6 +1,6 @@
 package entity.playerBuilder;
 
-public class CharacterBuilder implements BuilderCh{
+public class CharacterBuilder implements BuilderEntities {
     String name;
     int speed;
     int life;

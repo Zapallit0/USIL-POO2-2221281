@@ -1,6 +1,6 @@
 package main;
 
-import entity.NPCS.NPC;
+import entity.Enemies.Enemies;
 import entity.Player;
 import object.SuperObject;
 import tile.TileManager;
@@ -36,7 +36,7 @@ public class GamePanel extends JPanel implements Runnable{
     public AssetSetter aSetter=new AssetSetter(this);
     public Player player=new Player(this,keyH);
     public SuperObject obj[]=new SuperObject[20];
-    public NPC npcs[]=new NPC[25];
+    public Enemies enemies[]=new Enemies[25];
 
     //GAME STATE
     public int gameState;
@@ -92,21 +92,13 @@ public class GamePanel extends JPanel implements Runnable{
         }
     }
     public void update() throws IOException {
-        if(gameState==menuState){
-        }
-        if(gameState==principalState){
-        }
         if(gameState==playState){
             player.update();
-            for (NPC npc : npcs) {
-                if (npc != null) {
-                    npc.update();
+            for (Enemies enemies : this.enemies) {
+                if (enemies != null) {
+                    enemies.update();
                 }
             }
-        }
-        if(gameState==pauseState){
-        }
-        if(gameState==optionsState){
         }
     }
     public void paintComponent(Graphics g){
@@ -122,9 +114,9 @@ public class GamePanel extends JPanel implements Runnable{
                     }
                 }
                 //NPC
-                for (int i = 0; i < npcs.length; i++) {
-                    if (npcs[i] != null) {
-                        npcs[i].draw(g2);
+                for (int i = 0; i < enemies.length; i++) {
+                    if (enemies[i] != null) {
+                        enemies[i].draw(g2,enemies[i].tipo);
                     }
                 }
                 player.draw(g2);

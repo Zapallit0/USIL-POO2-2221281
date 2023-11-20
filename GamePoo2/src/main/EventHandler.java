@@ -1,9 +1,5 @@
 package main;
 
-import object.OBJ_Heart;
-
-import java.awt.*;
-
 public class EventHandler {
     GamePanel gp;
     EventRect[][] eventRect;
@@ -23,7 +19,6 @@ public class EventHandler {
             eventRect[col][row].height=3;
             eventRect[col][row].eventRectDefX=eventRect[col][row].x;
             eventRect[col][row].eventRectDefY=eventRect[col][row].y;
-
             col++;
             if(col==gp.maxWorldCol){
                 col=0;
@@ -55,10 +50,17 @@ public class EventHandler {
                 canTouchEvent = true;
             }
             if (canTouchEvent) {
-                String npcName = gp.npcs[i].name;
+                String npcName = gp.enemies[i].name;
+                int enemiDmg=gp.enemies[i].dmg;
                 switch (npcName) {
                     case "redSpikes":
-                        gp.player.lessLife(1);
+                        gp.player.lessLife(enemiDmg);
+                        break;
+                    case "babyPirate":
+                        gp.player.lessLife(enemiDmg);
+                        break;
+                    case "BabyPlum":
+                        gp.player.lessLife(enemiDmg);
                         break;
                 }
             }
@@ -76,7 +78,6 @@ public class EventHandler {
                 hit=true;
                 previusEventX=gp.player.worldx;
                 previousEventY=gp.player.worldy;
-
             }
         }
         gp.player.solidArea.x=gp.player.solidAreaDefaultX;
@@ -87,7 +88,6 @@ public class EventHandler {
     }
     public void damagePit(int col, int row){
         gp.player.lessLife(1);
-//        eventRect[col][row].eventDone=true;
         canTouchEvent=false;
     }
 }

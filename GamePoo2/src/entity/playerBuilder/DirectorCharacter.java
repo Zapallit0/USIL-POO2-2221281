@@ -1,7 +1,7 @@
 package entity.playerBuilder;
 
 public class DirectorCharacter {
-    public void constructLuffy(BuilderCh luffyChar){
+    public void constructLuffy(BuilderEntities luffyChar){
         luffyChar.setName("Monkey D' Luffy");
         luffyChar.setSpeed(4);
         luffyChar.setLife(1);
@@ -9,7 +9,7 @@ public class DirectorCharacter {
         luffyChar.setImgs("Luffy");
         luffyChar.setState("Base");
     }
-    public void constructZoro(BuilderCh luffyChar){
+    public void constructZoro(BuilderEntities luffyChar){
         luffyChar.setName("Roronoa Zoro");
         luffyChar.setSpeed(3);
         luffyChar.setLife(8);
