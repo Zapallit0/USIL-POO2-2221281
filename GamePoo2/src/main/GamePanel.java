@@ -40,7 +40,9 @@ public class GamePanel extends JPanel implements Runnable{
 
     //GAME STATE
     public int gameState;
-    public final int menuState=0,playState=1,pauseState=2,deathState=3,principalState=4, optionsState=5, charactersState=6;
+    public final int menuState=0,playState=1,pauseState=2,
+            deathState=3,principalState=4, optionsState=5,
+            charactersState=6, gameOverState=7;
 
 
     public GamePanel() throws IOException, FontFormatException {

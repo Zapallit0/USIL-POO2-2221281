@@ -4,7 +4,7 @@ public class DirectorCharacter {
     public void constructLuffy(BuilderEntities luffyChar){
         luffyChar.setName("Monkey D' Luffy");
         luffyChar.setSpeed(4);
-        luffyChar.setLife(10);
+        luffyChar.setLife(1);
         luffyChar.setDmg(2);
         luffyChar.setImgs("Luffy");
         luffyChar.setState("Base");

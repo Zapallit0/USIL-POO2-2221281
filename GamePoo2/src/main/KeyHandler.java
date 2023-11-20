@@ -128,6 +128,19 @@ public class KeyHandler implements KeyListener {
         if (gp.gameState==gp.optionsState){
 
         }
+
+        // Dead State
+        if (gp.gameState == gp.deathState) {
+            if (code == KeyEvent.VK_ENTER) {
+
+            }
+            if (code == KeyEvent.VK_ESCAPE) {
+                gp.gameState = gp.principalState;
+            }
+        }
+
+
+
     }
 
     @Override
