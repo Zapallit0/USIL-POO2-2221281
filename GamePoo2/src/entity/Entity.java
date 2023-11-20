@@ -1,5 +1,6 @@
 package entity;
 
+import entity.attacks.Attack;
 import main.GamePanel;
 
 import javax.imageio.ImageIO;
@@ -14,12 +15,14 @@ public class Entity {
     public float worldy;
     public float speed;
     public BufferedImage up1,up2,down1,down2,left1,left2,right1,right2,state,state2;
-    public BufferedImage attackUp1,AttackUp2,attackDown1,attackDown2,attackLeft1,attackLeft2,attackRight1,attackRight2;
+    public BufferedImage attackUp1,attackUp2,attackDown1,attackDown2,attackLeft1,attackLeft2,attackRight1,attackRight2;
     public String direction;
     public int spriteCounter=0, spriteNum=1;
     public Rectangle solidArea=new Rectangle(0,0,48,48);
+    public Rectangle attackArea=new Rectangle(0,0,0,0);
     public int solidAreaDefaultX, solidAreaDefaultY;
-    public boolean collisionOn=false, invincible;
+    public boolean collisionOn=false, invincible=false;
+    boolean attacking;
     public int actionCounter,movementCounter,widthNPC=80,heightNPC=80,invincibleCounter=0,type;
     public int dmg, life;
     public String tipo;
@@ -33,6 +36,7 @@ public class Entity {
         collisionOn=false;
         gp.cChercker.checkTile(this);
         gp.cChercker.checkObject(this,false);
+        gp.cChercker.checkEntity(this,gp.enemies);
         boolean contactPlayer=gp.cChercker.checkPlayer(this);
         if(this.type==2 && contactPlayer){
             if(!gp.player.invincible){
@@ -65,10 +69,17 @@ public class Entity {
                 spriteNum=1;
             }
             spriteCounter=0;
-        };
+        }
+        if(invincible){
+            invincibleCounter++;
+            if(invincibleCounter>40){
+                invincible=false;
+                invincibleCounter=0;
+            };
+        }
     }
     public void draw(Graphics2D g2,String type){
-        BufferedImage image=null;
+        BufferedImage image = null;
 
         int screenX=(int)worldx-(int)gp.player.worldx+gp.player.screenX;
         int screenY=(int)worldy-(int)gp.player.worldy+gp.player.screenY;
@@ -119,4 +130,5 @@ public class Entity {
             }
         }
     }
+
 }

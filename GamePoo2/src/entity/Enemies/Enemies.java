@@ -36,13 +36,13 @@ public class Enemies extends Entity {
             }
             if (State == "TwoStates") {
                 try {
-                    up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/firstState.png")));
+                    up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/secondState.png")));
                     up2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/secondState.png")));
-                    down1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/firstState.png")));
+                    down1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/secondState.png")));
                     down2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/secondState.png")));
-                    left1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/firstState.png")));
+                    left1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/secondState.png")));
                     left2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/secondState.png")));
-                    right1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/firstState.png")));
+                    right1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/secondState.png")));
                     right2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/secondState.png")));
                 } catch (IOException e) {
                     e.printStackTrace();

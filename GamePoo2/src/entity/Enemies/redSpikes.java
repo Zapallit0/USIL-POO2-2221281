@@ -23,7 +23,8 @@ public class redSpikes extends Enemies {
         }
         type=2;
         speed=8;
-        dmg=2;
+        dmg=1;
+        life=1000000;
         setAction();
         stateNPC="TwoStates";
         getNPCImages("OneState","redSpikes","Enemies");

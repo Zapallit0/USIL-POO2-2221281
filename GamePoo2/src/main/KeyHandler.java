@@ -5,8 +5,7 @@ import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener {
     GamePanel gp;
-    public boolean upPressed, downPressed,leftPressed, rightPressed, enterPressed, escPressed;
-    boolean checkDrawTime =false;
+    public boolean upPressed, downPressed,leftPressed, rightPressed, enterPressed, escPressed,sPressed;
 
     public KeyHandler(GamePanel gp){
         this.gp=gp;
@@ -55,8 +54,7 @@ public class KeyHandler implements KeyListener {
 
                 }
                 if (gp.ui.commandMenuNum == 3) {
-                    gp.playMusic(2);
-                    gp.ui.commandMenuNum=0;
+                    gp.gameState=gp.optionsState;
                 }
             }
             if (code == KeyEvent.VK_ESCAPE) {
@@ -65,6 +63,9 @@ public class KeyHandler implements KeyListener {
         }
         //Play state
         if(gp.gameState==gp.playState) {
+            if(code==KeyEvent.VK_S){
+                sPressed=true;
+            }
             if (code == KeyEvent.VK_UP) {
                 upPressed = true;
             }
@@ -82,7 +83,6 @@ public class KeyHandler implements KeyListener {
                 gp.stopMusic();
             }
             if (code == KeyEvent.VK_Q) {
-                if(!gp.player.collisionOn) {
                     if (gp.player.direction == "up") {
                         gp.player.worldy = gp.player.worldy - (gp.player.getSpeed() * 5F);
                     }
@@ -95,7 +95,7 @@ public class KeyHandler implements KeyListener {
                     if (gp.player.direction == "right") {
                         gp.player.worldx = gp.player.worldx + (gp.player.getSpeed() * 5F);
                     }
-                }
+
             }
         }
         //Pause State
@@ -125,22 +125,19 @@ public class KeyHandler implements KeyListener {
                 }
             }
         }
-        if (gp.gameState==gp.optionsState){
-
+        //Option State
+        if(gp.gameState==gp.optionsState){
+            if (code == KeyEvent.VK_ESCAPE) {
+                gp.gameState = gp.pauseState;
+            }
         }
-
         // Dead State
         if (gp.gameState == gp.deathState) {
+            gp.playMusic(6);
             if (code == KeyEvent.VK_ENTER) {
-
-            }
-            if (code == KeyEvent.VK_ESCAPE) {
                 gp.gameState = gp.principalState;
             }
         }
-
-
-
     }
 
     @Override
@@ -164,5 +161,9 @@ public class KeyHandler implements KeyListener {
         if(code==KeyEvent.VK_ENTER){
             enterPressed=false;
         };
+        if(code==KeyEvent.VK_S){
+            sPressed=false;
+        };
+
     }
 }

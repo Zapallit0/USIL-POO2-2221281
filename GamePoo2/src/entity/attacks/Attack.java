@@ -1,5 +1,5 @@
 package entity.attacks;
 
-public interface attack {
+public interface Attack {
     abstract public void attack();
 }

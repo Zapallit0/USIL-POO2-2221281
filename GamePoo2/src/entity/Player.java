@@ -13,8 +13,8 @@ import java.util.Objects;
 
 public class Player extends Entity{
     //Player Handler
+    public int goldCounter;
     KeyHandler keyH;
-
     //Player Position
     public int screenX;
     public final int screenY;
@@ -29,6 +29,7 @@ public class Player extends Entity{
     CharacterBuilder LuffyPlayer=new CharacterBuilder();
     CharacterBuilder ZoroPlayer=new CharacterBuilder();
     int estado;
+
 
     public Player(GamePanel gp,KeyHandler keyH){
         super(gp);
@@ -45,8 +46,10 @@ public class Player extends Entity{
         solidArea.width=40;
         if(Objects.equals(characterSelected, "Luffy")){
             getPlayersImg(LuffyPlayer.getImgs(), estado);
+            getPlayerAttackImage(LuffyPlayer.getImgs(), estado);
         }else if(Objects.equals(characterSelected, "Zoro")){
             getPlayersImg(ZoroPlayer.getImgs(), estado);
+            getPlayerAttackImage(ZoroPlayer.getImgs(), estado);
         }
     }
 
@@ -61,6 +64,9 @@ public class Player extends Entity{
             maxLife=10;
             dmg= LuffyPlayer.getDmg();
             estado=getGear();
+            attackArea.width=60;
+            attackArea.height=60;
+
         }
         if(Objects.equals(player, "Zoro")){
             director.constructZoro(ZoroPlayer);
@@ -71,8 +77,21 @@ public class Player extends Entity{
             estado=getGear();
         }
     }
+
+    public void setEstado() {
+        if(Objects.equals(characterSelected, "Luffy")) {
+            LuffyPlayer.setState("Second");
+        }
+        if(Objects.equals(characterSelected, "Zoro")){
+            ZoroPlayer.setState("Second");
+        }
+    }
+
     public void update() throws IOException {
-        if(keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed){
+        if(attacking==true){
+            attaking();
+        }
+        else if(keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed){
             if(keyH.upPressed){
                 direction="up";
             }
@@ -140,12 +159,11 @@ public class Player extends Entity{
                 spriteNum=1;
             }
             if(standCounter==350){
-                direction="state2";
-                spriteNum=1;
+                direction="state";
+                spriteNum=2;
                 standCounter=0;
             }
         }
-        //
         if(invincible){
             invincibleCounter++;
             if(invincibleCounter>60){
@@ -154,6 +172,69 @@ public class Player extends Entity{
             };
         }
     }
+
+    private void attaking() {
+        spriteCounter++;
+
+        if(spriteCounter<=5){
+            spriteNum=1;
+        };
+        if(spriteCounter>5&&spriteCounter<=25){
+            spriteNum=2;
+
+            //Ubicacion actual X y Y
+            int currentWorldX=(int)worldx;
+            int currentWorldY=(int)worldy;
+            int solidAreaWidth=solidArea.width;
+            int solidAreaHeight=solidArea.height;
+
+            //Ajustando posicion para atacar
+
+            switch(direction){
+                case "up":worldy-=attackArea.height;break;
+                case "down":worldy+=attackArea.height;break;
+                case "left":worldx-=attackArea.width;break;
+                case "right":worldx+=attackArea.width;break;
+            }
+            //Cambio de area solida a la area de ataque
+            solidArea.width=attackArea.width;
+            solidArea.height=attackArea.height;
+
+            //colision con enemigos
+            int monsterIndex=gp.cChercker.checkEntity(this,gp.enemies);
+            dmgMonster(monsterIndex);
+            worldx=currentWorldX;
+            worldy=currentWorldY;
+            solidArea.width=solidAreaWidth;
+            solidArea.height=solidAreaHeight;
+        }
+        if(spriteCounter>25){
+            spriteNum=1;
+            spriteCounter=0;
+            attacking=false;
+        }
+    }
+
+    private void dmgMonster(int i) {
+        if(i!=999){
+            if(!gp.enemies[i].invincible) {
+                gp.enemies[i].life =gp.enemies[i].life- gp.player.dmg;
+                gp.enemies[i].invincible=true;
+                if (gp.enemies[i].life <= 0) {
+                    gp.enemies[i] = null;
+                }
+            }
+        }
+    }
+    private void contactMonster(int i){
+        if(i !=999){
+            if(!invincible){
+                life-=1;
+                invincible=true;
+            }
+        }
+    }
+
     public void pickUpObject(int i) throws IOException {
         if(i!=999){
             String objectName=gp.obj[i].name;
@@ -170,8 +251,8 @@ public class Player extends Entity{
                             gp.playSE(4);
                             gp.playSE(5);
                             speed += 5;
-                            gear = "Second";
                             estado++;
+                            setEstado();
                             getPlayersImg(characterSelected,estado);
                         }
                         else{
@@ -246,14 +327,27 @@ public class Player extends Entity{
                         worldx=worldx+(speed*0.2F);
                     }
                     break;
+                case "cora" :
+                    moreLife(2);
+                    gp.obj[i]=null;
+                    break;
+                case "gold":
+                    goldCounter++;
+                    gp.obj[i]=null;
+                    break;
             }
         }
     }
     public void interactNPC(int i){
-        if(i!=999){
-            if (!invincible) {
-                invincible=true;
-                gp.eHandler.checkEvent(i);
+        if(gp.keyH.sPressed) {
+            if (i != 999) {
+                if (!invincible) {
+                    invincible = true;
+                    gp.eHandler.checkEvent(i);
+                }
+            }
+            else{
+                attacking=true;
             }
         }
     }
@@ -269,80 +363,204 @@ public class Player extends Entity{
         }
     }
     public void draw(Graphics2D g2){
+        int imgWidth=gp.tileSize;
+        int imgHeight=gp.tileSize;
+        int tempScreenX=screenX;
+        int tempScreenY=screenY;
         BufferedImage image=null;
         switch (direction){
             case "up":
-                if(spriteNum==1){
-                    image=up1;
+                if(!attacking){
+                    if(spriteNum==1){image=up1;}
+                    if(spriteNum==2){image=up2;}
                 }
-                if(spriteNum==2){
-                    image=up2;
+                if(attacking){
+                    tempScreenY=screenY-gp.tileSize;
+                    if(spriteNum==1){image=attackUp1;imgHeight=gp.tileSize*2;}
+                    if(spriteNum==2){image=attackUp2;imgHeight=gp.tileSize*2;}
                 }
                 break;
             case "down":
-                if(spriteNum==1){
-                    image=down1;
+                if(!attacking){
+                    if(spriteNum==1){image=down1;}
+                    if(spriteNum==2){image=down2;}
                 }
-                if(spriteNum==2){
-                    image=down2;
+                if(attacking){
+                    if(spriteNum==1){image=attackDown1;imgHeight=gp.tileSize*2;}
+                    if(spriteNum==2){image=attackDown2;imgHeight=gp.tileSize*2;}
                 }
                 break;
             case "left","up-left","down-left":
-                if(spriteNum==1){
-                    image=left1;
+                if(!attacking){
+                    if(spriteNum==1){image=left1;}
+                    if(spriteNum==2){image=left2;}
                 }
-                if(spriteNum==2){
-                    image=left2;
+                if(attacking){
+                    tempScreenX=screenX-gp.tileSize;
+                    if(spriteNum==1){image=attackLeft1; imgWidth=gp.tileSize*2;}
+                    if(spriteNum==2){image=attackLeft2; imgWidth=gp.tileSize*2;}
                 }
                 break;
             case "right","up-right","down-right":
-                if(spriteNum==1){
-                    image=right1;
+                if(!attacking){
+                    if(spriteNum==1){image=right1;}
+                    if(spriteNum==2){image=right2;}
                 }
-                if(spriteNum==2){
-                    image=right2;
+                if(attacking){
+                    if(spriteNum==1){image=attackRight1;imgWidth=gp.tileSize*2;}
+                    if(spriteNum==2){image=attackRight2;imgWidth=gp.tileSize*2;}
                 }
                 break;
             case "state":
-                image=state;
-                break;
-            case "state2":
-                image=state2;
+                if(!attacking){
+                    if(spriteNum==1){image=state;}
+                    if(spriteNum==2){image=state2;}
+                }
                 break;
         }
-        g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
+        if(!attacking){
+            g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
+        }
+        if(attacking){
+            g2.drawImage(image,tempScreenX,tempScreenY,imgWidth,imgHeight,null);
+        }
     }
     public void getPlayersImg(String name,int base) {
-        if(base==0){
-            try {
-                up1= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/goingUp2.png")));
-                up2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/goingUp1.png")));
-                down1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/goingDown1.png")));
-                down2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/goingDown2.png")));
-                left1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/standingLeft.png")));
-                left2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/walkingLeft.png")));
-                right1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/standingRight.png")));
-                right2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/walkingRight.png")));
-                state=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/waiting1.png")));
-                state2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/waiting2.png")));
-            } catch (IOException e) {
-                e.printStackTrace();
+        if(name=="Luffy") {
+            if (base == 0) {
+                try {
+                    up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/goingUp2.png")));
+                    up2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/goingUp1.png")));
+                    down1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/goingDown1.png")));
+                    down2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/goingDown2.png")));
+                    left1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/standingLeft.png")));
+                    left2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/walkingLeft.png")));
+                    right1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/standingRight.png")));
+                    right2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/walkingRight.png")));
+                    state = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/waiting1.png")));
+                    state2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/waiting2.png")));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-        }if(base==1){
-            try {
-                up1= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/goingUp2.png")));
-                up2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/goingUp1.png")));
-                down1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/goingDown1.png")));
-                down2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/goingDown2.png")));
-                left1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/standingLeft.png")));
-                left2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/walkingLeft.png")));
-                right1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/standingRight.png")));
-                right2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/walkingRight.png")));
-                state=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/waiting1.png")));
-                state2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/waiting2.png")));
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (base == 1) {
+                try {
+                    up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/goingUp2.png")));
+                    up2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/goingUp1.png")));
+                    down1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/goingDown1.png")));
+                    down2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/goingDown2.png")));
+                    left1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/standingLeft.png")));
+                    left2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/walkingLeft.png")));
+                    right1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/standingRight.png")));
+                    right2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/walkingRight.png")));
+                    state = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/waiting1.png")));
+                    state2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/waiting2.png")));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+        }
+        if(name=="Zoro") {
+            if (base == 0) {
+                try {
+                    up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/goingUp2.png")));
+                    up2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/goingUp1.png")));
+                    down1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/goingDown1.png")));
+                    down2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/goingDown2.png")));
+                    left1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/standingLeft.png")));
+                    left2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/walkingLeft.png")));
+                    right1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/standingRight.png")));
+                    right2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/walkingRight.png")));
+                    state = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/waiting1.png")));
+                    state2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/waiting2.png")));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (base == 1) {
+                try {
+                    up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/goingUp2.png")));
+                    up2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/goingUp1.png")));
+                    down1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/goingDown1.png")));
+                    down2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/goingDown2.png")));
+                    left1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/standingLeft.png")));
+                    left2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/walkingLeft.png")));
+                    right1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/standingRight.png")));
+                    right2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/walkingRight.png")));
+                    state = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/waiting1.png")));
+                    state2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/waiting2.png")));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    public void getPlayerAttackImage(String name, int base){
+        if(name=="Luffy") {
+            if(base==0) {
+                try {
+                    attackUp1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Luffy/Attacking/attack_up1.png")));
+                    attackUp2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Luffy/Attacking/attack_up2.png")));
+                    attackDown1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Luffy/Attacking/attack_down1.png")));
+                    attackDown2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Luffy/Attacking/attack_down2.png")));
+                    attackRight1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Luffy/Attacking/attack_right1.png")));
+                    attackRight2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Luffy/Attacking/attack_right2.png")));
+                    attackLeft1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Luffy/Attacking/attack_left1.png")));
+                    attackLeft2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Luffy/Attacking/attack_left2.png")));
+                    state = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/waiting1.png")));
+                    state2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/waiting2.png")));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            if(base==1) {
+                try {
+                    attackUp1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Luffy/Attacking/attack_up1.png")));
+                    attackUp2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Luffy/Attacking/attack_up1.png")));
+                    attackDown1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Luffy/Attacking/attack_up1.png")));
+                    attackDown2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Luffy/Attacking/attack_up1.png")));
+                    attackRight1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Luffy/Attacking/attack_up1.png")));
+                    attackRight2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Luffy/Attacking/attack_up1.png")));
+                    attackLeft1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Luffy/Attacking/attack_up1.png")));
+                    attackLeft2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Luffy/Attacking/attack_up1.png")));
+                    state = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/waiting1.png")));
+                    state2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/waiting2.png")));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+        }
+        if(name=="Zoro") {
+            if(base==0) {
+                try {
+                    attackUp1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/goingUp2.png")));
+                    attackUp2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/goingUp2.png")));
+                    attackDown1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/goingUp2.png")));
+                    attackDown2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/goingUp2.png")));
+                    attackRight1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/goingUp2.png")));
+                    attackRight2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/goingUp2.png")));
+                    attackLeft1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/goingUp2.png")));
+                    attackLeft2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Base/goingUp2.png")));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            if(base==1) {
+                try {
+                    attackUp1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/goingUp2.png")));
+                    attackUp2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/goingUp2.png")));
+                    attackDown1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/goingUp2.png")));
+                    attackDown2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/goingUp2.png")));
+                    attackRight1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/goingUp2.png")));
+                    attackRight2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/goingUp2.png")));
+                    attackLeft1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/goingUp2.png")));
+                    attackLeft2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + name + "/Second/goingUp2.png")));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
         }
 
     }

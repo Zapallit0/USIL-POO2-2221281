@@ -23,7 +23,7 @@ public class GamePanel extends JPanel implements Runnable{
     int FPS=60;
     //Tilemanager generacion de tiles Musica
     TileManager tileM=new TileManager(this);
-    KeyHandler keyH=new KeyHandler(this);
+    public KeyHandler keyH=new KeyHandler(this);
     Sound music=new Sound();
     Sound se=new Sound();
     public UI ui=new UI(this);
@@ -35,16 +35,14 @@ public class GamePanel extends JPanel implements Runnable{
     public CollisionChecker cChercker=new CollisionChecker(this);
     public AssetSetter aSetter=new AssetSetter(this);
     public Player player=new Player(this,keyH);
-    public SuperObject obj[]=new SuperObject[20];
-    public Enemies enemies[]=new Enemies[25];
+    public SuperObject obj[]=new SuperObject[25];
+    public Enemies enemies[]=new Enemies[30];
 
     //GAME STATE
     public int gameState;
     public final int menuState=0,playState=1,pauseState=2,
             deathState=3,principalState=4, optionsState=5,
-            charactersState=6, gameOverState=7;
-
-
+            charactersState=6;
     public GamePanel() throws IOException, FontFormatException {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
@@ -99,12 +97,15 @@ public class GamePanel extends JPanel implements Runnable{
                     enemies.update();
                 }
             }
+            if(player.goldCounter==3){
+                gameState=principalState;
+            }
         }
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
             Graphics2D g2 = (Graphics2D) g;
-            if(gameState==playState) {
+
                 //tile
                 tileM.draw(g2);
                 //Object
@@ -120,7 +121,7 @@ public class GamePanel extends JPanel implements Runnable{
                     }
                 }
                 player.draw(g2);
-            }
+
             ui.draw(g2);
             g2.dispose();
     }
@@ -131,6 +132,9 @@ public class GamePanel extends JPanel implements Runnable{
     }
     public void stopMusic(){
         music.stop();
+    }
+    public void stopSE(){
+        se.stop();
     }
     public void playSE(int i){
         se.setFile(i);

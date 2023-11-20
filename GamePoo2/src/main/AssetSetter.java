@@ -2,10 +2,7 @@ package main;
 
 import entity.Bosses.BabyPlum;
 import entity.Enemies.*;
-import object.Items.OBJ_GOMUGOMU;
-import object.Items.OBJ_Key;
-import object.Items.OBJ_LowSpeed;
-import object.Items.OBJ_Message;
+import object.Items.*;
 import object.solidItems.OBJ_Door;
 
 
@@ -39,9 +36,29 @@ public class AssetSetter {
         gp.obj[11].worldX=28*gp.tileSize;
         gp.obj[11].worldY=6*gp.tileSize;
 
-        gp.obj[12]=new OBJ_GOMUGOMU();
-        gp.obj[12].worldX=28*gp.tileSize;
-        gp.obj[12].worldY=9*gp.tileSize;
+        gp.obj[12]=new OBJ_Gold();
+        gp.obj[12].worldX=44*gp.tileSize;
+        gp.obj[12].worldY=16*gp.tileSize;
+
+        gp.obj[13]=new OBJ_GOMUGOMU();
+        gp.obj[13].worldX=10*gp.tileSize;
+        gp.obj[13].worldY=15*gp.tileSize;
+
+        gp.obj[14]=new OBJ_Cora();
+        gp.obj[14].worldX=25*gp.tileSize;
+        gp.obj[14].worldY=20*gp.tileSize;
+
+        gp.obj[15]=new OBJ_Gold();
+        gp.obj[15].worldX=18*gp.tileSize;
+        gp.obj[15].worldY=16*gp.tileSize;
+
+        gp.obj[16]=new OBJ_Gold();
+        gp.obj[16].worldX=10*gp.tileSize;
+        gp.obj[16].worldY=37*gp.tileSize;
+
+        gp.obj[17]=new OBJ_Gold();
+        gp.obj[17].worldX=10*gp.tileSize;
+        gp.obj[17].worldY=37*gp.tileSize;
     }
     public void setNpc(){
         gp.enemies[0]=new pirateBaby(gp);
@@ -114,6 +131,38 @@ public class AssetSetter {
 
         gp.enemies[17]=new BabyPlum(gp);
         gp.enemies[17].worldx=10*gp.tileSize;
-        gp.enemies[17].worldy=15* gp.tileSize;
+        gp.enemies[17].worldy=35* gp.tileSize;
+
+        gp.enemies[18]=new pirateBaby(gp);
+        gp.enemies[18].worldx=10*gp.tileSize;
+        gp.enemies[18].worldy=12* gp.tileSize;
+
+        gp.enemies[19]=new pirateBaby(gp);
+        gp.enemies[19].worldx=10*gp.tileSize;
+        gp.enemies[19].worldy=12* gp.tileSize;
+
+        gp.enemies[20]=new rockHead(gp);
+        gp.enemies[20].worldx=37*gp.tileSize;
+        gp.enemies[20].worldy=16* gp.tileSize;
+
+        gp.enemies[21]=new rockHead(gp);
+        gp.enemies[21].worldx=37*gp.tileSize;
+        gp.enemies[21].worldy=15* gp.tileSize;
+
+        gp.enemies[22]=new rockHead(gp);
+        gp.enemies[22].worldx=37*gp.tileSize;
+        gp.enemies[22].worldy=14* gp.tileSize;
+
+        gp.enemies[23]=new rockHead(gp);
+        gp.enemies[23].worldx=37*gp.tileSize;
+        gp.enemies[23].worldy=17* gp.tileSize;
+
+        gp.enemies[24]=new BabyPlum(gp);
+        gp.enemies[24].worldx=10*gp.tileSize;
+        gp.enemies[24].worldy=37* gp.tileSize;
+
+        gp.enemies[25]=new pirateBaby(gp);
+        gp.enemies[25].worldx=10*gp.tileSize;
+        gp.enemies[25].worldy=12* gp.tileSize;
     }
 }

@@ -60,11 +60,12 @@ public class UI extends JPanel{
     BufferedImage menuState=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/GameStates/MenuState/background.png")));
     BufferedImage principalState=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/GameStates/PrincipalState/backgroundMenuPrincipal.png")));
     BufferedImage mapPauseState= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/GameStates/PauseState/MapaPauseState.png")));
-
+    BufferedImage optionState= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/GameStates/PauseState/MapaPauseState.png")));
     BufferedImage mapGameOverState= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/GameStates/GameOverState/GameOver.png")));
     //Player Life
     BufferedImage heart_full, heart_half, heart_blank;
     SuperObject heart=new OBJ_Heart(gp);
+    int subState=0;
 
 
     public UI(GamePanel gp) throws IOException, FontFormatException {
@@ -95,20 +96,22 @@ public class UI extends JPanel{
              if(gp.player.getLife()!=0) {
                  drawPlayState(g2);
              }
-             if(gp.player.getLife()==0)
+             if(gp.player.getLife()<=0)
              {
-               gp.gameState=gp.gameOverState;
+                 gp.stopMusic();
+                 gp.stopSE();
+               gp.gameState=gp.deathState;
              }
          }
+        if(gp.gameState==gp.deathState){
+            drawGameOverState(g2);
+        }
          if (gp.gameState==gp.pauseState){
             drawPauseState(g2);
          }
          if(gp.gameState==gp.optionsState){
              drawOptionsState(g2);
          }
-        if(gp.gameState==gp.gameOverState){
-            drawGameOverState(g2);
-        }
     }
 
     private void drawGameOverState(Graphics2D g2) {
@@ -118,17 +121,11 @@ public class UI extends JPanel{
         g2.drawImage(mapGameOverState,250,50,600,550,null);
         g2.setColor(Color.BLACK);
         String gameOver = "GAME OVER";
-
         gameOverWidth = g2.getFontMetrics().stringWidth(gameOver);
-
         gameOverX = 400;
         gameOverY = 400;
         g2.drawString(gameOver, gameOverX, gameOverY);
-        gp.stopMusic();
-gp.playSE(6);
-
     }
-
     public void drawMenuStart(Graphics2D g2){
         g2.drawImage(menuState,0,-50,gp.screenWidth,gp.screenHeight+100,null);
         String tituloMenu="THE BINDING OF LUFFY";
@@ -145,7 +142,6 @@ gp.playSE(6);
     }
     public void drawPlayState(Graphics2D g2){
         drawPlayerLife();
-
         drawRecStats(g2);
         g2.setFont(fontOPSmall);
         g2.setColor(Color.WHITE);
@@ -232,42 +228,36 @@ gp.playSE(6);
 
     }
     public void drawOptionsState(Graphics2D g2){
+        int frameX=gp.tileSize*6;
+        int frameY=gp.tileSize;
+        int frameWidth=gp.tileSize*8;
+        int frameHeight=gp.tileSize*10;
+        g2.setFont(fontOPMedium);
         drawRectangle(g2,0,0,gp.screenWidth,gp.screenHeight,0.7f);
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, transparencyText));
         g2.drawImage(mapPauseState,250,50,600,550,null);
-        g2.setFont(g2.getFont().deriveFont(Font.PLAIN,32F));
         g2.setColor(Color.BLACK);
 
-        //"Game Paused"
-        String titulo = "Game Paused";
-        int tituloWidth = g2.getFontMetrics().stringWidth(titulo);
-        int tituloX = (gp.screenWidth - tituloWidth) / 2;
-        int tituloY = 200;
-        g2.drawString(titulo, tituloX, tituloY);
-        //"Resume"
-        String resume = "Resume";
-        resumeGameWidth = g2.getFontMetrics().stringWidth(resume);
-        resumeX = (gp.screenWidth - newGameWidth) / 2;
-        resumeY = 300;
-        g2.setColor(resumeColor);
-        g2.drawString(resume, resumeX, resumeY);
 
-        //"Options"
-        String options = "Options";
-        optionsWidth = g2.getFontMetrics().stringWidth(options);
-        optionsX = (gp.screenWidth - optionsWidth) / 2;
-        optionsY = 400;
-        g2.setColor(optionsColor);
-        g2.drawString(options, optionsX, optionsY);
+        switch (subState){
+            case 0:
+                optionsTop(frameX,frameY);
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+        }
 
-        //"Exit"
-        String exit = "Exit";
-        exitWidth = g2.getFontMetrics().stringWidth(exit);
-        exitX = (gp.screenWidth - exitWidth) / 2;
-        exitY = 500;
-        g2.setColor(exitColor);
-        g2.drawString(exit, exitX, exitY);
+    }
+    public void optionsTop(int frameX, int frameY){
+        int textX;
+        int textY;
 
+        String text="Options";
+        textX=(gp.screenWidth - menuWidth) / 2;
+        textY = 200;
+        g2.drawString(text,textX,textY);
     }
     public void drawPrincipalState(Graphics2D g2){
         g2.setFont(fontOPMedium);
