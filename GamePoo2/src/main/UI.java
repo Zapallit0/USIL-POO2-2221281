@@ -1,9 +1,10 @@
 package main;
-
+/*user interface */
 import object.OBJ_Boots;
 import object.OBJ_Heart;
 import object.OBJ_Key;
 import object.SuperObject;
+import main.Sound;
 import entity.playerBuilder.DirectorCharacter;
 
 import java.awt.*;
@@ -108,6 +109,16 @@ public class UI extends JPanel{
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, transparencyText));
         g2.drawImage(mapGameOverState,250,50,600,550,null);
         g2.setColor(Color.BLACK);
+        String gameOver = "GAME OVER";
+
+        gameOverWidth = g2.getFontMetrics().stringWidth(gameOver);
+
+        gameOverX = 400;
+        gameOverY = 400;
+        g2.drawString(gameOver, gameOverX, gameOverY);
+        gp.stopMusic();
+gp.playSE(6);
+
     }
 
     public void drawMenuStart(Graphics2D g2){
@@ -126,6 +137,7 @@ public class UI extends JPanel{
     }
     public void drawPlayState(Graphics2D g2){
         drawPlayerLife();
+
         drawRecStats(g2);
         g2.setFont(fontOPSmall);
         g2.setColor(Color.WHITE);
@@ -204,12 +216,6 @@ public class UI extends JPanel{
         if(commandPauseNum==2){
             g2.drawString(">>",exitX-gp.tileSize,exitY);
         }
-//"Game Over"
-   /*     String gameOver = "GAME OVER";
-        gameOverWidth = g2.getFontMetrics().stringWidth(gameOver);
-        gameOverX = (gp.screenWidth - gameOverWidth) / 2;
-        gameOverY = 300;
-        g2.drawString(gameOver, gameOverX, gameOverY);*/
 
     }
     public void drawOptionsState(Graphics2D g2){
@@ -330,4 +336,7 @@ public class UI extends JPanel{
             x+=gp.tileSize/2;
         }
     }
-}
+    }
+
+
+

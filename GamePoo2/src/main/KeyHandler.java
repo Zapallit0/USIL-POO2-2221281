@@ -117,16 +117,10 @@ public class KeyHandler implements KeyListener {
         // Dead State
         if (gp.gameState == gp.deathState) {
             if (code == KeyEvent.VK_ENTER) {
-                // Reiniciar el juego o realizar acciones relacionadas con el estado de muerte.
-                // Por ejemplo:
-                // gp.resetGame();
-                // Otras acciones...
+
             }
             if (code == KeyEvent.VK_ESCAPE) {
-                // Volver al menú principal o realizar acciones relacionadas.
-                // Por ejemplo:
                 gp.gameState = gp.principalState;
-                // Otras acciones...
             }
         }
 
