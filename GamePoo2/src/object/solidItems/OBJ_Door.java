@@ -1,17 +1,16 @@
-package object;
+package object.solidItems;
 
-import main.GamePanel;
+import object.SuperObject;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.io.IOException;
 import java.util.Objects;
 
-public class OBJ_Door extends SuperObject{
+public class OBJ_Door extends SuperObject {
     public OBJ_Door(){
         name="Door";
         try{
-            image= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Objects/DoorSunny.png")));
+            image= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Objects/Door/Door.png")));
         }catch (IOException e){
         }
         collision=true;
@@ -20,14 +19,14 @@ public class OBJ_Door extends SuperObject{
         if(lado=="L") {
             name = "DoorLeft";
             try {
-                image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Objects/LeftDoor.png")));
+                image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Objects/Door/DoorL.png")));
             } catch (IOException e) {
             }
             collision = true;
         }else if (lado=="R") {
             name = "DoorRight";
             try {
-                image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Objects/RightDoor.png")));
+                image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Objects/Door/DoorR.png")));
             } catch (IOException e) {
             }
             collision = true;

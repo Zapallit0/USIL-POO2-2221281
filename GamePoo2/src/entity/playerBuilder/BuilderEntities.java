@@ -1,6 +1,6 @@
 package entity.playerBuilder;
 
-public interface BuilderCh {
+public interface BuilderEntities {
     abstract void setName(String name);
     abstract String getName();
     abstract int getLife();

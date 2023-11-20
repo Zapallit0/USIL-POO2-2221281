@@ -1,6 +1,7 @@
 package main;
 
 import entity.Entity;
+import org.junit.jupiter.api.Test;
 
 
 public class CollisionChecker {
@@ -72,10 +73,10 @@ public class CollisionChecker {
                 gp.obj[i].solidArea.y=gp.obj[i].worldY+gp.obj[i].solidArea.y;
 
                 switch (entity.direction){
-                    case "up","up-right": entity.solidArea.y-=entity.speed;break;
-                    case "down","down-left": entity.solidArea.y+=entity.speed;break;
-                    case "left","up-left": entity.solidArea.x-=entity.speed;break;
-                    case "right","down-right": entity.solidArea.x+=entity.speed;break;
+                    case "up","up-right": entity.solidArea.y+= (int) entity.speed;break;
+                    case "down","down-left": entity.solidArea.y+= (int) entity.speed;break;
+                    case "left","up-left": entity.solidArea.x+= (int) entity.speed;break;
+                    case "right","down-right": entity.solidArea.x+= (int) entity.speed;break;
                 }
                 if(entity.solidArea.intersects(gp.obj[i].solidArea)){
                     if(gp.obj[i].collision) {
@@ -107,10 +108,10 @@ public class CollisionChecker {
                 target[i].solidArea.y=(int)target[i].worldy+target[i].solidArea.y;
 
                 switch (entity.direction){
-                    case "up","up-right": entity.solidArea.y+=entity.speed;break;
-                    case "down","down-left": entity.solidArea.y-=entity.speed;break;
-                    case "left","up-left": entity.solidArea.x+=entity.speed;break;
-                    case "right","down-right": entity.solidArea.x-=entity.speed;break;
+                    case "up","up-right": entity.solidArea.y-= (int) entity.speed;break;
+                    case "down","down-left": entity.solidArea.y+= (int) entity.speed;break;
+                    case "left","up-left": entity.solidArea.x-= (int) entity.speed;break;
+                    case "right","down-right": entity.solidArea.x+= (int) entity.speed;break;
                 }
                 if(entity.solidArea.intersects(target[i].solidArea)){
                     if(target[i]!=entity) {
@@ -128,22 +129,27 @@ public class CollisionChecker {
     }
     public boolean checkPlayer(Entity entity){
         boolean contactPlayer=false;
-        entity.solidArea.x=(int)entity.worldx+entity.solidArea.x;
-        entity.solidArea.y=(int)entity.worldy+entity.solidArea.y;
-
+        //get entities solid area position
+        entity.solidArea.x=Math.abs((int)entity.worldx+entity.solidArea.x);
+        entity.solidArea.y=Math.abs((int)entity.worldy+entity.solidArea.y);
         //get the obj solid area position
         gp.player.solidArea.x=(int)gp.player.worldx+gp.player.solidArea.x;
         gp.player.solidArea.y=(int)gp.player.worldy+gp.player.solidArea.y;
+
         switch (entity.direction){
-            case "up","up-right": entity.solidArea.y+=entity.speed;break;
-            case "down","down-left": entity.solidArea.y-=entity.speed;break;
-            case "left","up-left": entity.solidArea.x+=entity.speed;break;
-            case "right","down-right": entity.solidArea.x-=entity.speed;break;
+            case "up","up-right": entity.solidArea.y-= (int) entity.speed;break;
+            case "down","down-left": entity.solidArea.y+= (int) entity.speed;break;
+            case "left","up-left": entity.solidArea.x-= (int) entity.speed;break;
+            case "right","down-right": entity.solidArea.x+= (int) entity.speed;break;
         }
         if(entity.solidArea.intersects(gp.player.solidArea)){
-            entity.collisionOn=true;
-            contactPlayer=true;
+                entity.collisionOn = true;
+                contactPlayer=true;
         }
+        entity.solidArea.x=entity.solidAreaDefaultX;
+        entity.solidArea.y=entity.solidAreaDefaultY;
+        gp.player.solidArea.x=gp.player.solidAreaDefaultX;
+        gp.player.solidArea.y=gp.player.solidAreaDefaultY;
         return contactPlayer;
     }
 }

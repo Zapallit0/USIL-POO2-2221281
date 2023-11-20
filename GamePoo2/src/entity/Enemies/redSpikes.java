@@ -1,31 +1,33 @@
-package entity.NPCS;
+package entity.Enemies;
 
 import main.GamePanel;
 
+import java.awt.*;
 import java.util.Objects;
-import java.util.Random;
 
-public class redSpikes extends NPC{
+public class redSpikes extends Enemies {
     public String side;
 
     public redSpikes(GamePanel gp, String side) {
         super(gp);
         name="redSpikes";
         this.side=side;
-        if (side == "right") {
+        if (Objects.equals(side, "right")) {
             direction="right";
-        }if (side == "left") {
+        }if (Objects.equals(side, "left")) {
             direction="left";
-        }if (side == "up") {
+        }if (Objects.equals(side, "up")) {
             direction="up";
-        }if (side == "down") {
+        }if (Objects.equals(side, "down")) {
             direction="down";
         }
         type=2;
         speed=8;
+        dmg=2;
         setAction();
-        getNPCImages("OneState","redSpikes");
         stateNPC="TwoStates";
+        getNPCImages("OneState","redSpikes","Enemies");
+        solidArea=new Rectangle(30,30,50,50);
     }
     @Override
     public void setAction(){

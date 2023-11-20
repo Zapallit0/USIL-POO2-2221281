@@ -1,16 +1,14 @@
-package entity.NPCS;
+package entity.Enemies;
 
 
 import main.GamePanel;
 
-import javax.swing.*;
-
-public class coco extends NPC {
+public class coco extends Enemies {
     public coco(GamePanel gp) {
         super(gp);
         direction="up";
         setAction();
-        getNPCImages("TwoStates","coco");
+        getNPCImages("TwoStates","coco","Enemies");
     }
 
 }

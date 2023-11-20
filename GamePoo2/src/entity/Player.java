@@ -5,6 +5,7 @@ import main.GamePanel;
 import main.KeyHandler;
 
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -13,18 +14,21 @@ import java.util.Objects;
 public class Player extends Entity{
     //Player Handler
     KeyHandler keyH;
+
     //Player Position
     public int screenX;
     public final int screenY;
     public int hasKey=0,standCounter=0,previousEventX,previousEventY;
     //Player Attributes
-    int speed,life,maxLife,gear,dmg;
+    int speed,life,maxLife,dmg;
+    String gear;
+    public BufferedImage playerIcon;
     boolean canTouchEvent;
-    String characterSelected="Luffy";
+    public String characterSelected="Luffy";
     DirectorCharacter director=new DirectorCharacter();
     CharacterBuilder LuffyPlayer=new CharacterBuilder();
     CharacterBuilder ZoroPlayer=new CharacterBuilder();
-
+    int estado;
 
     public Player(GamePanel gp,KeyHandler keyH){
         super(gp);
@@ -33,21 +37,21 @@ public class Player extends Entity{
         screenY=gp.screenHeight/2-(gp.tileSize/2);
         setDefaultValues(characterSelected);
         solidArea=new Rectangle();
-        solidArea.x=20;
+        solidArea.x=10;
         solidArea.y=40;
         solidAreaDefaultX=solidArea.x;
         solidAreaDefaultY=solidArea.y;
         solidArea.height=40;
         solidArea.width=40;
         if(Objects.equals(characterSelected, "Luffy")){
-            getPlayersImg(LuffyPlayer.getImgs(), LuffyPlayer.getState());
+            getPlayersImg(LuffyPlayer.getImgs(), estado);
         }else if(Objects.equals(characterSelected, "Zoro")){
-            getPlayersImg(ZoroPlayer.getImgs(), ZoroPlayer.getState());
+            getPlayersImg(ZoroPlayer.getImgs(), estado);
         }
     }
 
     public void setDefaultValues(String player){
-        worldx=gp.worldWidth/2;
+        worldx= (float) gp.worldWidth /2;
         worldy=gp.tileSize*5;
         direction="state";
         if(Objects.equals(player, "Luffy")) {
@@ -56,6 +60,7 @@ public class Player extends Entity{
             life= LuffyPlayer.getLife();
             maxLife=10;
             dmg= LuffyPlayer.getDmg();
+            estado=getGear();
         }
         if(Objects.equals(player, "Zoro")){
             director.constructZoro(ZoroPlayer);
@@ -63,6 +68,7 @@ public class Player extends Entity{
             life=ZoroPlayer.getLife();
             maxLife=6;
             dmg= ZoroPlayer.getDmg();
+            estado=getGear();
         }
     }
     public void update() throws IOException {
@@ -98,10 +104,11 @@ public class Player extends Entity{
             int objIndex=gp.cChercker.checkObject(this,true);
             pickUpObject(objIndex);
             //Check Collision npc
-            int npcIndex=gp.cChercker.checkEntity(this,gp.npcs);
+            int npcIndex=gp.cChercker.checkEntity(this,gp.enemies);
             interactNPC(npcIndex);
             //CheckEvent
-
+            float prevWorldX = worldx;
+            float prevWorldY = worldy;
             //if collision is false, player can move
             if(!collisionOn){
                 switch (direction){
@@ -115,6 +122,7 @@ public class Player extends Entity{
                     case "down-right": worldy+=(speed-1);worldx+=(speed-1);break;
                 }
             }
+
             spriteCounter++;
             if(spriteCounter>12){
                 if(spriteNum==1){
@@ -157,17 +165,23 @@ public class Player extends Entity{
                     gp.ui.showMessage("You got a key");
                     break;
                 case "GomuGomu":
-                    gp.obj[i]=null;
-                    gp.playSE(4);
-                    gp.playSE(5);
-                    speed+=5;
-                    gear++;
-                    LuffyPlayer.setState("Second");
+                    if(Objects.equals(characterSelected, "Luffy")){
+                            gp.obj[i] = null;
+                            gp.playSE(4);
+                            gp.playSE(5);
+                            speed += 5;
+                            gear = "Second";
+                            estado++;
+                            getPlayersImg(characterSelected,estado);
+                        }
+                        else{
+                            gp.ui.showMessage("I'm not sure I want a devil fruit");
+                    }
                     break;
                 case "Msg":
                     gp.obj[i]=null;
                     gp.playSE(3);
-                    gp.ui.showMessage("Parece que mi nave se estrello, debo encontrar llaves");
+                    gp.ui.showMessage(" ");
                     break;
                 case "LowSpeed":
                     gp.obj[i]=null;
@@ -183,7 +197,7 @@ public class Player extends Entity{
                         gp.ui.showMessage("You need a key");
                     }
                     break;
-                case "ChestRight","ChestLeft":
+                case "ChestRight":
                     if(hasKey>0){
                         gp.obj[i].name="ChestOpen";
                         gp.obj[i].collision=false;
@@ -192,6 +206,19 @@ public class Player extends Entity{
                     }
                     else{
                         gp.ui.showMessage("You need a key");
+                        worldx=worldx-(speed*0.2F);
+                    }
+                    break;
+                case "ChestLeft":
+                    if(hasKey>0){
+                        gp.obj[i].name="ChestOpen";
+                        gp.obj[i].collision=false;
+                        gp.ui.showMessage("Treasure");
+                        hasKey--;
+                    }
+                    else{
+                        gp.ui.showMessage("You need a key");
+                        worldx=worldx+(speed*0.2F);
                     }
                     break;
                 case "Boots":
@@ -218,10 +245,6 @@ public class Player extends Entity{
                         gp.ui.showMessage("You need a key");
                         worldx=worldx+(speed*0.2F);
                     }
-                    break;
-                case "Barrel":
-                    gp.ui.showMessage("Can´t drink now");
-                    gp.obj[i].collision=false;
                     break;
             }
         }
@@ -289,9 +312,60 @@ public class Player extends Entity{
         }
         g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
     }
+    public void getPlayersImg(String name,int base) {
+        if(base==0){
+            try {
+                up1= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/goingUp2.png")));
+                up2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/goingUp1.png")));
+                down1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/goingDown1.png")));
+                down2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/goingDown2.png")));
+                left1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/standingLeft.png")));
+                left2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/walkingLeft.png")));
+                right1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/standingRight.png")));
+                right2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/walkingRight.png")));
+                state=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/waiting1.png")));
+                state2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Base/waiting2.png")));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }if(base==1){
+            try {
+                up1= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/goingUp2.png")));
+                up2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/goingUp1.png")));
+                down1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/goingDown1.png")));
+                down2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/goingDown2.png")));
+                left1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/standingLeft.png")));
+                left2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/walkingLeft.png")));
+                right1=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/standingRight.png")));
+                right2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/walkingRight.png")));
+                state=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/waiting1.png")));
+                state2=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/"+name+"/Second/waiting2.png")));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
 
     public int getGear() {
-        return gear;
+        int state = 0;
+        if(characterSelected=="Luffy"){
+            if(LuffyPlayer.getState()=="Base"){
+                state=0;
+            }
+            if(LuffyPlayer.getState()=="Second"){
+                state=1;
+            }
+        }
+        if(Objects.equals(characterSelected, "Zoro")){
+            if(ZoroPlayer.getState()=="Base"){
+                state=0;
+            }
+            if(ZoroPlayer.getState()=="Second"){
+                state=1;
+            }
+        }
+        return state;
     }
     public int getLife(){
         if(Objects.equals(characterSelected, "Luffy")){

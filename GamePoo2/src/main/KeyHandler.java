@@ -41,16 +41,17 @@ public class KeyHandler implements KeyListener {
                 else{
                     gp.ui.commandMenuNum++;
                 }
-                System.out.println(gp.ui.commandMenuNum);
             }
 
             if(code==KeyEvent.VK_ENTER) {
-                e.consume();
+                if (gp.ui.commandMenuNum == 0) {
+
+                }
                 if (gp.ui.commandMenuNum == 1) {
                     gp.gameState=gp.playState;
                     gp.playMusic(2);
                 }
-                if (gp.ui.commandMenuNum == 2) {
+                if(gp.ui.commandMenuNum == 2) {
 
                 }
                 if (gp.ui.commandMenuNum == 3) {
@@ -80,6 +81,22 @@ public class KeyHandler implements KeyListener {
                 gp.gameState = gp.pauseState;
                 gp.stopMusic();
             }
+            if (code == KeyEvent.VK_Q) {
+                if(!gp.player.collisionOn) {
+                    if (gp.player.direction == "up") {
+                        gp.player.worldy = gp.player.worldy - (gp.player.getSpeed() * 5F);
+                    }
+                    if (gp.player.direction == "down") {
+                        gp.player.worldy = gp.player.worldy + (gp.player.getSpeed() * 5F);
+                    }
+                    if (gp.player.direction == "left") {
+                        gp.player.worldx = gp.player.worldx - (gp.player.getSpeed() * 5F);
+                    }
+                    if (gp.player.direction == "right") {
+                        gp.player.worldx = gp.player.worldx + (gp.player.getSpeed() * 5F);
+                    }
+                }
+            }
         }
         //Pause State
         if(gp.gameState== gp.pauseState){
@@ -87,14 +104,12 @@ public class KeyHandler implements KeyListener {
                 if(gp.ui.commandPauseNum==0){}
                 else{
                     gp.ui.commandPauseNum--;
-                    System.out.println(gp.ui.commandPauseNum);
                 }
             }
             if (code == KeyEvent.VK_DOWN) {
                 if(gp.ui.commandPauseNum==2){}
                 else{
                     gp.ui.commandPauseNum++;
-                    System.out.println(gp.ui.commandPauseNum);
                 }
             }
             if(code==KeyEvent.VK_ENTER) {

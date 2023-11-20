@@ -1,8 +1,9 @@
 package main;
 
-import object.OBJ_Boots;
-import object.OBJ_Heart;
-import object.OBJ_Key;
+import object.Items.OBJ_Boots;
+import object.PlayerAttributes.OBJ_Heart;
+import object.Items.OBJ_Key;
+import object.PlayerAttributes.PlayerIcons;
 import object.SuperObject;
 
 import java.awt.*;
@@ -17,14 +18,19 @@ import javax.swing.*;
 public class UI extends JPanel{
     GamePanel gp;
     Graphics2D g2;
-    Font fontOPTitles =new Font("ONE PIECE",Font.PLAIN,80);
+    Font fontOPTitles =new Font("ONE PIECE",Font.PLAIN,120);
     Font fontOPSmall=new Font("ONE PIECE", Font.PLAIN,50);
     Font fontOPMedium=new Font("ONE PIECE",Font.PLAIN,60);
     OBJ_Key key=new OBJ_Key();
     BufferedImage keyImg;
     OBJ_Boots boots=new OBJ_Boots();
     BufferedImage bootsImg;
-    BufferedImage geraImg;
+
+    //Icon Player
+    SuperObject iconPlayer=new PlayerIcons(gp);
+    BufferedImage iconPlayerBase;
+    BufferedImage iconPlayerSecond;
+
     public boolean messageOn=false;
     public String message="";
     int messageCounter=0;
@@ -65,6 +71,8 @@ public class UI extends JPanel{
         heart_full=heart.image;
         heart_half=heart.image2;
         heart_blank=heart.image3;
+        iconPlayerBase=iconPlayer.image;
+        iconPlayerSecond=iconPlayer.image2;
     }
     public void showMessage(String text){
         message=text;
@@ -115,7 +123,12 @@ public class UI extends JPanel{
         g2.drawString("  ="+gp.player.getSpeed(),50,140);
         g2.drawImage(bootsImg,30,110,iconWidth,iconHeight,null);
         g2.drawString("  ="+gp.player.getGear(),50,175);
-        g2.drawImage(geraImg,30,150,iconWidth,iconHeight,null);
+        if(gp.player.getGear()==0) {
+            g2.drawImage(iconPlayerBase, 30, 150, iconWidth, iconHeight, null);
+        }
+        if(gp.player.getGear()==1) {
+            g2.drawImage(iconPlayerSecond, 30, 150, iconWidth, iconHeight, null);
+        }
         if(messageOn){
             g2.setFont(g2.getFont().deriveFont(32F));
             g2.drawString(message,gp.tileSize/2,gp.tileSize*5);
