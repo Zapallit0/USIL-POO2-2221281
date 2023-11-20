@@ -18,6 +18,7 @@ public class Sound {
         soundURL[3]= "/sound/getKey.wav";
         soundURL[4]= "/sound/gearSecondLuffy.wav";
         soundURL[5]= "/sound/gearSecondSE.wav";
+        soundURL[6]= "/sound/DeathState.wav";
     }
 
     public void setFile(int i){

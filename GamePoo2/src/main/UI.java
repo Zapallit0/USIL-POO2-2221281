@@ -1,9 +1,11 @@
 package main;
-
+/*user interface */
 import object.OBJ_Boots;
 import object.OBJ_Heart;
 import object.OBJ_Key;
 import object.SuperObject;
+import main.Sound;
+import entity.playerBuilder.DirectorCharacter;
 
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
@@ -40,8 +42,8 @@ public class UI extends JPanel{
     public int commandPauseNum=0;
     //Menu principal Variables
     private int newGameWidth,newGameX,newGameY;
-    private int menuWidth, menuX, menuY;
-    private int optionsX,optionsY,optionsWidth;
+    private int menuWidth, menuX, menuY, gameOverWidth;
+    private int optionsX,optionsY,optionsWidth, gameOverX,gameOverY;
     private int resumeGameX, resumeGameY, resumeGameWidth;
     private int exitX,exitY,exitWidth;
 
@@ -53,6 +55,7 @@ public class UI extends JPanel{
     BufferedImage principalState=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/GameStates/PrincipalState/backgroundMenuPrincipal.png")));
     BufferedImage mapPauseState= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/GameStates/PauseState/MapaPauseState.png")));
 
+    BufferedImage mapGameOverState= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/GameStates/GameOverState/GameOver.png")));
     //Player Life
     BufferedImage heart_full, heart_half, heart_blank;
     SuperObject heart=new OBJ_Heart(gp);
@@ -81,7 +84,13 @@ public class UI extends JPanel{
             drawPrincipalState(g2);
          }
          if(gp.gameState==gp.playState){
-             drawPlayState(g2);
+             if(gp.player.getLife()!=0) {
+                 drawPlayState(g2);
+             }
+             if(gp.player.getLife()==0)
+             {
+               gp.gameState=gp.gameOverState;
+             }
          }
          if (gp.gameState==gp.pauseState){
             drawPauseState(g2);
@@ -89,7 +98,29 @@ public class UI extends JPanel{
          if(gp.gameState==gp.optionsState){
              drawOptionsState(g2);
          }
+        if(gp.gameState==gp.gameOverState){
+            drawGameOverState(g2);
+        }
     }
+
+    private void drawGameOverState(Graphics2D g2) {
+        g2.setFont(fontOPMedium);
+        drawRectangle(g2,0,0,gp.screenWidth,gp.screenHeight,0.7f);
+        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, transparencyText));
+        g2.drawImage(mapGameOverState,250,50,600,550,null);
+        g2.setColor(Color.BLACK);
+        String gameOver = "GAME OVER";
+
+        gameOverWidth = g2.getFontMetrics().stringWidth(gameOver);
+
+        gameOverX = 400;
+        gameOverY = 400;
+        g2.drawString(gameOver, gameOverX, gameOverY);
+        gp.stopMusic();
+gp.playSE(6);
+
+    }
+
     public void drawMenuStart(Graphics2D g2){
         g2.drawImage(menuState,0,-50,gp.screenWidth,gp.screenHeight+100,null);
         String tituloMenu="THE BINDING OF LUFFY";
@@ -106,6 +137,7 @@ public class UI extends JPanel{
     }
     public void drawPlayState(Graphics2D g2){
         drawPlayerLife();
+
         drawRecStats(g2);
         g2.setFont(fontOPSmall);
         g2.setColor(Color.WHITE);
@@ -269,6 +301,8 @@ public class UI extends JPanel{
         if(commandMenuNum==3){
             g2.drawString(">>",optionsX-gp.tileSize,optionsY);
         }
+
+
     }
 
     public void drawRectangle(Graphics2D g2d, int x, int y, int width, int height, float transparencia){
@@ -302,4 +336,7 @@ public class UI extends JPanel{
             x+=gp.tileSize/2;
         }
     }
-}
+    }
+
+
+
