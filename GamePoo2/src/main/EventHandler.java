@@ -62,6 +62,13 @@ public class EventHandler {
                     case "BabyPlum":
                         gp.player.lessLife(enemiDmg);
                         break;
+                    case "rockHead":
+                        gp.player.lessLife(enemiDmg);
+                        break;
+                    case "skullWalker":
+                        gp.player.lessLife(enemiDmg);
+                        break;
+
                 }
             }
         }

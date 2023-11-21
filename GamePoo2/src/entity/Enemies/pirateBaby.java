@@ -7,6 +7,7 @@ import main.GamePanel;
 public class pirateBaby extends Enemies implements Attack {
     public pirateBaby(GamePanel gp) {
         super(gp);
+        name="pirateBaby";
         direction="up";
         type=2;
         speed=3;

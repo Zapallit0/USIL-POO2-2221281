@@ -251,6 +251,7 @@ public class Player extends Entity{
                             gp.playSE(4);
                             gp.playSE(5);
                             speed += 5;
+                            dmg=+3;
                             estado++;
                             setEstado();
                             getPlayersImg(characterSelected,estado);

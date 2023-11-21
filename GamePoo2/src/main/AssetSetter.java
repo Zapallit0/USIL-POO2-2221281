@@ -66,8 +66,8 @@ public class AssetSetter {
         gp.enemies[0].worldy=12* gp.tileSize;
 
         gp.enemies[1]=new skullWalker(gp);
-        gp.enemies[1].worldx=10*gp.tileSize;
-        gp.enemies[1].worldy=10* gp.tileSize;
+        gp.enemies[1].worldx=15*gp.tileSize;
+        gp.enemies[1].worldy=14* gp.tileSize;
 
         gp.enemies[2]=new redSpikes(gp,"right");
         gp.enemies[2].worldx=25*gp.tileSize;
@@ -135,7 +135,7 @@ public class AssetSetter {
 
         gp.enemies[18]=new pirateBaby(gp);
         gp.enemies[18].worldx=10*gp.tileSize;
-        gp.enemies[18].worldy=12* gp.tileSize;
+        gp.enemies[18].worldy=13* gp.tileSize;
 
         gp.enemies[19]=new pirateBaby(gp);
         gp.enemies[19].worldx=10*gp.tileSize;
@@ -162,7 +162,19 @@ public class AssetSetter {
         gp.enemies[24].worldy=37* gp.tileSize;
 
         gp.enemies[25]=new pirateBaby(gp);
-        gp.enemies[25].worldx=10*gp.tileSize;
+        gp.enemies[25].worldx=15*gp.tileSize;
         gp.enemies[25].worldy=12* gp.tileSize;
+
+        gp.enemies[26]=new rockHead(gp);
+        gp.enemies[26].worldx=37*gp.tileSize;
+        gp.enemies[26].worldy=18* gp.tileSize;
+
+        gp.enemies[27]=new rockHead(gp);
+        gp.enemies[27].worldx=37*gp.tileSize;
+        gp.enemies[27].worldy=13* gp.tileSize;
+
+        gp.enemies[28]=new rockHead(gp);
+        gp.enemies[28].worldx=37*gp.tileSize;
+        gp.enemies[28].worldy=12* gp.tileSize;
     }
 }

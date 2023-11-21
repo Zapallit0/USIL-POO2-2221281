@@ -13,6 +13,7 @@ import java.util.Random;
 
 public class Enemies extends Entity {
     String stateNPC;
+
     public String name;
     public Enemies(GamePanel gp) {
         super(gp);
@@ -36,19 +37,19 @@ public class Enemies extends Entity {
             }
             if (State == "TwoStates") {
                 try {
-                    up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/secondState.png")));
+                    up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/firstState.png")));
                     up2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/secondState.png")));
-                    down1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/secondState.png")));
+                    down1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/firstState.png")));
                     down2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/secondState.png")));
-                    left1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/secondState.png")));
+                    left1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/firstState.png")));
                     left2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/secondState.png")));
-                    right1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/secondState.png")));
+                    right1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/firstState.png")));
                     right2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/secondState.png")));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            if (State == "FourStates") {
+            if (State == "FourStates" && tipo=="Enemies") {
                 try {
                     up1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/up1.png")));
                     up2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/"+Tipo+"/" + State + "/" + name + "/up2.png")));
@@ -61,8 +62,6 @@ public class Enemies extends Entity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-
             }
     }
 

@@ -10,23 +10,23 @@ import java.util.Random;
 public class BabyPlum extends Enemies {
     public BabyPlum(GamePanel gp) {
         super(gp);
+        name="BabyPlum";
         direction="up";
         dmg=3;
         speed=3;
         type=2;
-        tipo="Boss";
         life=40;
-        solidArea=new Rectangle(0,0,120,120);
         setAction();
-        getNPCImages("FourStates","BabyPlum","Bosses");
+        getNPCImages("FourStates","BabyPlum","Enemies");
     }
     public void setAction(){
         actionCounter++;
         if (actionCounter == 70) {
             Random random = new Random();
             int i = random.nextInt(100) + 1;
-            int y=random.nextInt(4);
-            if(y==0||y==3) {
+
+            int y=random.nextInt(3);
+            if(y==0) {
                 if (i <= 25) {
                     direction = "up";
                 }

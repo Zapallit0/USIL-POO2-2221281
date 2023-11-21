@@ -25,9 +25,9 @@ public class redSpikes extends Enemies {
         speed=8;
         dmg=1;
         life=1000000;
+        getNPCImages("OneState","redSpikes","Enemies");
         setAction();
         stateNPC="TwoStates";
-        getNPCImages("OneState","redSpikes","Enemies");
         solidArea=new Rectangle(30,30,50,50);
     }
     @Override
