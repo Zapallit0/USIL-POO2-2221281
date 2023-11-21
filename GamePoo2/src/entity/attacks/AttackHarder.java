@@ -1,6 +1,6 @@
 package entity.attacks;
 
-public interface AttackWithBullets extends Attack {
+public interface AttackHarder extends Attack {
     @Override
     abstract public void attack();
 }

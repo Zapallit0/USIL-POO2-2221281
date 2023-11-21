@@ -14,7 +14,7 @@ public class DirectorCharacter {
         luffyChar.setSpeed(3);
         luffyChar.setLife(8);
         luffyChar.setDmg(4);
-        luffyChar.setImgs("Zoro");
+        luffyChar.setImgs("Luffy");
         luffyChar.setState("Base");
     }
 

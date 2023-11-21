@@ -1,9 +1,9 @@
 package entity.Enemies;
 
-import entity.attacks.Attack;
+import entity.attacks.AttackFaster;
 import main.GamePanel;
 
-public class rockHead extends Enemies implements Attack {
+public class rockHead extends Enemies implements AttackFaster {
     public rockHead(GamePanel gp) {
         super(gp);
         name="rockHead";

@@ -5,8 +5,6 @@ import object.PlayerAttributes.OBJ_Heart;
 import object.Items.OBJ_Key;
 import object.PlayerAttributes.PlayerIcons;
 import object.SuperObject;
-import main.Sound;
-import entity.playerBuilder.DirectorCharacter;
 
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
@@ -42,26 +40,29 @@ public class UI extends JPanel{
     int iconWidth =30;
 
 
-    //Texto variables
-    private int resumeX,resumeY;
-    public int commandMenuNum=0;
-    public int commandPauseNum=0;
+    public int commandNum =0;
     //Menu principal Variables
     private int newGameWidth,newGameX,newGameY;
-    private int menuWidth, menuX, menuY, gameOverWidth;
-    private int optionsX,optionsY,optionsWidth, gameOverX,gameOverY;
-    private int resumeGameX, resumeGameY, resumeGameWidth;
+    private int menuWidth;
+    private int menuY;
+    private int optionsX;
+    private int optionsY;
+    private int optionsWidth;
+    private int gameOverY;
+    private int resumeGameY;
+    private int resumeGameWidth;
     private int exitX,exitY,exitWidth;
 
     //Colores Texto
-    private Color resumeColor = Color.BLACK;
-    private Color optionsColor = Color.BLACK;
-    private Color exitColor = Color.BLACK;
+    private final Color resumeColor = Color.BLACK;
+    private final Color optionsColor = Color.BLACK;
+    private final Color exitColor = Color.BLACK;
     BufferedImage menuState=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/GameStates/MenuState/background.png")));
     BufferedImage principalState=ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/GameStates/PrincipalState/backgroundMenuPrincipal.png")));
     BufferedImage mapPauseState= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/GameStates/PauseState/MapaPauseState.png")));
     BufferedImage optionState= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/GameStates/PauseState/MapaPauseState.png")));
     BufferedImage mapGameOverState= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/GameStates/GameOverState/GameOver.png")));
+    BufferedImage characterSelector= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/GameStates/CharacterSelection/CharacterSelector.png")));
     //Player Life
     BufferedImage heart_full, heart_half, heart_blank;
     SuperObject heart=new OBJ_Heart(gp);
@@ -92,6 +93,9 @@ public class UI extends JPanel{
          if(gp.gameState==gp.principalState){
             drawPrincipalState(g2);
          }
+        if(gp.gameState==gp.charactersState){
+            drawCharacterSelector();
+        }
          if(gp.gameState==gp.playState){
              if(gp.player.getLife()!=0) {
                  drawPlayState(g2);
@@ -121,8 +125,7 @@ public class UI extends JPanel{
         g2.drawImage(mapGameOverState,250,50,600,550,null);
         g2.setColor(Color.BLACK);
         String gameOver = "GAME OVER";
-        gameOverWidth = g2.getFontMetrics().stringWidth(gameOver);
-        gameOverX = 400;
+        int gameOverX = 400;
         gameOverY = 400;
         g2.drawString(gameOver, gameOverX, gameOverY);
     }
@@ -141,6 +144,7 @@ public class UI extends JPanel{
         g2.drawString(playButton, playButtonX, playButtonY);
     }
     public void drawPlayState(Graphics2D g2){
+        commandNum=0;
         drawPlayerLife();
         drawRecStats(g2);
         g2.setFont(fontOPSmall);
@@ -200,7 +204,7 @@ public class UI extends JPanel{
         newGameY = 300;
         g2.setColor(resumeColor);
         g2.drawString(resume, newGameX, newGameY);
-        if(commandPauseNum==0){
+        if(commandNum ==0){
             g2.drawString(">>",newGameX-gp.tileSize,newGameY);
         }
 
@@ -211,7 +215,7 @@ public class UI extends JPanel{
         optionsY = 400;
         g2.setColor(optionsColor);
         g2.drawString(options, optionsX, optionsY);
-        if(commandPauseNum==1){
+        if(commandNum ==1){
             g2.drawString(">>",optionsX-gp.tileSize,optionsY);
         }
 
@@ -222,12 +226,13 @@ public class UI extends JPanel{
         exitY = 500;
         g2.setColor(exitColor);
         g2.drawString(exit, exitX, exitY);
-        if(commandPauseNum==2){
+        if(commandNum ==2){
             g2.drawString(">>",exitX-gp.tileSize,exitY);
         }
 
     }
     public void drawOptionsState(Graphics2D g2){
+        commandNum =0;
         int frameX=gp.tileSize*6;
         int frameY=gp.tileSize;
         int frameWidth=gp.tileSize*8;
@@ -235,13 +240,13 @@ public class UI extends JPanel{
         g2.setFont(fontOPMedium);
         drawRectangle(g2,0,0,gp.screenWidth,gp.screenHeight,0.7f);
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, transparencyText));
-        g2.drawImage(mapPauseState,250,50,600,550,null);
+        g2.drawImage(optionState,250,50,600,550,null);
         g2.setColor(Color.BLACK);
 
 
         switch (subState){
             case 0:
-                optionsTop(frameX,frameY);
+                optionsTop();
                 break;
             case 1:
                 break;
@@ -250,7 +255,7 @@ public class UI extends JPanel{
         }
 
     }
-    public void optionsTop(int frameX, int frameY){
+    public void optionsTop(){
         int textX;
         int textY;
 
@@ -258,6 +263,28 @@ public class UI extends JPanel{
         textX=(gp.screenWidth - menuWidth) / 2;
         textY = 200;
         g2.drawString(text,textX,textY);
+
+        textX-=100;
+        textY+=gp.tileSize;
+        g2.drawString("Music",textX,textY);
+        if(commandNum ==0){
+            g2.drawString("->",textX-gp.tileSize,textY);
+        }
+        textY+=gp.tileSize;
+        g2.drawString("Sound Effects",textX,textY);
+        if(commandNum ==1){
+            g2.drawString("->",textX-gp.tileSize,textY);
+        }
+        textY+=gp.tileSize;
+        g2.drawString("End Game",textX,textY);
+        if(commandNum ==2){
+            g2.drawString("->",textX-gp.tileSize,textY);
+        }
+        textY+=gp.tileSize;
+        g2.drawString("Back",textX,textY);
+        if(commandNum ==3){
+            g2.drawString("->",textX-gp.tileSize,textY);
+        }
     }
     public void drawPrincipalState(Graphics2D g2){
         g2.setFont(fontOPMedium);
@@ -268,10 +295,10 @@ public class UI extends JPanel{
         //"TITLE"
         String menu = "MENU";
         menuWidth = g2.getFontMetrics().stringWidth(menu);
-        menuX = (gp.screenWidth - menuWidth) / 2;
+        int menuX = (gp.screenWidth - menuWidth) / 2;
         menuY = 200;
         g2.drawString(menu, menuX, menuY);
-        if(commandMenuNum==0){
+        if(commandNum ==0){
             g2.drawString(" ",newGameX-gp.tileSize,newGameY);
         }
         //"New game"
@@ -280,18 +307,18 @@ public class UI extends JPanel{
         newGameX = (gp.screenWidth - newGameWidth) / 2;
         newGameY = 300;
         g2.drawString(newGame, newGameX, newGameY);
-        if(commandMenuNum==1){
+        if(commandNum ==1){
             g2.drawString(">>",newGameX-gp.tileSize,newGameY);
         }
 
         //"Resume Game"
         String resumeGame = "RESUME GAME";
         resumeGameWidth = g2.getFontMetrics().stringWidth(resumeGame);
-        resumeGameX = (gp.screenWidth - resumeGameWidth) / 2;
+        int resumeGameX = (gp.screenWidth - resumeGameWidth) / 2;
         resumeGameY = 400;
         g2.drawString(resumeGame, resumeGameX, resumeGameY);
-        if(commandMenuNum==2){
-            g2.drawString(">>",resumeGameX-gp.tileSize,resumeGameY);
+        if(commandNum ==2){
+            g2.drawString(">>", resumeGameX -gp.tileSize,resumeGameY);
         }
 
         //"Options"
@@ -301,7 +328,7 @@ public class UI extends JPanel{
         optionsY= 500;
         g2.drawString(options, optionsX, optionsY);
 
-        if(commandMenuNum==3){
+        if(commandNum ==3){
             g2.drawString(">>",optionsX-gp.tileSize,optionsY);
         }
 
@@ -314,7 +341,35 @@ public class UI extends JPanel{
         g2d.fillRect(x, y, width, height);
     }
     public void drawCharacterSelector(){
-        g2.setFont(fontOPSmall);
+        g2.drawImage(characterSelector,0,-50,gp.screenWidth,gp.screenHeight+100,null);
+        g2.setColor(optionsColor);
+        String tituloMenu="¿A quien eliges?";
+        int tituloMenuWidth=g2.getFontMetrics().stringWidth(tituloMenu);
+        int tituloMenuX = (gp.screenWidth - tituloMenuWidth) / 2;
+        int tituloMenuY = 200;
+        g2.drawString(tituloMenu, tituloMenuX, tituloMenuY);
+
+        String character1 = "Luffy";
+        optionsX = (gp.screenWidth - tituloMenuWidth) / 2;
+        optionsY = 400;
+        g2.setColor(Color.RED);
+        g2.drawString(character1, optionsX, optionsY);
+        if(commandNum ==0){
+        }
+        if(commandNum ==1){
+            g2.drawString(">>",optionsX-gp.tileSize,optionsY);
+        }
+        String character2 = "Zoro";
+        optionsX = (gp.screenWidth - tituloMenuWidth) / 2;
+        optionsY = 400;
+        g2.setColor(Color.BLUE);
+
+        g2.drawString(character2, optionsX+gp.tileSize*4, optionsY);
+        if(commandNum ==3){
+            g2.drawString(">>",optionsX+gp.tileSize*3,optionsY);
+        }
+
+
     }
 
     public void drawPlayerLife(){
