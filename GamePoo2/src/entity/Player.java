@@ -24,7 +24,7 @@ public class Player extends Entity{
     String gear;
     public BufferedImage playerIcon;
     boolean canTouchEvent;
-    public String characterSelected="";
+    public String characterSelected="Luffy";
     DirectorCharacter director=new DirectorCharacter();
     CharacterBuilder LuffyPlayer=new CharacterBuilder();
     CharacterBuilder ZoroPlayer=new CharacterBuilder();

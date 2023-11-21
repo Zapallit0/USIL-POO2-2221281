@@ -78,14 +78,10 @@ public class KeyHandler implements KeyListener {
             }
             if(code==KeyEvent.VK_ENTER) {
                 if (gp.ui.commandNum == 1) {
-                    gp.player.characterSelected="Luffy";
                     gp.gameState=gp.playState;
-                    gp.playMusic(2);
                 }
                 if (gp.ui.commandNum == 3) {
-                    gp.player.characterSelected="Luffy";
                     gp.gameState=gp.playState;
-                    gp.playMusic(2);
 
                 }
             }
@@ -109,7 +105,6 @@ public class KeyHandler implements KeyListener {
             }
             if (code == KeyEvent.VK_ESCAPE) {
                 gp.gameState = gp.pauseState;
-                gp.stopMusic();
             }
             if (code == KeyEvent.VK_Q) {
                     if (gp.player.direction == "up") {
