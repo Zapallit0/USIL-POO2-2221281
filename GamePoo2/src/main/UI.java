@@ -102,8 +102,6 @@ public class UI extends JPanel{
              }
              if(gp.player.getLife()<=0)
              {
-                 gp.stopMusic();
-                 gp.stopSE();
                gp.gameState=gp.deathState;
              }
          }
